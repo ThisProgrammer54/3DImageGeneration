@@ -28,10 +28,12 @@ public:
   virtual double Polynom(Vector4D) = 0;
 };
 class Sphere : public PrimitiveObject {
+public:
   Vector4D Position;
   double radius;
 };
 class Halfspace : public PrimitiveObject {
+public:
   Vector4D position;
   Vector4D normal;
 };

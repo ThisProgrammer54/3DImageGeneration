@@ -9,11 +9,13 @@ struct RGB {
 };
 
 class Ray {
+public:
   Vector4D pos;
   Vector4D d;
 };
 
 class IntersectPoint {
+public:
   Vector4D pos;
   Vector4D t;
   RGB color;
