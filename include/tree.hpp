@@ -1,0 +1,36 @@
+#include "helper.hpp"
+#include <vector>
+
+#pragma once
+
+class Tree {
+public:
+  std::vector<Tree> nodes;
+
+  virtual IntersectPoint intersectPoint(Ray) = 0;
+  virtual bool intersec(Ray) = 0;
+};
+
+class LogicalTree : public Tree {};
+class Union : public LogicalTree {};
+class Intersection : public LogicalTree {};
+class Exclusion : public LogicalTree {};
+
+class TransformationTree : public Tree {};
+class Translation : public TransformationTree {};
+class Rotation : public TransformationTree {};
+class Scaling : public TransformationTree {};
+
+class ObjectTree : public Tree {};
+class PrimitiveObject : public ObjectTree {
+public:
+  virtual double Polynom(Vector4D) = 0;
+};
+class Sphere : public PrimitiveObject {
+  Vector4D Position;
+  double radius;
+};
+class Halfspace : public PrimitiveObject {
+  Vector4D position;
+  Vector4D normal;
+};
