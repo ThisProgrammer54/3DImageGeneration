@@ -19,6 +19,7 @@
 ### Implementation of the screen with ambient component only  
 
 Goal: Distinction between Halfspace and "Skybox" (printed out as values)
+Test: Correct calculations of each function
 
 - Basic headers
 - Halfspaces, i.e. basic chain of Tree/ObjectTree/PrimitiveObject classes 
@@ -30,6 +31,7 @@ Goal: Distinction between Halfspace and "Skybox" (printed out as values)
 ### File IO
 
 Goal: Fully convert output text to image using OpenCV
+Test: Working parsing with sample json file (manual) + visual confirmation
 
 - JSON Parsing (include json library?)
 - Output in an image file 
@@ -38,6 +40,7 @@ Goal: Fully convert output text to image using OpenCV
 ### Implementation of Logical Trees 
 
 Goal: Presentable objects that are combined using logical operations
+Test: Correct intersection points
 
 - Union
 - Intersection
@@ -46,11 +49,15 @@ Goal: Presentable objects that are combined using logical operations
 
 ### Implementation of Transformation Trees 
 
+Test: Correct intersection points
+
 - Translation
 - Rotation
 - Scaling
 
 ### Addition of Diffuse, Specular compenents
+
+Test: Light values
 
 - ~~Ambient light component $E_a$~~
     - $ E_a ​=K_a \cdot ​I_a$
@@ -60,6 +67,8 @@ Goal: Presentable objects that are combined using logical operations
     - $E_s ​= K_s \cdot ​I_L​ (\vec{R} \ast \vec{V})^α$
 
 ### Addition of Reflected and refracted components
+
+Test: Light values, recursion depth
 
 - Reflected component
     - $E_r ​= K_r​ ​\cdot I_r​$
