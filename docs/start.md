@@ -3,6 +3,17 @@
 ![](img/uml2.png)
 (Transform will be expanded upon)
 
+## Description of Program Algorithm
+
+**V0.1:**
+- Read input files
+- Build screen and scene trees
+- Shoot rays through each pixel
+    - Calculate intersection points and choose correct one using scalar values
+    - Return color of intersection point to pixel
+- Convert pixel values to output file
+- Convert output file to image using OpenCV
+
 ## Development Plan
 
 ### Implementation of the screen with ambient component only  
