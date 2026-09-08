@@ -12,7 +12,8 @@ Goal: Distinction between Halfspace and "Skybox" (printed out as values)
 - Basic headers
 - Halfspaces, i.e. basic chain of Tree/ObjectTree/PrimitiveObject classes 
 - Screen/Pixels
-- Ambient light component 
+- Ambient light component $E_a$ 
+    - $ E_a ​=K_a \cdot ​I_a ,$
 - Shadows
 
 ### File IO
@@ -40,9 +41,19 @@ Goal: Presentable objects that are combined using logical operations
 
 ### Addition of Diffuse, Specular compenents
 
+- ~~Ambient light component $E_a$~~
+    - $ E_a ​=K_a \cdot ​I_a$
+- Diffuse component $E_d$
+    - $E_d ​= K_c \cdot ​I_L​ (\vec{V} \ast \vec{N})$
+- Specular component $E_s$
+    - $E_s ​= K_s \cdot ​I_L​ (\vec{R} \ast \vec{V})^α$
+
 ### Addition of Reflected and refracted components
 
-Other shading components for the light model
-Addition of the reflected rays
+- Reflected component
+    - $E_r ​= K_r​ ​\cdot I_r​$
+- Refracted component
+    - $Et ​= K_t ​\cdot I_t​$
 
-
+- Combination of all components
+    - $E = E_a ​⊕ \underset{\text{lightsources}}{∑}​(E_d​(\text{source}) ⊕ E_s​(\text{source})) ⊕ E_r ​⊕ E_t​$
