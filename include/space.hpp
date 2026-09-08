@@ -3,6 +3,7 @@
 #include "Eigen/Core"
 #include "helper.hpp"
 #include "tree.hpp"
+#include <memory>
 
 #define Vector4D Eigen ::Vector<double, 4>
 
@@ -12,11 +13,11 @@ class LightSource {
 };
 
 class Object {
-  Tree *start;
+  std::unique_ptr<Tree> start;
 };
 
 class Space {
-  Object primObject;
-  LightSource lightsource;
+  std::vector<std::unique_ptr<Object>> Objects;
+  std::vector<std::unique_ptr<LightSource>> lightsource;
 };
 

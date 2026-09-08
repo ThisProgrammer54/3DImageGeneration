@@ -1,14 +1,15 @@
 #include "helper.hpp"
+#include <memory>
 #include <vector>
 
 #pragma once
 
 class Tree {
 public:
-  std::vector<Tree> nodes;
+  std::vector<std::unique_ptr<Tree>> nodes;
 
-  virtual IntersectPoint intersectPoint(Ray) = 0;
-  virtual bool intersec(Ray) = 0;
+  virtual IntersectPoint intersectPoint(Ray &) = 0;
+  virtual bool intersec(Ray &) = 0;
 };
 
 class LogicalTree : public Tree {};
