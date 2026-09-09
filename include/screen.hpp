@@ -15,10 +15,10 @@ public:
 
   void shootRay(const Space &, const Ray &);
 
+  Pixel();
+  Pixel(int x, int y, RGB value, Vector4D visPoint);
+
 private:
-
-  Pixel::Pixel(int x, int y, RGB value, Vector4D visPoint);
-
 
   IntersectPoint getIntersectionPoint(const Space &) const;
   RGB getColor(const Space &, const IntersectPoint &) const;
@@ -36,7 +36,7 @@ private:
 
 public:
 
-  Screen::Screen(int heigth, int width, int dpi, Vector4D observer, Vector4D position);
+  Screen(int heigth, int width, int dpi, Vector4D observer, Vector4D position);
 
   void setDimensions(int height, int width);
   void calculate();
