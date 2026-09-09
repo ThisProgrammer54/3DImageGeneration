@@ -17,10 +17,13 @@ class Object {
 public:
   std::unique_ptr<Tree> start;
   Object(std::unique_ptr<Tree>);
+  IntersectPoint intersectPoint(Ray);
 };
 
 class Space {
 public:
-  std::vector<std::unique_ptr<Object>> Objects;
+  std::vector<std::unique_ptr<Object>> objects;
   std::vector<std::unique_ptr<LightSource>> lightsource;
+  void add(std::unique_ptr<Object>);
+  void add(std::unique_ptr<LightSource>);
 };
