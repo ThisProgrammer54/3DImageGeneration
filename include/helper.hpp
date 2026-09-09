@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Eigen/Core"
+#include <iostream>
 
 #define Vector4D Eigen ::Vector<double, 4>
 
@@ -18,7 +19,7 @@ public:
 class IntersectPoint {
 public:
   Vector4D pos;
-  Vector4D t;
+  double t;
   RGB color;
 
   IntersectPoint(Vector4D, Vector4D, RGB);

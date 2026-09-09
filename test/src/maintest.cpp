@@ -63,11 +63,17 @@ bool constructorTest() {
   return true;
 }
 
+bool pixelIntersectGetTest() {
+
+  return true;
+}
+
 // ------- Test ende -------
 
 int main(void) {
   Tester tester;
   tester.addTest("testing ray construction", constructorTest);
+  tester.addTest("testing intersection getter (TODO!)", pixelIntersectGetTest);
   tester.runAll();
 
   cout << "hello world" << endl;
