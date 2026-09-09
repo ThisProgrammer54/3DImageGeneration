@@ -12,6 +12,7 @@ class Ray {
 public:
   Vector4D pos;
   Vector4D d;
+  Ray(Vector4D, Vector4D);
 };
 
 class IntersectPoint {

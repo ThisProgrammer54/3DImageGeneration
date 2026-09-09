@@ -49,7 +49,6 @@ bool rayTest() {
 // ------- Test ende -------
 
 int main(void) {
-  Ray ray; // testing
   Tester tester;
   tester.addTest("testing ray construction", rayTest);
   tester.runAll();
