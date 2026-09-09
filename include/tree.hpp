@@ -38,4 +38,6 @@ class Halfspace : public PrimitiveObject {
 public:
   Vector4D position;
   Vector4D normal;
+
+  Halfspace(Vector4D, Vector4D);
 };

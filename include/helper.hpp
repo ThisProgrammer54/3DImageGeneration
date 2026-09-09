@@ -21,5 +21,5 @@ public:
   Vector4D t;
   RGB color;
 
-  IntersectPoint(Vector4D pos, Vector4D t, RGB color);
+  IntersectPoint(Vector4D, Vector4D, RGB);
 };
