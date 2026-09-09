@@ -36,9 +36,13 @@ public:
 
 // ----- Test ----
 
-bool testTest() {
-  assert(3 + 3 < 100);
-  assert(10 + 20 == 30);
+bool rayTest() {
+  Vector4D pos(10, 20, 30, 40);
+  Vector4D d(1, 1, 1, 34);
+  Ray ray(pos, d);
+
+  assert(ray.d == d && ray.pos == pos && ray.d(3) == d(3));
+
   return true;
 }
 
@@ -47,7 +51,7 @@ bool testTest() {
 int main(void) {
   Ray ray; // testing
   Tester tester;
-  tester.addTest("simple addition", testTest);
+  tester.addTest("testing ray construction", rayTest);
   tester.runAll();
 
   cout << "hello world" << endl;
