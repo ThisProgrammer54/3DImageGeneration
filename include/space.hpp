@@ -16,6 +16,7 @@ public:
 class Object {
 public:
   std::unique_ptr<Tree> start;
+  Object(std::unique_ptr<Tree>);
 };
 
 class Space {
