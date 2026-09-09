@@ -19,7 +19,6 @@ public:
   Pixel(int x, int y, RGB value, Vector4D visPoint);
 
 private:
-
   IntersectPoint getIntersectionPoint(const Space &) const;
   RGB getColor(const Space &, const IntersectPoint &) const;
   void calcNewRay(const Space &, const Ray &, const IntersectPoint &) const;
@@ -35,10 +34,9 @@ private:
   vector<vector<Pixel>> values;
 
 public:
-
   Screen(int heigth, int width, int dpi, Vector4D observer, Vector4D position);
 
   void setDimensions(int height, int width);
-  void calculate();
+  void calculate(Space);
   void generateImage();
 };

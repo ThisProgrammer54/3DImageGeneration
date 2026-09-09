@@ -1,5 +1,7 @@
 #include <cassert>
+#include <cstddef>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -54,7 +56,9 @@ bool constructorTest() {
 
   Screen screen(100, 200, 200, Vector4D(1, 2, 3, 4), Vector4D(1, 2, 3, 4));
 
-  Halfspace half(Vector4D(1, 2, 3, 4), Vector4D(5, 6, 7, 8));
+  std::unique_ptr<Halfspace> l =
+      std::make_unique<Halfspace>(Vector4D(1, 2, 3, 4), Vector4D(5, 6, 7, 8));
+  Object obj(std::move(l));
 
   return true;
 }
