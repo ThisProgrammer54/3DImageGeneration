@@ -14,7 +14,7 @@ public:
   Test(const string &name, bool (*func)()) : name(name), func(func){};
 };
 
-class Tests {
+class Tester {
   vector<Test> tests;
 
 public:
@@ -46,7 +46,7 @@ bool testTest() {
 
 int main(void) {
   Ray ray; // testing
-  Tests tester;
+  Tester tester;
   tester.addTest("simple addition", testTest);
   tester.runAll();
 
