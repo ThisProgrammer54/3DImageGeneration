@@ -40,4 +40,7 @@ public:
   Vector4D normal;
 
   Halfspace(Vector4D, Vector4D);
+  IntersectPoint intersectPoint(Ray &) override;
+  bool intersec(Ray &) override;
+  double Polynom(Vector4D) override;
 };

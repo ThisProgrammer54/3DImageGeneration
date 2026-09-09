@@ -5,6 +5,7 @@
 
 #include "helper.hpp"
 #include "space.hpp"
+#include "tree.hpp"
 #include <screen.hpp>
 
 using std::string, std::vector, std::cout, std::endl;
@@ -52,6 +53,8 @@ bool constructorTest() {
          pixel.visPoint(1) == 100);
 
   Screen screen(100, 200, 200, Vector4D(1, 2, 3, 4), Vector4D(1, 2, 3, 4));
+
+  Halfspace half(Vector4D(1, 2, 3, 4), Vector4D(5, 6, 7, 8));
 
   return true;
 }
