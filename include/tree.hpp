@@ -10,6 +10,8 @@ public:
 
   virtual IntersectPoint intersectPoint(Ray &) = 0;
   virtual bool intersec(Ray &) = 0;
+
+  void add(std::unique_ptr<Tree>);
 };
 
 class LogicalTree : public Tree {};
