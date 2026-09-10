@@ -81,6 +81,19 @@ bool objectTest() {
 
 bool pixelIntersectGetTest() { return true; }
 
+bool screenSetupTest() {
+  //Instantiate the screen
+  Screen testScreen(10, 10, 64, Vector4D(0, 0, 0, 1), Vector4D(-5, -5, 10, 1));
+
+  //testScreen.setDimensions(20, 20);
+
+  Space emptySpace;
+
+  testScreen.calculate(emptySpace);
+
+  return true;
+}
+
 // ------- Test ende -------
 
 int main(void) {

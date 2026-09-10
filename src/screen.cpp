@@ -31,7 +31,39 @@ IntersectPoint Pixel::getIntersectionPoint(const Space &space,
 
 }
 
-Screen::Screen(int heigth, int width, int dpi, Vector4D observer,
-               Vector4D position)
-    : heigth(heigth), width(width), dpi(dpi), observer(observer),
-      position(position), values(heigth, vector<Pixel>(width)){};
+Screen::Screen(int height, int width, int dpi, Vector4D observer, Vector4D position): height(height), width(width), dpi(dpi), observer(observer), position(position), values(height, vector<Pixel>(width)){};
+
+/*void Screen::setDimensions(int height, int width){
+  this->height = height;
+  this->width = width;
+}*/
+
+
+void Screen::calculate(const Space& space){
+
+  double dx = 1.0 / dpi;
+
+  for (int y = 0; y < height; ++y){
+    for (int x = 0; x < width; ++x){
+
+      //3d center point of the current pixel 
+      double px = position(0) + (x+0.5)*dx;
+      double py = position(1) + (y+0.5)*dx;
+      double pz = position(2);
+
+      Vector4D pixelCenter(px,py,pz,1.0);
+
+      Vector4D direction = (pixelCenter - observer);
+      direction.normalize();
+
+      //create a ray
+      Ray currentRay(observer, direction);
+
+      values[y][x].x = x; 
+      values[y][x].y = y; 
+      values[y][x].visPoint = pixelCenter;
+      values[y][x].shootRay(space, currentRay);
+
+    }
+  }
+};
