@@ -5,6 +5,8 @@ Pixel::Pixel(int x, int y, RGB value, Vector4D visPoint)
     : x(x), y(y), value(value), visPoint(visPoint){};
 Pixel::Pixel() : x(0), y(0), value(), visPoint() {}
 
+
+
 IntersectPoint Pixel::getIntersectionPoint(const Space &space,
                                            const Ray &ray) const {
   // iterate over every object in the space
@@ -25,9 +27,8 @@ IntersectPoint Pixel::getIntersectionPoint(const Space &space,
   // method/constructor needed? what to return when there's no intersection
   // point? does Ray ray assume it has hit something?
   // --
-  // we could return a shared pointer and a nullptr if not i think
-  // but then we will have to change Space accordingly OR we
-  // use a special value for an not existing point like t = -1
+  // we could return a uniq pointer and a nullptr like object/Halfspace
+
 }
 
 Screen::Screen(int heigth, int width, int dpi, Vector4D observer,
