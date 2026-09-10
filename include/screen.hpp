@@ -27,7 +27,7 @@ private:
 
 class Screen {
 private:
-  int heigth;
+  int height;
   int width;
   int dpi;
   Vector4D observer;
@@ -38,6 +38,6 @@ public:
   Screen(int heigth, int width, int dpi, Vector4D observer, Vector4D position);
 
   void setDimensions(int height, int width);
-  void calculate(Space);
+  void calculate(const Space&);
   void generateImage();
 };

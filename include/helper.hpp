@@ -7,6 +7,8 @@
 
 struct RGB {
   double red, green, blue;
+  RGB(double, double, double);
+  RGB();
 };
 
 class Ray {
