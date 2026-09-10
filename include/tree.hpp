@@ -8,7 +8,7 @@ class Tree {
 public:
   std::vector<std::unique_ptr<Tree>> nodes;
 
-  virtual IntersectPoint intersectPoint(Ray &) = 0;
+  virtual std::unique_ptr<IntersectPoint> intersectPoint(Ray &) = 0;
   virtual bool intersec(Ray &) = 0;
 
   void add(std::unique_ptr<Tree>);
@@ -39,8 +39,19 @@ public:
   Vector4D position;
   Vector4D normal;
 
-  Halfspace(Vector4D, Vector4D);
-  IntersectPoint intersectPoint(Ray &) override;
+  /**
+   * @brief construcst the Halfspace
+   * @param point on plane
+   * @param normal normal vector away from plane
+   */
+  Halfspace(Vector4D position, Vector4D normal);
+
+  /**
+   * @brief calculates intersection of Ray with itself
+   * @param ray the Ray
+   * @return intersectionpointPtr or nullptr if not existing
+   */
+  std::unique_ptr<IntersectPoint> intersectPoint(Ray &ray) override;
   bool intersec(Ray &) override;
   double Polynom(Vector4D) override;
 };

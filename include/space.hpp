@@ -17,7 +17,7 @@ class Object {
 public:
   std::unique_ptr<Tree> start;
   Object(std::unique_ptr<Tree>);
-  IntersectPoint intersectPoint(Ray);
+  std::unique_ptr<IntersectPoint> intersectPoint(Ray);
 };
 
 class Space {

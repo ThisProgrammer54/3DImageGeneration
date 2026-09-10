@@ -22,5 +22,8 @@ public:
   double t;
   RGB color;
 
-  IntersectPoint(Vector4D, Vector4D, RGB);
+  IntersectPoint(Vector4D, double);
+  IntersectPoint(Vector4D, double, RGB);
 };
+
+double scalarProduct(Vector4D, Vector4D);

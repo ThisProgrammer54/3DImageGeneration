@@ -1,5 +1,4 @@
 #include <cassert>
-#include <cstddef>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -29,7 +28,7 @@ public:
   bool runAll() {
     cout << "starte Tests" << endl;
     for (auto &test : this->tests) {
-      cout << "now running: " << test.name << endl;
+      cout << "now running: " << test.name << " test" << endl;
 
       if (!test.func()) {
         return false;
@@ -56,25 +55,38 @@ bool constructorTest() {
 
   Screen screen(100, 200, 200, Vector4D(1, 2, 3, 4), Vector4D(1, 2, 3, 4));
 
-  std::unique_ptr<Halfspace> l =
-      std::make_unique<Halfspace>(Vector4D(1, 2, 3, 4), Vector4D(5, 6, 7, 8));
+  return true;
+}
+
+bool objectTest() {
+  std::unique_ptr<Halfspace> l = std::make_unique<Halfspace>(
+      Vector4D(-1, 100, 200, 1), Vector4D(1, 0, 0, 0));
+
+  assert(l->position == Vector4D(-1, 0, 0, 1));
+  Ray ray1(Vector4D(0, 0, 0, 0), Vector4D(-1, 0, 0, 0));
+  Ray ray2(Vector4D(100, 0, 0, 0), Vector4D(1, 0, 0, 0));
+  Ray ray3(Vector4D(100, 0, 0, 0), Vector4D(-1, 0, 0, 0));
+  Ray ray4(Vector4D(100, 2, 0, 0), Vector4D(-1, 0, 0, 0));
+
+  assert(l->intersec(ray1));
+  assert(!l->intersec(ray2));
+  assert(l->intersec(ray3));
+
   Object obj(std::move(l));
+  assert(obj.intersectPoint(ray4)->pos == Vector4D(-1, 2, 0, 0));
+  assert(obj.intersectPoint(ray4)->t == 101);
 
   return true;
 }
 
-bool pixelIntersectGetTest() {
-
-  return true;
-}
+bool pixelIntersectGetTest() { return true; }
 
 // ------- Test ende -------
 
 int main(void) {
   Tester tester;
   tester.addTest("testing ray construction", constructorTest);
+  tester.addTest("Object", objectTest);
   tester.addTest("testing intersection getter (TODO!)", pixelIntersectGetTest);
   tester.runAll();
-
-  cout << "hello world" << endl;
 }
