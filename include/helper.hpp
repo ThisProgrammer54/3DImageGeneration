@@ -28,4 +28,11 @@ public:
   IntersectPoint(Vector4D, double, RGB);
 };
 
+class PrimitiveObject;
+
+struct IntersectionResult {
+  std::unique_ptr<IntersectPoint> point;
+  const PrimitiveObject *object = nullptr;
+};
+
 double scalarProduct(Vector4D, Vector4D);

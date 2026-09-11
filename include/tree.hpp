@@ -8,7 +8,7 @@ class Tree {
 public:
   std::vector<std::unique_ptr<Tree>> nodes;
 
-  virtual std::unique_ptr<IntersectPoint> intersectPoint(Ray &) = 0;
+  virtual IntersectionResult intersectPoint(Ray &) = 0;
   virtual bool intersec(Ray &) = 0;
 
   void add(std::unique_ptr<Tree>);
@@ -51,7 +51,7 @@ public:
    * @param ray the Ray
    * @return intersectionpointPtr or nullptr if not existing
    */
-  std::unique_ptr<IntersectPoint> intersectPoint(Ray &ray) override;
+  IntersectionResult intersectPoint(Ray &ray) override;
   bool intersec(Ray &) override;
   double Polynom(Vector4D) override;
 };

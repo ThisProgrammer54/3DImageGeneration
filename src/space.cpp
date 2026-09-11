@@ -1,9 +1,10 @@
 #include "helper.hpp"
+#include "tree.hpp"
 #include <memory>
 #include <space.hpp>
 
 Object::Object(std::unique_ptr<Tree> t) : start(std::move(t)){};
-std::unique_ptr<IntersectPoint> Object::intersectPoint(Ray ray) {
+IntersectionResult Object::intersectPoint(Ray ray) {
   return start->intersectPoint(ray);
 };
 

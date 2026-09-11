@@ -73,8 +73,8 @@ bool objectTest() {
   assert(l->intersec(ray3));
 
   Object obj(std::move(l));
-  assert(obj.intersectPoint(ray4)->pos == Vector4D(-1, 2, 0, 0));
-  assert(obj.intersectPoint(ray4)->t == 101);
+  assert(obj.intersectPoint(ray4).point->pos == Vector4D(-1, 2, 0, 0));
+  assert(obj.intersectPoint(ray4).point->t == 101);
 
   return true;
 }
@@ -82,10 +82,10 @@ bool objectTest() {
 bool pixelIntersectGetTest() { return true; }
 
 bool screenSetupTest() {
-  //Instantiate the screen
+  // Instantiate the screen
   Screen testScreen(10, 10, 64, Vector4D(0, 0, 0, 1), Vector4D(-5, -5, 10, 1));
 
-  //testScreen.setDimensions(20, 20);
+  // testScreen.setDimensions(20, 20);
 
   Space emptySpace;
 

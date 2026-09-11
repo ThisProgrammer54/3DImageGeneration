@@ -12,28 +12,31 @@ Halfspace::Halfspace(Vector4D position, Vector4D normal) {
   this->position(3) = 1;
 }
 
-std::unique_ptr<IntersectPoint> Halfspace::intersectPoint(Ray &ray) {
+IntersectionResult Halfspace::intersectPoint(Ray &ray) {
   double r = this->normal(3);
   double dScalar = scalarProduct(this->normal, ray.d);
 
   // parallel
   if (dScalar == 0) {
     if (Polynom(ray.pos) == r) {
-      return std::make_unique<IntersectPoint>(ray.pos, 0);
+      return IntersectionResult{std::make_unique<IntersectPoint>(ray.pos, 0),
+                                this};
     }
-    return nullptr;
+    return IntersectionResult{nullptr, nullptr};
   }
   double t =
       (scalarProduct(this->position - ray.pos, this->normal)) / (dScalar);
   if (t < 0) {
-    return nullptr;
+    return IntersectionResult{nullptr, nullptr};
   }
-  return std::make_unique<IntersectPoint>(ray.pos + t * ray.d, t);
+
+  return IntersectionResult{
+      std::make_unique<IntersectPoint>(ray.pos + t * ray.d, t), this};
 }
 bool Halfspace::intersec(Ray &ray) {
-  std::unique_ptr<IntersectPoint> iP = this->intersectPoint(ray);
+  IntersectionResult iP = this->intersectPoint(ray);
 
-  if (iP == nullptr)
+  if (iP.object == nullptr)
     return false;
 
   return true;
