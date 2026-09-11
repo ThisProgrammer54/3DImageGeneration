@@ -3,8 +3,9 @@
 #include <memory>
 #include <tree.hpp>
 
-Halfspace::Halfspace(Vector4D position, Vector4D normal, RGB specRC,
-                     RGB diffuseRC) {
+Halfspace::Halfspace(Vector4D position, Vector4D normal,
+                     RGB diffuseReflectionComponent,
+                     RGB specularReflectionComponent) {
   Vector4D normedNormal = normal / normal.norm();
   this->normal = normedNormal;
 
@@ -12,8 +13,8 @@ Halfspace::Halfspace(Vector4D position, Vector4D normal, RGB specRC,
   this->position = r * normedNormal;
   this->position(3) = 1;
 
-  this->specularReflectionComponent = specRC;
-  this->diffuseReflectionComponent = diffuseRC;
+  this->diffuseReflectionComponent = diffuseReflectionComponent;
+  this->specularReflectionComponent = specularReflectionComponent;
 }
 Halfspace::Halfspace(Vector4D position, Vector4D normal)
     : Halfspace(position, normal, {1, 0, 0}, {1, 0, 0}){};

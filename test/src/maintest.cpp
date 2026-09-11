@@ -8,6 +8,7 @@
 #include "space.hpp"
 #include "tree.hpp"
 #include <screen.hpp>
+#include <xmmintrin.h>
 
 using std::string, std::vector, std::cout, std::endl;
 
@@ -122,23 +123,30 @@ bool screenSetupTest() {
   return true;
 }
 bool ambientLightTest() {
-  Screen testScreen(10, 10, 64, Vector4D(0, 0, 0, 1), Vector4D(-5, -5, 10, 1));
-  auto tmp =
-      std::make_unique<Halfspace>(Vector4D(-100, 0, 0, 1), Vector4D(1, 0, 0, 0),
-                                  RGB{1, 0, 0}, RGB{1, 0, 0});
+  Screen testScreen(10, 10, 2, Vector4D(0, 0, 0, 1), Vector4D(-5, -5, 5, 1));
+  auto tmp = std::make_unique<Halfspace>(
+      Vector4D(-6, 0, 0, 1), Vector4D(1, 0, 0, 0), RGB{1, 0, 0}, RGB{0, 1, 0});
 
   auto redWall = std::make_unique<Object>(std::move(tmp));
+  tmp = std::make_unique<Halfspace>(
+      Vector4D(-10, 0, 0, 1), Vector4D(1, 1, 0, 0), RGB{0, 1, 0}, RGB{0, 1, 0});
+  auto greenWall = std::make_unique<Object>(std::move(tmp));
 
-  auto redLightSource =
-      std::make_unique<LightSource>(Vector4D(0, -100, -100, 1), RGB{1, 0, 0});
+  auto whiteLightSource =
+      std::make_unique<LightSource>(Vector4D(0, 0, 0, 1), RGB{1, 1, 1});
 
   Space space;
-  space.add(std::move(redLightSource));
+  space.add(std::move(whiteLightSource));
   space.add(std::move(redWall));
+  space.add(std::move(greenWall));
 
   testScreen.calculate(space);
   cout << testScreen;
 
+  // Ist das falsch ich wuerde schon eher ja sagen (nach geogebra und meiner
+  // auffassung von koordianten) aber ich check die Koordinaten vom observer
+  // position nicht (sein cursed koordiantensystem mit x nach oben) und die
+  // ausgabe sieht nicht schlecht aus.
   return true;
 }
 

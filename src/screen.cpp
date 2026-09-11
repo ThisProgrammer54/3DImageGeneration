@@ -1,6 +1,8 @@
 #include "helper.hpp"
 #include "space.hpp"
+#include <any>
 #include <cstddef>
+#include <iostream>
 #include <iterator>
 #include <ostream>
 #include <screen.hpp>
@@ -38,6 +40,9 @@ RGB Pixel::getColor(const Space &space,
   // philip: wir muessen noch die verschiedenen Farbkoeffizienten implemntieren
   // (darum habe ich es zu IntersectionResult ergaenzt)
 
+  if (intersectionResult.object == nullptr)
+    return RGB(0, 0, 0);
+
   bool anscheinen = false;
   double offset = 0.1; // philip: noch besprechen und testen aber scheint sich
                        // selber als hindernis wahrzunehmen
@@ -54,18 +59,21 @@ RGB Pixel::getColor(const Space &space,
 
     if (shadowHit.object == nullptr || shadowHit.point->t >= distanceToLight) {
       anscheinen = true;
+      // TODO mehr als eine lightsource und operator overload
+
+      RGB color =
+          RGB(intersectionResult.object->diffuseReflectionComponent.red *
+                  light->intensity.red,
+              intersectionResult.object->diffuseReflectionComponent.green *
+                  light->intensity.green,
+              intersectionResult.object->diffuseReflectionComponent.blue *
+                  light->intensity.blue);
+
+      return color;
       break;
     }
   }
-
-  if (anscheinen) {
-    intersectionResult.point->color =
-        intersectionResult.object->diffuseReflectionComponent; // TODO LIGHT
-
-    return intersectionResult.point->color;
-  } else {
-    return RGB(0.0, 0.0, 0.0);
-  }
+  return RGB(0.0, 0.0, 0.0);
 }
 
 void Pixel::shootRay(const Space &space, const Ray &ray) {
@@ -112,13 +120,23 @@ void Screen::calculate(const Space &space) {
 };
 
 std::ostream &operator<<(std::ostream &out, const Screen &in) {
-  for (int y = 0; y < in.height; y++) {
+  for (int y = in.height - 1; y >= 0; y--) {
     for (int x = 0; x < in.width; x++) {
-      out << in.values[y][x].value.red << " ";
+      RGB val = in.values[y][x].value;
+      if (val.red == 1) {
+        out << "R";
+      } else if (val.green == 1) {
+        out << "G";
+      } else if (val.blue == 1) {
+        out << "B";
+      } else {
+        out << "S";
+      }
+
+      out << " ";
     }
     out << std::endl;
   }
   out << std::endl;
   return out;
 }
-
