@@ -18,7 +18,7 @@ public:
   Pixel();
   Pixel(int x, int y, RGB value, Vector4D visPoint);
 
-private:
+  // Testing TODO REMOVE : private:
   IntersectionResult getIntersectionPoint(const Space &, const Ray &) const;
   RGB getColor(const Space &, const IntersectPoint &) const;
   void calcNewRay(const Space &, const Ray &, const IntersectPoint &) const;

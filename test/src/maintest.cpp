@@ -79,7 +79,34 @@ bool objectTest() {
   return true;
 }
 
-bool pixelIntersectGetTest() { return true; }
+bool pixelIntersectGetTest() {
+  auto lbackward = std::make_unique<Halfspace>(Vector4D(-1, 100, 200, 1),
+                                               Vector4D(1, 0, 0, 0));
+  auto lforward = std::make_unique<Halfspace>(Vector4D(0, 100, 200, 1),
+                                              Vector4D(1, 0, 0, 0));
+
+  auto obj1 = std::make_unique<Object>(std::move(lbackward));
+  auto obj2 = std::make_unique<Object>(std::move(lforward));
+
+  Space space;
+  space.add(std::move(obj1));
+  space.add(std::move(obj2));
+
+  Ray ray1(Vector4D(100, 2, 67, 0), Vector4D(-1, 0, 0, 0));
+
+  Pixel pix(0, 0, {0, 0, 0},
+            Vector4D{
+                0,
+                0,
+                0,
+                0,
+            });
+  IntersectionResult res = pix.getIntersectionPoint(space, ray1);
+
+  assert(res.point->pos == Vector4D(0, 2, 67, 0));
+
+  return true;
+}
 
 bool screenSetupTest() {
   // Instantiate the screen

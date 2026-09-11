@@ -1,3 +1,4 @@
+#include "helper.hpp"
 #include "space.hpp"
 #include <cstddef>
 #include <screen.hpp>
@@ -9,18 +10,17 @@ Pixel::Pixel() : x(0), y(0), value(RGB()), visPoint() {}
 IntersectionResult Pixel::getIntersectionPoint(const Space &space,
                                                const Ray &ray) const {
   // iterate over every object in the space
-  std::vector<double> tCandidates;
   double lowestT = INFINITY;
-  int tIndex = -1;
+  IntersectionResult finalResult{nullptr, nullptr};
   for (size_t i = 0; i < space.objects.size(); ++i) {
-    tCandidates.push_back(space.objects[i]->intersectPoint(ray).point->t);
-    if (*tCandidates.end() < lowestT) {
-      lowestT = *tCandidates.end();
-      tIndex = i;
+    IntersectionResult result = space.objects[i]->intersectPoint(ray);
+    if (result.point->t < lowestT) {
+      lowestT = result.point->t;
+      finalResult = std::move(result);
     }
   }
-  if (tIndex != -1) {
-    return space.objects[tIndex].get()->intersectPoint(ray);
+  if (finalResult.object != nullptr) {
+    return finalResult;
   }
   return IntersectionResult{nullptr, nullptr};
 }
