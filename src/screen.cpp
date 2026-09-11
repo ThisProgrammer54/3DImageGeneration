@@ -1,6 +1,7 @@
 #include "helper.hpp"
 #include "space.hpp"
 #include <cstddef>
+#include <iterator>
 #include <ostream>
 #include <screen.hpp>
 
@@ -15,6 +16,9 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
   IntersectionResult finalResult{nullptr, nullptr};
   for (size_t i = 0; i < space.objects.size(); ++i) {
     IntersectionResult result = space.objects[i]->intersectPoint(ray);
+    if (result.object == nullptr)
+      continue;
+
     if (result.point->t < lowestT) {
       lowestT = result.point->t;
       finalResult = std::move(result);
@@ -27,7 +31,7 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
 }
 
 RGB Pixel::getColor(const Space &space,
-                    const IntersectPoint &intersectionPoint) const {
+                    const IntersectionResult &intersectionResult) const {
   // eigentlich ne funktion ob ein licht etwas anscheind und wenn nicht wird die
   // Farbe schwarz zurückgegeben. die Funktion intersectionpoint gibt eigentlich
   // schon die farbe an
@@ -35,27 +39,38 @@ RGB Pixel::getColor(const Space &space,
   // (darum habe ich es zu IntersectionResult ergaenzt)
 
   bool anscheinen = false;
+  double offset = 0.1; // philip: noch besprechen und testen aber scheint sich
+                       // selber als hindernis wahrzunehmen
 
   for (const auto &light : space.lightsource) {
-    Vector4D toLight = light->pos - intersectionPoint.pos;
+    Vector4D toLight = light->pos - intersectionResult.point->pos;
     double distanceToLight = toLight.norm();
     Vector4D direction = toLight.normalized();
 
-    Ray shadowRay(intersectionPoint.pos, direction);
+    Ray shadowRay(intersectionResult.point->pos + direction * offset,
+                  direction);
 
     IntersectionResult shadowHit = getIntersectionPoint(space, shadowRay);
 
-    if (shadowHit.point->t >= distanceToLight) {
+    if (shadowHit.object == nullptr || shadowHit.point->t >= distanceToLight) {
       anscheinen = true;
       break;
     }
   }
 
   if (anscheinen) {
-    return intersectionPoint.color;
+    intersectionResult.point->color =
+        intersectionResult.object->diffuseReflectionComponent; // TODO LIGHT
+
+    return intersectionResult.point->color;
   } else {
     return RGB(0.0, 0.0, 0.0);
   }
+}
+
+void Pixel::shootRay(const Space &space, const Ray &ray) {
+  IntersectionResult res = this->getIntersectionPoint(space, ray);
+  this->value = getColor(space, res);
 }
 
 Screen::Screen(int height, int width, int dpi, Vector4D observer,
@@ -91,7 +106,7 @@ void Screen::calculate(const Space &space) {
       values[y][x].x = x;
       values[y][x].y = y;
       values[y][x].visPoint = pixelCenter;
-      //     values[y][x].shootRay(space, currentRay); // for testing
+      values[y][x].shootRay(space, currentRay);
     }
   }
 };

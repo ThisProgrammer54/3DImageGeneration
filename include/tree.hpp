@@ -27,6 +27,8 @@ class Scaling : public TransformationTree {};
 class ObjectTree : public Tree {};
 class PrimitiveObject : public ObjectTree {
 public:
+  RGB diffuseReflectionComponent;
+  RGB specularReflectionComponent;
   virtual double Polynom(Vector4D) = 0;
 };
 class Sphere : public PrimitiveObject {
@@ -39,6 +41,7 @@ public:
   Vector4D position;
   Vector4D normal;
 
+  Halfspace(Vector4D position, Vector4D normal, RGB specRC, RGB diffuseRC);
   /**
    * @brief construcst the Halfspace
    * @param point on plane
