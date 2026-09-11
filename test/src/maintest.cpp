@@ -117,6 +117,7 @@ bool screenSetupTest() {
   Space emptySpace;
 
   testScreen.calculate(emptySpace);
+  cout << testScreen;
 
   return true;
 }
@@ -128,5 +129,6 @@ int main(void) {
   tester.addTest("testing ray construction", constructorTest);
   tester.addTest("Object", objectTest);
   tester.addTest("testing intersection getter (TODO!)", pixelIntersectGetTest);
+  tester.addTest("screen setup", screenSetupTest);
   tester.runAll();
 }

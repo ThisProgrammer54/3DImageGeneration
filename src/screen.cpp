@@ -1,6 +1,7 @@
 #include "helper.hpp"
 #include "space.hpp"
 #include <cstddef>
+#include <ostream>
 #include <screen.hpp>
 
 Pixel::Pixel(int x, int y, RGB value, Vector4D visPoint)
@@ -94,3 +95,15 @@ void Screen::calculate(const Space &space) {
     }
   }
 };
+
+std::ostream &operator<<(std::ostream &out, const Screen &in) {
+  for (int y = 0; y < in.height; y++) {
+    for (int x = 0; x < in.width; x++) {
+      out << in.values[y][x].value.red << " ";
+    }
+    out << std::endl;
+  }
+  out << std::endl;
+  return out;
+}
+

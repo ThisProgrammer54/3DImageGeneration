@@ -2,6 +2,7 @@
 
 #include "helper.hpp"
 #include "space.hpp"
+#include <ostream>
 #include <vector>
 
 using std::vector;
@@ -39,4 +40,5 @@ public:
   void setDimensions(int height, int width);
   void calculate(const Space &);
   void generateImage();
+  friend std::ostream &operator<<(std::ostream &out, const Screen &in);
 };
