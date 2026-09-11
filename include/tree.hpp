@@ -29,7 +29,12 @@ class PrimitiveObject : public ObjectTree {
 public:
   RGB diffuseReflectionComponent;
   RGB specularReflectionComponent;
+  //simon: brauchen wir noch für den glanz von objekten, dachte das macht hier am meisten sinn, erstmal nur auf nen Wert
+  //muss später noch mit dem konstruktor gemacht werden, hab einfach mal nen default genommen
+  double shininess = 30;
   virtual double Polynom(Vector4D) = 0;
+  //simon:
+  virtual Vector4D getNormal() const = 0;
 };
 class Sphere : public PrimitiveObject {
 public:
@@ -57,4 +62,6 @@ public:
   IntersectionResult intersectPoint(Ray &ray) override;
   bool intersec(Ray &) override;
   double Polynom(Vector4D) override;
+  //Simon:
+  Vector4D getNormal() const override;
 };

@@ -21,7 +21,8 @@ public:
 
   // Testing TODO REMOVE : private:
   IntersectionResult getIntersectionPoint(const Space &, const Ray &) const;
-  RGB getColor(const Space &, const IntersectionResult &) const;
+  //Wir brauchen bei der getColor funktion noch einmal einen Ray
+  RGB getColor(const Space &, const IntersectionResult &, const Ray &) const;
   void calcNewRay(const Space &, const Ray &, const IntersectPoint &) const;
 };
 

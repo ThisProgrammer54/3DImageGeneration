@@ -9,6 +9,12 @@ struct RGB {
   double red, green, blue;
   RGB(double, double, double);
   RGB();
+
+  //Simon: hab mal die Operatoren für die Farben hinzugefügt
+  friend RGB operator+(const RGB, const RGB);
+  friend RGB operator*(const RGB, const RGB);
+  friend RGB operator*(const RGB, double);
+  friend RGB operator*(double, const RGB);
 };
 
 class Ray {

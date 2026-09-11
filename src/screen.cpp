@@ -33,7 +33,7 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
 }
 
 RGB Pixel::getColor(const Space &space,
-                    const IntersectionResult &intersectionResult) const {
+                    const IntersectionResult &intersectionResult, const Ray &ray) const {
   // eigentlich ne funktion ob ein licht etwas anscheind und wenn nicht wird die
   // Farbe schwarz zurückgegeben. die Funktion intersectionpoint gibt eigentlich
   // schon die farbe an
@@ -42,10 +42,17 @@ RGB Pixel::getColor(const Space &space,
 
   if (intersectionResult.object == nullptr)
     return RGB(0, 0, 0);
+  
+  const PrimitiveObject *object = intersectionResult.object;
+  Vector4D normal = object->getNormal();
 
-  bool anscheinen = false;
-  double offset = 0.1; // philip: noch besprechen und testen aber scheint sich
-                       // selber als hindernis wahrzunehmen
+  RGB totalColor(0.0, 0.0, 0.0);
+
+//V = Vektor vom Schnittpunkt zum Ursprung
+Vector4D V = -ray.d;
+V.normalize();
+
+  double offset = 0.1; 
 
   for (const auto &light : space.lightsource) {
     Vector4D toLight = light->pos - intersectionResult.point->pos;
@@ -57,28 +64,35 @@ RGB Pixel::getColor(const Space &space,
 
     IntersectionResult shadowHit = getIntersectionPoint(space, shadowRay);
 
-    if (shadowHit.object == nullptr || shadowHit.point->t >= distanceToLight) {
-      anscheinen = true;
-      // TODO mehr als eine lightsource und operator overload
+    //hab chatti gefragt wie man das machen kann damit es gut aussieht und er hat gekocht
+    bool schatten = shadowHit.object != nullptr && shadowHit.point->t < distanceToLight;
+    if(schatten){continue;}
 
-      RGB color =
-          RGB(intersectionResult.object->diffuseReflectionComponent.red *
-                  light->intensity.red,
-              intersectionResult.object->diffuseReflectionComponent.green *
-                  light->intensity.green,
-              intersectionResult.object->diffuseReflectionComponent.blue *
-                  light->intensity.blue);
+    //Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
+    double lambert = scalarProduct(direction, normal);
+    if (lambert <= 0) {continue;} // Fläche Zeigt vom Licht weg, wird also nicht angeläuchtet
 
-      return color;
-      break;
-    }
+    RGB diffuse = object->diffuseReflectionComponent * light->intensity * lambert;
+
+    //Spekularer Anteil: Es = Ks * IL * (R.V)^alpha
+    Vector4D R = normal * (2*lambert) - direction;
+    double RV = scalarProduct(R, V);
+    RGB spekular(0.0 , 0.0 , 0.0);
+    double RVFactor = std::pow(RV, object->shininess);
+    spekular = object->specularReflectionComponent * light->intensity * RVFactor;
+
+    // Jetzt kommt dieses Ed (Kreisplus) Es
+    totalColor = totalColor + (diffuse + spekular);
+
+    //Es fehlt noch der ambiente anteil, dieses Ea = Ka * Ia, dafür brauchen wir vielleicht noch ne möglichkeit in Space einen ambienten Lichtteil (Ia) zu speichern
+    // und der reflektierende und gebrochener Anteil fehlen auch noch 
+
   }
-  return RGB(0.0, 0.0, 0.0);
 }
 
 void Pixel::shootRay(const Space &space, const Ray &ray) {
   IntersectionResult res = this->getIntersectionPoint(space, ray);
-  this->value = getColor(space, res);
+  this->value = getColor(space, res, ray);
 }
 
 Screen::Screen(int height, int width, int dpi, Vector4D observer,

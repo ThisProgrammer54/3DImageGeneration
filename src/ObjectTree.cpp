@@ -51,3 +51,8 @@ bool Halfspace::intersec(Ray &ray) {
 double Halfspace::Polynom(Vector4D in) {
   return scalarProduct(this->normal, in);
 }
+
+//simon:
+Vector4D Halfspace::getNormal() const {
+  return this->normal;
+}
