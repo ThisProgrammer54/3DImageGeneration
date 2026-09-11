@@ -11,6 +11,7 @@ class LightSource {
 public:
   Vector4D pos;
   RGB intensity;
+  LightSource(Vector4D pos, RGB intensity);
 };
 
 class Object {

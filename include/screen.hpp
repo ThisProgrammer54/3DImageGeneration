@@ -2,6 +2,7 @@
 
 #include "helper.hpp"
 #include "space.hpp"
+#include <ostream>
 #include <vector>
 
 using std::vector;
@@ -20,7 +21,7 @@ public:
 
   // Testing TODO REMOVE : private:
   IntersectionResult getIntersectionPoint(const Space &, const Ray &) const;
-  RGB getColor(const Space &, const IntersectPoint &) const;
+  RGB getColor(const Space &, const IntersectionResult &) const;
   void calcNewRay(const Space &, const Ray &, const IntersectPoint &) const;
 };
 
@@ -39,4 +40,5 @@ public:
   void setDimensions(int height, int width);
   void calculate(const Space &);
   void generateImage();
+  friend std::ostream &operator<<(std::ostream &out, const Screen &in);
 };
