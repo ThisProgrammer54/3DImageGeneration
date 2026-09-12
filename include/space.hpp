@@ -26,4 +26,7 @@ public:
   std::vector<std::unique_ptr<LightSource>> lightsource;
   void add(std::unique_ptr<Object>);
   void add(std::unique_ptr<LightSource>);
+
+  // dennis
+  RGB ambientLightIntensity; 
 };

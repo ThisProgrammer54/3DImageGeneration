@@ -33,7 +33,8 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
 }
 
 RGB Pixel::getColor(const Space &space,
-                    const IntersectionResult &intersectionResult, const Ray &ray) const {
+                    const IntersectionResult &intersectionResult, 
+                    const Ray &ray) const {
   // eigentlich ne funktion ob ein licht etwas anscheind und wenn nicht wird die
   // Farbe schwarz zurückgegeben. die Funktion intersectionpoint gibt eigentlich
   // schon die farbe an
@@ -45,16 +46,18 @@ RGB Pixel::getColor(const Space &space,
   
   const PrimitiveObject *object = intersectionResult.object;
   Vector4D normal = object->getNormal();
-
-  RGB totalColor(0.0, 0.0, 0.0);
-
-//V = Vektor vom Schnittpunkt zum Ursprung
-Vector4D V = -ray.d;
-V.normalize();
+  //V = Vektor vom Schnittpunkt zum Ursprung
+  Vector4D V = -ray.d;
+  V.normalize();
 
   double offset = 0.1; 
 
+  RGB ambient = object->ambientReflectionComponent * space.ambientLightIntensity;
+
+  RGB sumLightComponents(0.0, 0.0, 0.0);   // i.e. diffuse + specular
+
   for (const auto &light : space.lightsource) {
+
     Vector4D toLight = light->pos - intersectionResult.point->pos;
     double distanceToLight = toLight.norm();
     Vector4D direction = toLight.normalized();
@@ -66,7 +69,7 @@ V.normalize();
 
     //hab chatti gefragt wie man das machen kann damit es gut aussieht und er hat gekocht
     bool schatten = shadowHit.object != nullptr && shadowHit.point->t < distanceToLight;
-    if(schatten){continue;}
+    if(schatten) { continue; }
 
     //Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
     double lambert = scalarProduct(direction, normal);
@@ -81,13 +84,14 @@ V.normalize();
     double RVFactor = std::pow(RV, object->shininess);
     spekular = object->specularReflectionComponent * light->intensity * RVFactor;
 
-    // Jetzt kommt dieses Ed (Kreisplus) Es
-    totalColor = totalColor + (diffuse + spekular);
-
-    //Es fehlt noch der ambiente anteil, dieses Ea = Ka * Ia, dafür brauchen wir vielleicht noch ne möglichkeit in Space einen ambienten Lichtteil (Ia) zu speichern
-    // und der reflektierende und gebrochener Anteil fehlen auch noch 
-
+    sumLightComponents = sumLightComponents + (diffuse + spekular);
   }
+
+  // reflektierende und gebrochener Anteil fehlen noch
+  RGB reflected;  //  E_r = K_r * I_r
+  RGB refracted;  //  E_f = K_f * I_f
+
+  RGB allComponents = ambient + sumLightComponents + reflected + refracted;
 }
 
 void Pixel::shootRay(const Space &space, const Ray &ray) {

@@ -126,8 +126,8 @@ bool ambientLightTest() {
   Screen testScreen(10, 10, 2, Vector4D(0, 0, 0, 1), Vector4D(-5, -5, 5, 1));
   auto tmp = std::make_unique<Halfspace>(
       Vector4D(-6, 0, 0, 1), Vector4D(1, 0, 0, 0), RGB{1, 0, 0}, RGB{0, 1, 0});
-
   auto redWall = std::make_unique<Object>(std::move(tmp));
+  
   tmp = std::make_unique<Halfspace>(
       Vector4D(-10, 0, 0, 1), Vector4D(1, 1, 0, 0), RGB{0, 1, 0}, RGB{0, 1, 0});
   auto greenWall = std::make_unique<Object>(std::move(tmp));
