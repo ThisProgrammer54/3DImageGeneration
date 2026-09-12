@@ -27,6 +27,7 @@ class Scaling : public TransformationTree {};
 class ObjectTree : public Tree {};
 class PrimitiveObject : public ObjectTree {
 public:
+  RGB ambientReflectionComponent;
   RGB diffuseReflectionComponent;
   RGB specularReflectionComponent;
   //simon: brauchen wir noch für den glanz von objekten, dachte das macht hier am meisten sinn, erstmal nur auf nen Wert
