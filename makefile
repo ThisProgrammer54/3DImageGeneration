@@ -1,5 +1,5 @@
 CXX       := /usr/bin/g++ 
-CXX_FLAGS := -std=c++17 -Wall -Wextra -Wpedantic -g 
+CXX_FLAGS := -O3 -std=c++17 -Wall -Wextra -Wpedantic -g 
  
 SRC := src
 INC := include
