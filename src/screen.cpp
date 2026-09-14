@@ -1,8 +1,6 @@
 #include "helper.hpp"
 #include "space.hpp"
 #include <cstddef>
-#include <iostream>
-#include <ostream>
 #include <screen.hpp>
 
 Pixel::Pixel(int x, int y, RGB value, Vector4D visPoint)
@@ -105,7 +103,7 @@ void Pixel::shootRay(const Space &space, const Ray &ray) {
 Screen::Screen(int height, int width, int dpi, Vector4D observer,
                Vector4D position)
     : height(height), width(width), dpi(dpi), observer(observer),
-      position(position), values(height, vector<Pixel>(width)){};
+      position(position), values(height * dpi, vector<Pixel>(width * dpi)){};
 
 /*void Screen::setDimensions(int height, int width){
   this->height = height;
@@ -116,8 +114,8 @@ void Screen::calculate(const Space &space) {
 
   double dx = 1.0 / dpi;
 
-  for (int y = 0; y < height; ++y) {
-    for (int x = 0; x < width; ++x) {
+  for (size_t y = 0; y < this->values.size(); ++y) {
+    for (size_t x = 0; x < this->values[y].size(); ++x) {
 
       // 3d center point of the current pixel
       double px = position(0) + (x + 0.5) * dx;
@@ -139,25 +137,3 @@ void Screen::calculate(const Space &space) {
     }
   }
 };
-
-std::ostream &operator<<(std::ostream &out, const Screen &in) {
-  for (int y = in.height - 1; y >= 0; y--) {
-    for (int x = 0; x < in.width; x++) {
-      RGB val = in.values[y][x].value;
-      if (val.red == 1) {
-        out << "R";
-      } else if (val.green == 1) {
-        out << "G";
-      } else if (val.blue == 1) {
-        out << "B";
-      } else {
-        out << "S";
-      }
-
-      out << " ";
-    }
-    out << std::endl;
-  }
-  out << std::endl;
-  return out;
-}

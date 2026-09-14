@@ -21,13 +21,14 @@ public:
 
   // Testing TODO REMOVE : private:
   IntersectionResult getIntersectionPoint(const Space &, const Ray &) const;
-  //Wir brauchen bei der getColor funktion noch einmal einen Ray
+  // Wir brauchen bei der getColor funktion noch einmal einen Ray
   RGB getColor(const Space &, const IntersectionResult &, const Ray &) const;
   void calcNewRay(const Space &, const Ray &, const IntersectPoint &) const;
 };
 
 class Screen {
 private:
+public:
   int height;
   int width;
   int dpi;
@@ -35,7 +36,6 @@ private:
   Vector4D position;
   vector<vector<Pixel>> values;
 
-public:
   Screen(int heigth, int width, int dpi, Vector4D observer, Vector4D position);
 
   void setDimensions(int height, int width);
