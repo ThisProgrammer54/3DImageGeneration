@@ -1,5 +1,6 @@
 #include "render.hpp"
 #include "opencv2/core/mat.hpp"
+#include "opencv2/core/matx.hpp"
 #include "opencv2/core/types.hpp"
 #include "screen.hpp"
 
@@ -26,9 +27,11 @@ void Render::render(Screen &screen) {
   for (int y = 0; y < this->height; y++) {
     for (int x = 0; x < this->width; x++) {
       Vec3b &color = img.at<Vec3b>(y, x);
-      color[0] = screen.values[y][x].value.blue * 255;
-      color[1] = screen.values[y][x].value.green * 255;
-      color[2] = screen.values[y][x].value.red * 255;
+      RGB &newColor = screen.values[height - y - 1][x].value;
+
+      color[0] = newColor.blue * 255;
+      color[1] = newColor.green * 255;
+      color[2] = newColor.red * 255;
     }
   }
 }

@@ -30,11 +30,12 @@ public:
   RGB ambientReflectionComponent;
   RGB diffuseReflectionComponent;
   RGB specularReflectionComponent;
-  //simon: brauchen wir noch für den glanz von objekten, dachte das macht hier am meisten sinn, erstmal nur auf nen Wert
-  //muss später noch mit dem konstruktor gemacht werden, hab einfach mal nen default genommen
+  // simon: brauchen wir noch für den glanz von objekten, dachte das macht hier
+  // am meisten sinn, erstmal nur auf nen Wert muss später noch mit dem
+  // konstruktor gemacht werden, hab einfach mal nen default genommen
   double shininess = 30;
   virtual double Polynom(Vector4D) = 0;
-  //simon:
+  // simon:
   virtual Vector4D getNormal() const = 0;
 };
 class Sphere : public PrimitiveObject {
@@ -63,6 +64,6 @@ public:
   IntersectionResult intersectPoint(Ray &ray) override;
   bool intersec(Ray &) override;
   double Polynom(Vector4D) override;
-  //Simon:
+  // Simon:
   Vector4D getNormal() const override;
 };

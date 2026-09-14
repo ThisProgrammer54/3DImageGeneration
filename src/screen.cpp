@@ -41,7 +41,7 @@ RGB Pixel::getColor(const Space &space,
   Vector4D V = -ray.d;
   V.normalize();
 
-  double offset = 0.1;
+  double offset = 0.01;
 
   RGB ambient =
       object->ambientReflectionComponent * space.ambientLightIntensity;
@@ -57,6 +57,12 @@ RGB Pixel::getColor(const Space &space,
     Ray shadowRay(intersectionResult.point->pos + direction * offset,
                   direction);
 
+    // Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
+    double lambert = scalarProduct(direction, normal);
+    if (lambert <= 0) {
+      continue;
+    } // Fläche Zeigt vom Licht weg, wird also nicht angeläuchtet
+
     IntersectionResult shadowHit = getIntersectionPoint(space, shadowRay);
 
     // hab chatti gefragt wie man das machen kann damit es gut aussieht und er
@@ -67,22 +73,19 @@ RGB Pixel::getColor(const Space &space,
       continue;
     }
 
-    // Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
-    double lambert = scalarProduct(direction, normal);
-    if (lambert <= 0) {
-      continue;
-    } // Fläche Zeigt vom Licht weg, wird also nicht angeläuchtet
-
     RGB diffuse =
         object->diffuseReflectionComponent * light->intensity * lambert;
 
     // Spekularer Anteil: Es = Ks * IL * (R.V)^alpha
-    Vector4D R = normal * (2 * lambert) - direction;
-    double RV = scalarProduct(R, V);
     RGB spekular(0.0, 0.0, 0.0);
-    double RVFactor = std::pow(RV, object->shininess);
-    spekular =
-        object->specularReflectionComponent * light->intensity * RVFactor;
+    if (object->shininess > 0.0) { // philip: optimierung TODO allgemeine
+                                   // optimierung ist gerade etwas langsam
+      Vector4D R = normal * (2 * lambert) - direction;
+      double RV = scalarProduct(R, V);
+      double RVFactor = std::pow(RV, object->shininess);
+      spekular =
+          object->specularReflectionComponent * light->intensity * RVFactor;
+    }
 
     sumLightComponents = sumLightComponents + (diffuse + spekular);
   }
