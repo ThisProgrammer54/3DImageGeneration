@@ -11,28 +11,28 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
                                                const Ray &ray) const {
   // iterate over every object in the space
   double lowestT = INFINITY;
-  IntersectionResult finalResult{nullptr, nullptr};
+  IntersectionResult finalResult;
   for (size_t i = 0; i < space.objects.size(); ++i) {
     IntersectionResult result = space.objects[i]->intersectPoint(ray);
     if (result.object == nullptr)
       continue;
 
-    if (result.point->t < lowestT) {
-      lowestT = result.point->t;
+    if (result.point.t < lowestT) {
+      lowestT = result.point.t;
       finalResult = std::move(result);
     }
   }
-  if (finalResult.object != nullptr) {
+  if (!finalResult.hit) {
     return finalResult;
   }
-  return IntersectionResult{nullptr, nullptr};
+  return finalResult;
 }
 
 RGB Pixel::getColor(const Space &space,
                     const IntersectionResult &intersectionResult,
                     const Ray &ray) const {
 
-  if (intersectionResult.object == nullptr)
+  if (!intersectionResult.hit)
     return RGB(0, 0, 0);
 
   const PrimitiveObject *object = intersectionResult.object;
@@ -50,12 +50,11 @@ RGB Pixel::getColor(const Space &space,
 
   for (const auto &light : space.lightsource) {
 
-    Vector4D toLight = light->pos - intersectionResult.point->pos;
+    Vector4D toLight = light->pos - intersectionResult.point.pos;
     double distanceToLight = toLight.norm();
     Vector4D direction = toLight.normalized();
 
-    Ray shadowRay(intersectionResult.point->pos + direction * offset,
-                  direction);
+    Ray shadowRay(intersectionResult.point.pos + direction * offset, direction);
 
     // Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
     double lambert = scalarProduct(direction, normal);
@@ -68,7 +67,7 @@ RGB Pixel::getColor(const Space &space,
     // hab chatti gefragt wie man das machen kann damit es gut aussieht und er
     // hat gekocht
     bool schatten =
-        shadowHit.object != nullptr && shadowHit.point->t < distanceToLight;
+        shadowHit.object != nullptr && shadowHit.point.t < distanceToLight;
     if (schatten) {
       continue;
     }

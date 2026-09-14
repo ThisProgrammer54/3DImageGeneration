@@ -10,11 +10,11 @@ struct RGB {
   RGB(double, double, double);
   RGB();
 
-  //Simon: hab mal die Operatoren für die Farben hinzugefügt
-  friend RGB operator+(const RGB&, const RGB&);
-  friend RGB operator*(const RGB&, const RGB&);
-  friend RGB operator*(const RGB&, double);
-  friend RGB operator*(double, const RGB&);
+  // Simon: hab mal die Operatoren für die Farben hinzugefügt
+  friend RGB operator+(const RGB &, const RGB &);
+  friend RGB operator*(const RGB &, const RGB &);
+  friend RGB operator*(const RGB &, double);
+  friend RGB operator*(double, const RGB &);
 };
 
 class Ray {
@@ -37,8 +37,14 @@ public:
 class PrimitiveObject;
 
 struct IntersectionResult {
-  std::unique_ptr<IntersectPoint> point;
+  bool hit;
+  IntersectPoint point;
   const PrimitiveObject *object = nullptr;
+
+  IntersectionResult(bool, class IntersectPoint IntersectPoint,
+                     const PrimitiveObject *);
+
+  IntersectionResult();
 };
 
 double scalarProduct(Vector4D, Vector4D);

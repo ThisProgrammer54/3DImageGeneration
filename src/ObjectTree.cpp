@@ -1,5 +1,6 @@
 #include "Eigen/Core"
 #include "helper.hpp"
+#include <cstddef>
 #include <memory>
 #include <tree.hpp>
 
@@ -26,19 +27,17 @@ IntersectionResult Halfspace::intersectPoint(Ray &ray) {
   // parallel
   if (dScalar == 0) {
     if (Polynom(ray.pos) == r) {
-      return IntersectionResult{std::make_unique<IntersectPoint>(ray.pos, 0),
-                                this};
+      return IntersectionResult{true, IntersectPoint(ray.pos, 0), this};
     }
-    return IntersectionResult{nullptr, nullptr};
+    return IntersectionResult();
   }
   double t =
       (scalarProduct(this->position - ray.pos, this->normal)) / (dScalar);
   if (t < 0) {
-    return IntersectionResult{nullptr, nullptr};
+    return IntersectionResult();
   }
 
-  return IntersectionResult{
-      std::make_unique<IntersectPoint>(ray.pos + t * ray.d, t), this};
+  return IntersectionResult(true, IntersectPoint(ray.pos + t * ray.d, t), this);
 }
 bool Halfspace::intersec(Ray &ray) {
   IntersectionResult iP = this->intersectPoint(ray);
@@ -52,7 +51,5 @@ double Halfspace::Polynom(Vector4D in) {
   return scalarProduct(this->normal, in);
 }
 
-//simon:
-Vector4D Halfspace::getNormal() const {
-  return this->normal;
-}
+// simon:
+Vector4D Halfspace::getNormal() const { return this->normal; }

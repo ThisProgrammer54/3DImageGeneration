@@ -30,7 +30,7 @@ int main() {
   space.add(std::move(redLightSource));
 
   space.add(std::move(wall1));
-  // space.add(std::move(wall2));
+  space.add(std::move(wall2));
 
   Screen screen(10, 10, 100, Vector4D(0, 0, 0, 1), Vector4D(0, 0, 2, 1));
   screen.calculate(space);
