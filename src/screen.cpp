@@ -1,9 +1,7 @@
 #include "helper.hpp"
 #include "space.hpp"
-#include <any>
 #include <cstddef>
 #include <iostream>
-#include <iterator>
 #include <ostream>
 #include <screen.hpp>
 
@@ -33,28 +31,24 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
 }
 
 RGB Pixel::getColor(const Space &space,
-                    const IntersectionResult &intersectionResult, 
+                    const IntersectionResult &intersectionResult,
                     const Ray &ray) const {
-  // eigentlich ne funktion ob ein licht etwas anscheind und wenn nicht wird die
-  // Farbe schwarz zurückgegeben. die Funktion intersectionpoint gibt eigentlich
-  // schon die farbe an
-  // philip: wir muessen noch die verschiedenen Farbkoeffizienten implemntieren
-  // (darum habe ich es zu IntersectionResult ergaenzt)
 
   if (intersectionResult.object == nullptr)
     return RGB(0, 0, 0);
-  
+
   const PrimitiveObject *object = intersectionResult.object;
   Vector4D normal = object->getNormal();
-  //V = Vektor vom Schnittpunkt zum Ursprung
+  // V = Vektor vom Schnittpunkt zum Ursprung
   Vector4D V = -ray.d;
   V.normalize();
 
-  double offset = 0.1; 
+  double offset = 0.1;
 
-  RGB ambient = object->ambientReflectionComponent * space.ambientLightIntensity;
+  RGB ambient =
+      object->ambientReflectionComponent * space.ambientLightIntensity;
 
-  RGB sumLightComponents(0.0, 0.0, 0.0);   // i.e. diffuse + specular
+  RGB sumLightComponents(0.0, 0.0, 0.0); // i.e. diffuse + specular
 
   for (const auto &light : space.lightsource) {
 
@@ -67,31 +61,40 @@ RGB Pixel::getColor(const Space &space,
 
     IntersectionResult shadowHit = getIntersectionPoint(space, shadowRay);
 
-    //hab chatti gefragt wie man das machen kann damit es gut aussieht und er hat gekocht
-    bool schatten = shadowHit.object != nullptr && shadowHit.point->t < distanceToLight;
-    if(schatten) { continue; }
+    // hab chatti gefragt wie man das machen kann damit es gut aussieht und er
+    // hat gekocht
+    bool schatten =
+        shadowHit.object != nullptr && shadowHit.point->t < distanceToLight;
+    if (schatten) {
+      continue;
+    }
 
-    //Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
+    // Diffuser Anteil: lambertsches Gesetz: Ed = Kd * IL * (L.N)
     double lambert = scalarProduct(direction, normal);
-    if (lambert <= 0) {continue;} // Fläche Zeigt vom Licht weg, wird also nicht angeläuchtet
+    if (lambert <= 0) {
+      continue;
+    } // Fläche Zeigt vom Licht weg, wird also nicht angeläuchtet
 
-    RGB diffuse = object->diffuseReflectionComponent * light->intensity * lambert;
+    RGB diffuse =
+        object->diffuseReflectionComponent * light->intensity * lambert;
 
-    //Spekularer Anteil: Es = Ks * IL * (R.V)^alpha
-    Vector4D R = normal * (2*lambert) - direction;
+    // Spekularer Anteil: Es = Ks * IL * (R.V)^alpha
+    Vector4D R = normal * (2 * lambert) - direction;
     double RV = scalarProduct(R, V);
-    RGB spekular(0.0 , 0.0 , 0.0);
+    RGB spekular(0.0, 0.0, 0.0);
     double RVFactor = std::pow(RV, object->shininess);
-    spekular = object->specularReflectionComponent * light->intensity * RVFactor;
+    spekular =
+        object->specularReflectionComponent * light->intensity * RVFactor;
 
     sumLightComponents = sumLightComponents + (diffuse + spekular);
   }
 
   // reflektierende und gebrochener Anteil fehlen noch
-  RGB reflected;  //  E_r = K_r * I_r
-  RGB refracted;  //  E_f = K_f * I_f
+  RGB reflected = RGB(0, 0, 0); //  E_r = K_r * I_r
+  RGB refracted = RGB(0, 0, 0); //  E_f = K_f * I_f
 
   RGB allComponents = ambient + sumLightComponents + reflected + refracted;
+  return allComponents;
 }
 
 void Pixel::shootRay(const Space &space, const Ray &ray) {
