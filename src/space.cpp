@@ -10,6 +10,9 @@ IntersectionResult Object::intersectPoint(Ray ray) {
 LightSource::LightSource(Vector4D pos, RGB intensity)
     : pos(pos), intensity(intensity){};
 
+Space::Space(RGB ambientLightIntensity)
+    : ambientLightIntensity(ambientLightIntensity){};
+
 void Space::add(std::unique_ptr<Object> obj) {
   this->objects.push_back(std::move(obj));
 }

@@ -60,7 +60,7 @@ bool constructorTest() {
   double dpi = 200;
 
   Screen screen(dimY, dimX, dpi, Vector4D(1, 2, 3, 4), Vector4D(1, 2, 3, 4));
-  Space space;
+  Space space(RGB{0, 0, 0});
   screen.calculate(space);
   for (int y = 0; y < dimY * dpi; y++) {
     for (int x = 0; x < dimX * dpi; x++) {
@@ -102,7 +102,7 @@ bool pixelIntersectGetTest() {
   auto obj1 = std::make_unique<Object>(std::move(lbackward));
   auto obj2 = std::make_unique<Object>(std::move(lforward));
 
-  Space space;
+  Space space(RGB(0, 0, 0));
   space.add(std::move(obj1));
   space.add(std::move(obj2));
 
@@ -128,7 +128,7 @@ bool screenSetupTest() {
 
   // testScreen.setDimensions(20, 20);
 
-  Space emptySpace;
+  Space emptySpace(RGB(0, 0, 0));
 
   testScreen.calculate(emptySpace);
 

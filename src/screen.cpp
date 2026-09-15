@@ -64,8 +64,6 @@ RGB Pixel::getColor(const Space &space,
 
     IntersectionResult shadowHit = getIntersectionPoint(space, shadowRay);
 
-    // hab chatti gefragt wie man das machen kann damit es gut aussieht und er
-    // hat gekocht
     bool schatten =
         shadowHit.object != nullptr && shadowHit.point.t < distanceToLight;
     if (schatten) {
@@ -77,8 +75,8 @@ RGB Pixel::getColor(const Space &space,
 
     // Spekularer Anteil: Es = Ks * IL * (R.V)^alpha
     RGB spekular(0.0, 0.0, 0.0);
-    if (object->shininess > 0.0) { // philip: optimierung TODO allgemeine
-                                   // optimierung ist gerade etwas langsam
+    if (object->shininess > 0.0) {
+
       Vector4D R = normal * (2 * lambert) - direction;
       double RV = scalarProduct(R, V);
       double RVFactor = std::pow(RV, object->shininess);

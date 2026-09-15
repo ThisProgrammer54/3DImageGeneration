@@ -27,6 +27,6 @@ public:
   void add(std::unique_ptr<Object>);
   void add(std::unique_ptr<LightSource>);
 
-  // dennis
-  RGB ambientLightIntensity; 
+  RGB ambientLightIntensity;
+  Space(RGB ambientLightIntensity);
 };

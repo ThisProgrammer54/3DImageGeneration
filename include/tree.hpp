@@ -24,18 +24,13 @@ class Translation : public TransformationTree {};
 class Rotation : public TransformationTree {};
 class Scaling : public TransformationTree {};
 
-class ObjectTree : public Tree {};
-class PrimitiveObject : public ObjectTree {
+class PrimitiveObject : public Tree {
 public:
   RGB ambientReflectionComponent;
   RGB diffuseReflectionComponent;
   RGB specularReflectionComponent;
-  // simon: brauchen wir noch für den glanz von objekten, dachte das macht hier
-  // am meisten sinn, erstmal nur auf nen Wert muss später noch mit dem
-  // konstruktor gemacht werden, hab einfach mal nen default genommen
-  double shininess = 30;
+  double shininess;
   virtual double Polynom(Vector4D) = 0;
-  // simon:
   virtual Vector4D getNormal() const = 0;
 };
 class Sphere : public PrimitiveObject {
@@ -48,7 +43,8 @@ public:
   Vector4D position;
   Vector4D normal;
 
-  Halfspace(Vector4D position, Vector4D normal, RGB specRC, RGB diffuseRC);
+  Halfspace(Vector4D position, Vector4D normal, RGB specRC, RGB diffuseRC,
+            double shininess);
   /**
    * @brief construcst the Halfspace
    * @param point on plane
