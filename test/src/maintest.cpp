@@ -1,5 +1,6 @@
 #include <cassert>
 #include <iostream>
+#include <iterator>
 #include <memory>
 #include <string>
 #include <vector>
@@ -54,7 +55,19 @@ bool constructorTest() {
   assert(pixel.x == 10 && pixel.y == 20 && pixel.value.green == 1 &&
          pixel.visPoint(1) == 100);
 
-  Screen screen(100, 200, 200, Vector4D(1, 2, 3, 4), Vector4D(1, 2, 3, 4));
+  double dimX = 2;
+  double dimY = 1;
+  double dpi = 200;
+
+  Screen screen(dimY, dimX, dpi, Vector4D(1, 2, 3, 4), Vector4D(1, 2, 3, 4));
+  Space space;
+  screen.calculate(space);
+  for (int y = 0; y < dimY * dpi; y++) {
+    for (int x = 0; x < dimX * dpi; x++) {
+      Pixel &pix = screen.values[y][x];
+      assert(pix.x == x && pix.y == y && pix.value == RGB(0, 0, 0));
+    }
+  }
 
   return true;
 }
@@ -74,8 +87,8 @@ bool objectTest() {
   assert(l->intersec(ray3));
 
   Object obj(std::move(l));
-  assert(obj.intersectPoint(ray4).point->pos == Vector4D(-1, 2, 0, 0));
-  assert(obj.intersectPoint(ray4).point->t == 101);
+  assert(obj.intersectPoint(ray4).point.pos == Vector4D(-1, 2, 0, 0));
+  assert(obj.intersectPoint(ray4).point.t == 101);
 
   return true;
 }
@@ -104,7 +117,7 @@ bool pixelIntersectGetTest() {
             });
   IntersectionResult res = pix.getIntersectionPoint(space, ray1);
 
-  assert(res.point->pos == Vector4D(0, 2, 67, 0));
+  assert(res.point.pos == Vector4D(0, 2, 67, 0));
 
   return true;
 }
@@ -118,35 +131,7 @@ bool screenSetupTest() {
   Space emptySpace;
 
   testScreen.calculate(emptySpace);
-  cout << testScreen;
 
-  return true;
-}
-bool ambientLightTest() {
-  Screen testScreen(10, 10, 2, Vector4D(0, 0, 0, 1), Vector4D(-5, -5, 5, 1));
-  auto tmp = std::make_unique<Halfspace>(
-      Vector4D(-6, 0, 0, 1), Vector4D(1, 0, 0, 0), RGB{1, 0, 0}, RGB{0, 1, 0});
-  auto redWall = std::make_unique<Object>(std::move(tmp));
-  
-  tmp = std::make_unique<Halfspace>(
-      Vector4D(-10, 0, 0, 1), Vector4D(1, 1, 0, 0), RGB{0, 1, 0}, RGB{0, 1, 0});
-  auto greenWall = std::make_unique<Object>(std::move(tmp));
-
-  auto whiteLightSource =
-      std::make_unique<LightSource>(Vector4D(0, 0, 0, 1), RGB{1, 1, 1});
-
-  Space space;
-  space.add(std::move(whiteLightSource));
-  space.add(std::move(redWall));
-  space.add(std::move(greenWall));
-
-  testScreen.calculate(space);
-  cout << testScreen;
-
-  // Ist das falsch ich wuerde schon eher ja sagen (nach geogebra und meiner
-  // auffassung von koordianten) aber ich check die Koordinaten vom observer
-  // position nicht (sein cursed koordiantensystem mit x nach oben) und die
-  // ausgabe sieht nicht schlecht aus.
   return true;
 }
 
@@ -154,10 +139,9 @@ bool ambientLightTest() {
 
 int main(void) {
   Tester tester;
-  tester.addTest("testing ray construction", constructorTest);
+  tester.addTest("construction", constructorTest);
   tester.addTest("Object", objectTest);
-  tester.addTest("testing intersection getter (TODO!)", pixelIntersectGetTest);
-  // tester.addTest("screen setup", screenSetupTest);
-  tester.addTest("screen ambient", ambientLightTest);
+  tester.addTest("intersection getter (TODO!)", pixelIntersectGetTest);
+  tester.addTest("screen setup", screenSetupTest);
   tester.runAll();
 }

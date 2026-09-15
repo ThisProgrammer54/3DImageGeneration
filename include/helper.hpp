@@ -15,6 +15,7 @@ struct RGB {
   friend RGB operator*(const RGB &, const RGB &);
   friend RGB operator*(const RGB &, double);
   friend RGB operator*(double, const RGB &);
+  friend bool operator==(const RGB &, const RGB &);
 };
 
 class Ray {

@@ -19,6 +19,9 @@ RGB operator*(const RGB &a, double b) {
 RGB operator*(double b, const RGB &a) {
   return RGB(a.red * b, a.green * b, a.blue * b);
 }
+bool operator==(const RGB &a, const RGB &b) {
+  return (a.red == b.red && a.blue == b.blue && a.green == b.green);
+}
 
 IntersectPoint::IntersectPoint(Vector4D pos, double t)
     : pos(pos), t(t), color(RGB{-1, -1, -1}){};
