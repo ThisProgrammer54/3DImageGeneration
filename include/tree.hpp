@@ -37,6 +37,8 @@ class Sphere : public PrimitiveObject {
 public:
   Vector4D Position;
   double radius;
+
+  Sphere(Vector4D position, double normal);
 };
 class Halfspace : public PrimitiveObject {
 public:

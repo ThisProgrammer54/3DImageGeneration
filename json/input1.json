@@ -1,0 +1,8 @@
+{
+    "screen": {
+        "dpi": 128,
+        "dimensions": [2, 4],
+        "position": [-1, -2, -10],
+        "observer": [0, 0, -20]
+    }
+}
