@@ -22,8 +22,9 @@ IntersectionResult Intersection::intersectPoint(Ray &ray) {
               return a.point.t < b.point.t;
             });
   for (auto &possible : allResults) {
-    if (this->inside(possible.point))
+    if (this->inside(possible.point)) {
       return possible;
+    }
   }
   return IntersectionResult();
 }

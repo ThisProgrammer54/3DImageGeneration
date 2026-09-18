@@ -76,7 +76,10 @@ RGB Pixel::getColor(const Space &space,
 
       Vector4D R = normal * (2 * lambert) - direction;
       double RV = scalarProduct(R, V);
-      double RVFactor = std::pow(RV, object->shininess);
+      double RVFactor = 0.0;
+      if (RV > 0.0) {
+        RVFactor = std::pow(RV, object->shininess);
+      }
       spekular =
           object->specularReflectionComponent * light->intensity * RVFactor;
     }

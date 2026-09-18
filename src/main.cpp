@@ -25,11 +25,11 @@ std::unique_ptr<Object> makeCube(Vector4D start, double x, double y, double z,
                                           color, 30);
 
   auto tmp4 = std::make_unique<Halfspace>(
-      start + Vector4D(x, 0, 0, 1), Vector4D(1, 0, 0, 0), color, color, 30);
+      start + Vector4D(x, 0, 0, 0), Vector4D(1, 0, 0, 0), color, color, 30);
   auto tmp5 = std::make_unique<Halfspace>(
-      start + Vector4D(0, y, 0, 1), Vector4D(0, 1, 0, 0), color, color, 30);
+      start + Vector4D(0, y, 0, 0), Vector4D(0, 1, 0, 0), color, color, 30);
   auto tmp6 = std::make_unique<Halfspace>(
-      start + Vector4D(0, 0, z, 1), Vector4D(0, 0, 1, 0), color, color, 30);
+      start + Vector4D(0, 0, z, 0), Vector4D(0, 0, 1, 0), color, color, 30);
 
   auto tmpCube = std::make_unique<Intersection>();
   tmpCube->add(std::move(tmp));
@@ -76,7 +76,7 @@ int main() {
 
   space.add(std::move(wall1));
   space.add(std::move(cube));
-  space.add(std::move(cube2));
+  // space.add(std::move(cube2));
 
   screen.calculate(space);
 
