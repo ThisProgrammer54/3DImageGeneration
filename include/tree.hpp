@@ -8,18 +8,36 @@ class Tree {
 public:
   std::vector<std::unique_ptr<Tree>> nodes;
 
+  /**
+   *@brief returns Intersection with tree
+   */
   virtual IntersectionResult intersectPoint(Ray &) = 0;
+  /**
+  / @brief check if ray intersects with tree
+  */
   virtual bool intersec(Ray &) = 0;
+
+  /**
+   * @brief checks if point is in tree
+   * @param point
+   */
+  virtual bool inside(IntersectPoint &) = 0;
 
   void add(std::unique_ptr<Tree>);
 };
 
 class LogicalTree : public Tree {};
+
 class Union : public LogicalTree {};
-class Intersection : public LogicalTree {};
+class Intersection : public LogicalTree {
+  IntersectionResult intersectPoint(Ray &) override;
+  bool intersec(Ray &) override;
+  bool inside(IntersectPoint &) override;
+};
 class Exclusion : public LogicalTree {};
 
 class TransformationTree : public Tree {};
+
 class Translation : public TransformationTree {};
 class Rotation : public TransformationTree {};
 class Scaling : public TransformationTree {};
@@ -62,6 +80,8 @@ public:
   IntersectionResult intersectPoint(Ray &ray) override;
   bool intersec(Ray &) override;
   double Polynom(Vector4D) override;
+  bool inside(IntersectPoint &a) override;
+  bool inside(Vector4D &pos);
   // Simon:
   Vector4D getNormal() const override;
 };
