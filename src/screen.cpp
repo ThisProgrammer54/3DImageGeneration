@@ -14,16 +14,13 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
   IntersectionResult finalResult;
   for (size_t i = 0; i < space.objects.size(); ++i) {
     IntersectionResult result = space.objects[i]->intersectPoint(ray);
-    if (result.object == nullptr)
+    if (!result.hit)
       continue;
 
     if (result.point.t < lowestT) {
       lowestT = result.point.t;
       finalResult = std::move(result);
     }
-  }
-  if (!finalResult.hit) {
-    return finalResult;
   }
   return finalResult;
 }

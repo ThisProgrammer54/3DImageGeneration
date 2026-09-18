@@ -13,7 +13,6 @@ IntersectionResult Intersection::intersectPoint(Ray &ray) {
       allResults.push_back(res);
   }
 
-  std::cout << "anzahl: " << allResults.size() << std::endl;
   if (allResults.empty())
     return IntersectionResult();
 
@@ -23,11 +22,8 @@ IntersectionResult Intersection::intersectPoint(Ray &ray) {
               return a.point.t < b.point.t;
             });
   for (auto &possible : allResults) {
-
-    for (size_t i = 0; i < this->nodes.size(); i++) {
-      if (this->inside(possible.point))
-        return possible;
-    }
+    if (this->inside(possible.point))
+      return possible;
   }
   return IntersectionResult();
 }
