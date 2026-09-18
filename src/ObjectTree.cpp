@@ -10,7 +10,7 @@ Halfspace::Halfspace(Vector4D position, Vector4D normal,
   Vector4D normedNormal = normal / normal.norm();
   this->normal = normedNormal;
 
-  double r = this->Polynom(position);
+  double r = scalarProduct(this->normal, position);
   this->position = r * normedNormal;
   this->position(3) = 1;
 
@@ -23,12 +23,11 @@ Halfspace::Halfspace(Vector4D position, Vector4D normal)
     : Halfspace(position, normal, {1, 0, 0}, {1, 0, 0}, 0){};
 
 IntersectionResult Halfspace::intersectPoint(Ray &ray) {
-  double r = this->normal(3);
   double dScalar = scalarProduct(this->normal, ray.d);
 
   // parallel
   if (dScalar == 0) {
-    if (Polynom(ray.pos) == r) {
+    if (Polynom(ray.pos) >= -1e-5) {
       return IntersectionResult{true, IntersectPoint(ray.pos, 0), this};
     }
     return IntersectionResult();
@@ -50,7 +49,7 @@ bool Halfspace::intersec(Ray &ray) {
   return true;
 }
 double Halfspace::Polynom(Vector4D in) {
-  return scalarProduct(this->normal, in);
+  return scalarProduct(this->normal, this->position - in);
 }
 
 // simon:
