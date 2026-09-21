@@ -135,6 +135,11 @@ bool screenSetupTest() {
   return true;
 }
 
+bool SphereTest() {
+  auto sphere = std::make_unique<Sphere>(Vector4D(0, 0, 100, 1), 10);
+  return true;
+}
+
 // ------- Test ende -------
 
 int main(void) {

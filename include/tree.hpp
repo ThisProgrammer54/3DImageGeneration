@@ -5,6 +5,9 @@
 
 #pragma once
 
+#define DEFSHINY 0
+#define DEFCOLOR (RGB(1, 0, 0))
+
 class Tree {
 public:
   std::vector<std::unique_ptr<Tree>> nodes;
@@ -52,15 +55,25 @@ public:
   RGB refractedComponent;
 
   double shininess;
-  virtual double Polynom(Vector4D) = 0;
-  virtual Vector4D getNormal() const = 0;
+  virtual double Polynom(Vector4D) const = 0;
+  virtual Vector4D getNormal(Vector4D point) const = 0;
 };
 class Sphere : public PrimitiveObject {
 public:
-  Vector4D Position;
+  Vector4D position;
   double radius;
 
-  Sphere(Vector4D position, double normal);
+  Sphere(Vector4D position, double radius, RGB ambRC, RGB specRC, RGB diffuseRC,
+         RGB reflec, RGB refrac, double shininess);
+  Sphere(Vector4D position, double radius, RGB color);
+  Sphere(Vector4D position, double radius);
+
+  IntersectionResult intersectPoint(Ray &ray) override;
+  bool intersec(Ray &) override;
+  bool inside(IntersectPoint &a) override;
+
+  double Polynom(Vector4D) const override;
+  Vector4D getNormal(Vector4D point) const override;
 };
 class Halfspace : public PrimitiveObject {
 public:
@@ -85,9 +98,9 @@ public:
    */
   IntersectionResult intersectPoint(Ray &ray) override;
   bool intersec(Ray &) override;
-  double Polynom(Vector4D) override;
   bool inside(IntersectPoint &a) override;
-  bool inside(Vector4D &pos);
+
+  double Polynom(Vector4D) const override;
   // Simon:
-  Vector4D getNormal() const override;
+  Vector4D getNormal(Vector4D point) const override;
 };

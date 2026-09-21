@@ -33,7 +33,7 @@ RGB Pixel::getColor(const Space &space,
     return RGB(0, 0, 0);
 
   const PrimitiveObject *object = intersectionResult.object;
-  Vector4D normal = object->getNormal();
+  Vector4D normal = object->getNormal(intersectionResult.point.pos);
   // V = Vektor vom Schnittpunkt zum Ursprung
   Vector4D V = -ray.d;
   V.normalize();
