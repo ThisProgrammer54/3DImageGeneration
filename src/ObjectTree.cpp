@@ -1,5 +1,6 @@
 #include "Eigen/Core"
 #include "helper.hpp"
+#include <cmath>
 #include <strings.h>
 #include <tree.hpp>
 
@@ -86,12 +87,33 @@ Sphere ::Sphere(Vector4D position, double radius)
     : Sphere(position, radius, DEFCOLOR){};
 
 IntersectionResult Sphere::intersectPoint(Ray &ray) {
+  double r = this->radius;
+  Vector4D &d = ray.d;
+  Vector4D SC = this->position - ray.pos;
+  double dSC = scalarProduct(d, SC);
+
+  double delta = r * r + dSC * dSC - scalarProduct(SC, SC);
+
+  if (delta < 0)
+    return IntersectionResult();
+
+  double sqrtDelta = sqrt(delta);
+  double t1 = dSC - sqrtDelta;
+  double t2 = dSC + sqrtDelta;
+
+  // t1 wird immer kleiner sein als t2
+  if (t1 > 0)
+    return IntersectionResult(true, IntersectPoint(ray.pos + ray.d * t1, t1),
+                              this);
+  if (t2 > 0)
+    return IntersectionResult(true, IntersectPoint(ray.pos + ray.d * t2, t2),
+                              this);
+
   return IntersectionResult();
 }
 
-bool Sphere::intersec(Ray &ray) { return true; }
-
-bool Sphere::inside(IntersectPoint &a) { return true; }
+bool Sphere::intersec(Ray &ray) { return this->intersectPoint(ray).hit; }
+bool Sphere::inside(IntersectPoint &a) { return this->Polynom(a.pos) >= -1e-5; }
 
 double Sphere::Polynom(Vector4D in) const {
   double x = in(0) - this->position(0);
