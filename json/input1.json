@@ -1,8 +1,8 @@
 {
     "screen": {
-        "dpi": 128,
-        "dimensions": [2, 4],
-        "position": [-1, -2, -10],
-        "observer": [0, 0, -20]
+        "dpi": 100,
+        "dimensions": [8, 10],
+        "position": [-1, 0, 5],
+        "observer": [0, 0, 10]
     }
 }

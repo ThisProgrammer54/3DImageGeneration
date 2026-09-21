@@ -3,7 +3,7 @@
 #include "Eigen/Core"
 #include <iostream>
 
-#define Vector4D Eigen ::Vector<double, 4>
+using Vector4D = Eigen::Vector<double, 4>;
 
 struct RGB {
   double red, green, blue;

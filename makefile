@@ -21,7 +21,7 @@ $(TARGET): $(SRC_CPP)
 	$(CXX) $(CXX_FLAGS)  -Iinclude/eigen -I$(INC) $^ -o $@ $(OPENCV)
  
 run: all 
-	./$(TARGET)
+	./$(TARGET) 
  
 clean: 
 	rm -rf build
