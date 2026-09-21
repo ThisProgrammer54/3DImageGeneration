@@ -14,16 +14,13 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
   IntersectionResult finalResult;
   for (size_t i = 0; i < space.objects.size(); ++i) {
     IntersectionResult result = space.objects[i]->intersectPoint(ray);
-    if (result.object == nullptr)
+    if (!result.hit)
       continue;
 
     if (result.point.t < lowestT) {
       lowestT = result.point.t;
       finalResult = std::move(result);
     }
-  }
-  if (!finalResult.hit) {
-    return finalResult;
   }
   return finalResult;
 }
@@ -36,7 +33,7 @@ RGB Pixel::getColor(const Space &space,
     return RGB(0, 0, 0);
 
   const PrimitiveObject *object = intersectionResult.object;
-  Vector4D normal = object->getNormal();
+  Vector4D normal = object->getNormal(intersectionResult.point.pos);
   // V = Vektor vom Schnittpunkt zum Ursprung
   Vector4D V = -ray.d;
   V.normalize();
@@ -79,7 +76,10 @@ RGB Pixel::getColor(const Space &space,
 
       Vector4D R = normal * (2 * lambert) - direction;
       double RV = scalarProduct(R, V);
-      double RVFactor = std::pow(RV, object->shininess);
+      double RVFactor = 0.0;
+      if (RV > 0.0) {
+        RVFactor = std::pow(RV, object->shininess);
+      }
       spekular =
           object->specularReflectionComponent * light->intensity * RVFactor;
     }

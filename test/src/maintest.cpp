@@ -135,6 +135,24 @@ bool screenSetupTest() {
   return true;
 }
 
+bool sphereTest() {
+  auto sphere = std::make_unique<Sphere>(Vector4D(0, 0, 100, 1), 1);
+
+  Ray ray(Vector4D(0, 0, 0, 1), Vector4D(1, 0, 0, 0));
+  Ray ray2(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray3(Vector4D(10, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray4(Vector4D(1, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray5(Vector4D(2, 0, 98, 1), Vector4D(0, 0, 1, 0));
+
+  assert(!sphere->intersec(ray));
+  assert(sphere->intersec(ray2));
+  assert(!sphere->intersec(ray3));
+  assert(sphere->intersec(ray4));
+  assert(!sphere->intersec(ray5));
+
+  return true;
+}
+
 // ------- Test ende -------
 
 int main(void) {
@@ -143,5 +161,6 @@ int main(void) {
   tester.addTest("Object", objectTest);
   tester.addTest("intersection getter (TODO!)", pixelIntersectGetTest);
   tester.addTest("screen setup", screenSetupTest);
+  tester.addTest("sphere", sphereTest);
   tester.runAll();
 }
