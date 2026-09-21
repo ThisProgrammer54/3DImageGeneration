@@ -48,14 +48,7 @@ IntersectionResult Halfspace::intersectPoint(Ray &ray) {
 
   return IntersectionResult(true, IntersectPoint(ray.pos + t * ray.d, t), this);
 }
-bool Halfspace::intersec(Ray &ray) {
-  IntersectionResult iP = this->intersectPoint(ray);
-
-  if (!iP.hit)
-    return false;
-
-  return true;
-}
+bool Halfspace::intersec(Ray &ray) { return this->intersectPoint(ray).hit; }
 double Halfspace::Polynom(Vector4D in) const {
   return scalarProduct(this->normal, this->position - in);
 }
