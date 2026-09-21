@@ -113,7 +113,8 @@ IntersectionResult Sphere::intersectPoint(Ray &ray) {
 }
 
 bool Sphere::intersec(Ray &ray) { return this->intersectPoint(ray).hit; }
-bool Sphere::inside(IntersectPoint &a) { return this->Polynom(a.pos) >= -1e-5; }
+
+bool Sphere::inside(IntersectPoint &a) { return this->Polynom(a.pos) <= 1e-5; }
 
 double Sphere::Polynom(Vector4D in) const {
   double x = in(0) - this->position(0);
@@ -124,5 +125,5 @@ double Sphere::Polynom(Vector4D in) const {
 }
 
 Vector4D Sphere::getNormal(Vector4D point) const {
-  return (this->position * this->Polynom(point)) / this->radius;
+  return (point - this->position) / this->radius;
 }

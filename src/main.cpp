@@ -49,16 +49,15 @@ int main() {
 
   // Object creation
   auto tmp = std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1),
-                                         Vector4D(0, 0, 1, 0), RGB{1, 0, 1});
-
-  auto tmp2 = std::make_unique<Halfspace>(Vector4D(1200, 0, 0, 1),
-                                          Vector4D(-1, 0, 0, 0), RGB{0, 1, 0});
-  // wall->add(std::move(tmp2));
+                                         Vector4D(0, 0, 1, 0), RGB{1, 1, 1});
 
   auto wall1 = std::make_unique<Object>(std::move(tmp));
 
+  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, RGB(0, 0, 1));
+  auto sphere1 = std::make_unique<Object>(std::move(tmp2));
+
   auto whiteLightSource =
-      std::make_unique<LightSource>(Vector4D(-100, -100, 50, 1), RGB{1, 1, 1});
+      std::make_unique<LightSource>(Vector4D(3, 3, 10, 1), RGB{1, 1, 1});
   auto redLightSource =
       std::make_unique<LightSource>(Vector4D(0, 0, 0, 1), RGB{1, 0, 0});
 
@@ -72,6 +71,7 @@ int main() {
   space.add(std::move(wall1));
   space.add(std::move(cube));
   // space.add(std::move(cube2));
+  space.add(std::move(sphere1));
 
   screen.calculate(space);
 
