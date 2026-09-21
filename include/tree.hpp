@@ -1,4 +1,5 @@
 #include "helper.hpp"
+#include "opencv2/core/matx.hpp"
 #include <memory>
 #include <vector>
 
@@ -47,6 +48,9 @@ public:
   RGB ambientReflectionComponent;
   RGB diffuseReflectionComponent;
   RGB specularReflectionComponent;
+  RGB reflectionComponent;
+  RGB refractedComponent;
+
   double shininess;
   virtual double Polynom(Vector4D) = 0;
   virtual Vector4D getNormal() const = 0;
@@ -63,8 +67,10 @@ public:
   Vector4D position;
   Vector4D normal;
 
-  Halfspace(Vector4D position, Vector4D normal, RGB specRC, RGB diffuseRC,
-            double shininess);
+  Halfspace(Vector4D position, Vector4D normal, RGB ambRC, RGB specRC,
+            RGB diffuseRC, RGB reflec, RGB refrac, double shininess);
+
+  Halfspace(Vector4D position, Vector4D normal, RGB color);
   /**
    * @brief construcst the Halfspace
    * @param point on plane

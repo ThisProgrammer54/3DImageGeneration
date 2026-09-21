@@ -4,9 +4,10 @@
 #include <memory>
 #include <tree.hpp>
 
-Halfspace::Halfspace(Vector4D position, Vector4D normal,
+Halfspace::Halfspace(Vector4D position, Vector4D normal, RGB ambRC,
                      RGB diffuseReflectionComponent,
-                     RGB specularReflectionComponent, double shininess) {
+                     RGB specularReflectionComponent, RGB reflec, RGB refrac,
+                     double shininess) {
   Vector4D normedNormal = normal / normal.norm();
   this->normal = normedNormal;
 
@@ -14,13 +15,19 @@ Halfspace::Halfspace(Vector4D position, Vector4D normal,
   this->position = r * normedNormal;
   this->position(3) = 1;
 
+  this->ambientReflectionComponent = ambRC;
   this->diffuseReflectionComponent = diffuseReflectionComponent;
   this->specularReflectionComponent = specularReflectionComponent;
+  this->reflectionComponent = reflec;
+  this->refractedComponent = refrac;
 
   this->shininess = shininess;
 }
+Halfspace::Halfspace(Vector4D position, Vector4D normal, RGB color)
+    : Halfspace(position, normal, color, color, color, color, color, 0){};
+
 Halfspace::Halfspace(Vector4D position, Vector4D normal)
-    : Halfspace(position, normal, {1, 0, 0}, {1, 0, 0}, 0){};
+    : Halfspace(position, normal, RGB{1, 0, 0}){};
 
 IntersectionResult Halfspace::intersectPoint(Ray &ray) {
   double dScalar = scalarProduct(this->normal, ray.d);

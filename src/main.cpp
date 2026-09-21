@@ -17,19 +17,16 @@ using Eigen::MatrixXd;
 
 std::unique_ptr<Object> makeCube(Vector4D start, double x, double y, double z,
                                  RGB color) {
-  auto tmp = std::make_unique<Halfspace>(start, Vector4D(-1, 0, 0, 0), color,
-                                         color, 30);
-  auto tmp2 = std::make_unique<Halfspace>(start, Vector4D(0, -1, 0, 0), color,
-                                          color, 30);
-  auto tmp3 = std::make_unique<Halfspace>(start, Vector4D(0, 0, -1, 0), color,
-                                          color, 30);
+  auto tmp = std::make_unique<Halfspace>(start, Vector4D(-1, 0, 0, 0), color);
+  auto tmp2 = std::make_unique<Halfspace>(start, Vector4D(0, -1, 0, 0), color);
+  auto tmp3 = std::make_unique<Halfspace>(start, Vector4D(0, 0, -1, 0), color);
 
-  auto tmp4 = std::make_unique<Halfspace>(
-      start + Vector4D(x, 0, 0, 0), Vector4D(1, 0, 0, 0), color, color, 30);
-  auto tmp5 = std::make_unique<Halfspace>(
-      start + Vector4D(0, y, 0, 0), Vector4D(0, 1, 0, 0), color, color, 30);
-  auto tmp6 = std::make_unique<Halfspace>(
-      start + Vector4D(0, 0, z, 0), Vector4D(0, 0, 1, 0), color, color, 30);
+  auto tmp4 = std::make_unique<Halfspace>(start + Vector4D(x, 0, 0, 0),
+                                          Vector4D(1, 0, 0, 0), color);
+  auto tmp5 = std::make_unique<Halfspace>(start + Vector4D(0, y, 0, 0),
+                                          Vector4D(0, 1, 0, 0), color);
+  auto tmp6 = std::make_unique<Halfspace>(start + Vector4D(0, 0, z, 0),
+                                          Vector4D(0, 0, 1, 0), color);
 
   auto tmpCube = std::make_unique<Intersection>();
   tmpCube->add(std::move(tmp));
@@ -51,13 +48,11 @@ int main() {
   Screen screen(10, 10, 100, Vector4D(0, 0, 10, 1), Vector4D(0, 0, 5, 1));
 
   // Object creation
-  auto tmp =
-      std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0),
-                                  RGB{1, 1, 1}, RGB{1, 1, 1}, 30);
+  auto tmp = std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1),
+                                         Vector4D(0, 0, 1, 0), RGB{1, 0, 1});
 
   auto tmp2 = std::make_unique<Halfspace>(Vector4D(1200, 0, 0, 1),
-                                          Vector4D(-1, 0, 0, 0), RGB{0, 1, 0},
-                                          RGB{0, 1, 0}, 30);
+                                          Vector4D(-1, 0, 0, 0), RGB{0, 1, 0});
   // wall->add(std::move(tmp2));
 
   auto wall1 = std::make_unique<Object>(std::move(tmp));
