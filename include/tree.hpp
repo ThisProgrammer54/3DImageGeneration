@@ -10,8 +10,6 @@
 
 class Tree {
 public:
-  std::vector<std::unique_ptr<Tree>> nodes;
-
   /**
    *@brief returns Intersection with tree
    */
@@ -26,14 +24,15 @@ public:
    * @param point
    */
   virtual bool inside(IntersectPoint &) = 0;
-
-  void add(std::unique_ptr<Tree>);
 };
 
 class LogicalTree : public Tree {
 public:
+  std::vector<std::unique_ptr<Tree>> nodes;
+
   IntersectionResult intersectPoint(Ray &) override;
   bool intersec(Ray &) override;
+  void add(std::unique_ptr<Tree>);
 };
 
 class Union : public LogicalTree {
@@ -48,7 +47,14 @@ public:
   bool inside(IntersectPoint &) override;
 };
 
-class TransformationTree : public Tree {};
+class TransformationTree : public Tree {
+
+  virtual void buildMatrices(Vector4D in) = 0;
+  virtual void buildInverses() = 0;
+
+public:
+  TransformationTree(Vector4D transform);
+};
 
 class Translation : public TransformationTree {};
 class Rotation : public TransformationTree {};
