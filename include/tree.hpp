@@ -32,13 +32,23 @@ public:
 
 class LogicalTree : public Tree {};
 
-class Union : public LogicalTree {};
+class Union : public LogicalTree {
+  public:
+    IntersectionResult intersectPoint(Ray &) override;
+    bool intersec(Ray &) override;
+    bool inside(IntersectPoint &) override;
+};
 class Intersection : public LogicalTree {
   IntersectionResult intersectPoint(Ray &) override;
   bool intersec(Ray &) override;
   bool inside(IntersectPoint &) override;
 };
-class Exclusion : public LogicalTree {};
+class Exclusion : public LogicalTree {
+    public:
+    IntersectionResult intersectPoint(Ray &) override;
+    bool intersec(Ray &) override;
+    bool inside(IntersectPoint &) override;
+};
 
 class TransformationTree : public Tree {};
 
@@ -101,6 +111,5 @@ public:
   bool inside(IntersectPoint &a) override;
 
   double Polynom(Vector4D) const override;
-  // Simon:
   Vector4D getNormal(Vector4D point) const override;
 };
