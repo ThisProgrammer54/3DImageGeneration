@@ -152,6 +152,84 @@ bool sphereTest() {
 
   return true;
 }
+bool unionTest() {
+  auto sphere = std::make_unique<Sphere>(Vector4D(0, 0, 100, 1), 1);
+  auto plane = std::make_unique<Halfspace>(Vector4D(0, 0, 200, 1),
+                                           Vector4D(0, 0, -1, 0));
+
+  auto test = std::make_unique<Union>();
+  test->add(std::move(sphere));
+  test->add(std::move(plane));
+
+  Ray ray(Vector4D(0, 0, 0, 1), Vector4D(1, 0, 0, 0));
+  Ray ray2(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray3(Vector4D(10, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray4(Vector4D(0, 0, 110, 1), Vector4D(1, 1, 0, 0));
+  Ray ray5(Vector4D(2, 0, 98, 1), Vector4D(0, 0, 1, 0));
+  Ray ray6(Vector4D(0, 0, 150, 1), Vector4D(1, 0, 0, 0));
+
+  assert(test->intersec(ray2));
+  assert(test->intersec(ray3));
+  assert(test->intersec(ray5));
+
+  assert(!test->intersec(ray));
+  assert(!test->intersec(ray4));
+  assert(!test->intersec(ray6));
+  return true;
+}
+bool exclusionTest() {
+  auto plane1 = std::make_unique<Halfspace>(Vector4D(0, 0, 100, 1),
+                                            Vector4D(0, 0, -1, 0));
+  auto plane2 =
+      std::make_unique<Halfspace>(Vector4D(0, 0, 50, 1), Vector4D(0, 0, -1, 0));
+
+  auto test = std::make_unique<Exclusion>();
+  test->add(std::move(plane1));
+  test->add(std::move(plane2));
+
+  Ray ray(Vector4D(0, 0, 0, 1), Vector4D(1, 0, 0, 0));
+  Ray ray2(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray3(Vector4D(10, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray4(Vector4D(1, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray5(Vector4D(0, 0, 105, 1), Vector4D(0, 0, -1, 0));
+  Ray ray6(Vector4D(0, 0, 150, 1), Vector4D(1, 0, 0, 0));
+
+  assert(test->intersec(ray2));
+  assert(test->intersec(ray3));
+  assert(test->intersec(ray4));
+  assert(test->intersec(ray5));
+
+  assert(!test->intersec(ray));
+  assert(!test->intersec(ray6));
+  return true;
+}
+bool intersectionTest() {
+  auto plane1 = std::make_unique<Halfspace>(Vector4D(0, 0, 100, 1),
+                                            Vector4D(0, 0, -1, 0));
+  auto plane2 =
+      std::make_unique<Halfspace>(Vector4D(0, 0, 50, 1), Vector4D(0, 0, -1, 0));
+
+  auto test = std::make_unique<Intersection>();
+  test->add(std::move(plane1));
+  test->add(std::move(plane2));
+
+  Ray ray(Vector4D(0, 0, 0, 1), Vector4D(1, 0, 0, 0));
+  Ray ray2(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray3(Vector4D(10, 0, 0, 1), Vector4D(0, 0, 1, 0));
+  Ray ray4(Vector4D(1, 0, 70, 1), Vector4D(0, 0, 1, 0));
+  Ray ray5(Vector4D(0, 0, 70, 1), Vector4D(1, 1, 0, 0));
+  Ray ray6(Vector4D(0, 0, 80, 1), Vector4D(1, 1, -1, 0));
+
+  assert(test->intersec(ray2));
+  assert(test->intersec(ray3));
+  assert(test->intersec(ray4));
+
+  assert(!test->intersec(ray));
+  assert(!test->intersec(ray5));
+  assert(!test->intersec(ray6));
+
+  return true;
+}
 
 // ------- Test ende -------
 
@@ -162,5 +240,8 @@ int main(void) {
   tester.addTest("intersection getter (TODO!)", pixelIntersectGetTest);
   tester.addTest("screen setup", screenSetupTest);
   tester.addTest("sphere", sphereTest);
+  tester.addTest("union", unionTest);
+  tester.addTest("exclusion", exclusionTest);
+  tester.addTest("intersection", intersectionTest);
   tester.runAll();
 }

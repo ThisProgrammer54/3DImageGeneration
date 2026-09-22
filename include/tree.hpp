@@ -31,6 +31,7 @@ public:
 };
 
 class LogicalTree : public Tree {
+public:
   IntersectionResult intersectPoint(Ray &) override;
   bool intersec(Ray &) override;
 };
