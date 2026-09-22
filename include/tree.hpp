@@ -30,24 +30,21 @@ public:
   void add(std::unique_ptr<Tree>);
 };
 
-class LogicalTree : public Tree {};
-
-class Union : public LogicalTree {
-  public:
-    IntersectionResult intersectPoint(Ray &) override;
-    bool intersec(Ray &) override;
-    bool inside(IntersectPoint &) override;
-};
-class Intersection : public LogicalTree {
+class LogicalTree : public Tree {
   IntersectionResult intersectPoint(Ray &) override;
   bool intersec(Ray &) override;
+};
+
+class Union : public LogicalTree {
+public:
+  bool inside(IntersectPoint &) override;
+};
+class Intersection : public LogicalTree {
   bool inside(IntersectPoint &) override;
 };
 class Exclusion : public LogicalTree {
-    public:
-    IntersectionResult intersectPoint(Ray &) override;
-    bool intersec(Ray &) override;
-    bool inside(IntersectPoint &) override;
+public:
+  bool inside(IntersectPoint &) override;
 };
 
 class TransformationTree : public Tree {};
