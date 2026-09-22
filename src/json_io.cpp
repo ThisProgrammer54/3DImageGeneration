@@ -66,7 +66,3 @@ void makeLights(const json& j, Space& space) {
 //     // }
 //     throw std::runtime_error("Unknown or unsupported object entry: " + j.dump());
 // }
-
-
-
-// makeScreen, makeLight, makeObject, etc.
