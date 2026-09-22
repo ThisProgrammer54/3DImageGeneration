@@ -35,4 +35,5 @@ Vector4D parseDirection(const json& j);
 RGB parseColor (const json& j);
 
 Screen makeScreen(const json& j);
-
+Space makeSpace(const json& j);
+void makeLights(const json& j, Space& space);

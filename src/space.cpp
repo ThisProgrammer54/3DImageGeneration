@@ -11,11 +11,14 @@ LightSource::LightSource(Vector4D pos, RGB intensity)
     : pos(pos), intensity(intensity){};
 
 Space::Space(RGB ambientLightIntensity)
-    : ambientLightIntensity(ambientLightIntensity){};
+    : ambientLightIntensity(ambientLightIntensity), index(1), recursion(1){};
+
+Space::Space(RGB ambientLightIntensity, int index, int recursion)
+    : ambientLightIntensity(ambientLightIntensity), index(index), recursion(recursion){};
 
 void Space::add(std::unique_ptr<Object> obj) {
   this->objects.push_back(std::move(obj));
 }
 void Space::add(std::unique_ptr<LightSource> ls) {
-  this->lightsource.push_back(std::move(ls));
+  this->lightSources.push_back(std::move(ls));
 }

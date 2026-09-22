@@ -9,7 +9,7 @@ using std::string, std::cout, std::endl;
 using json = nlohmann::json;
 
 Vector4D parsePoint(const json& j) {
-    auto a = j.get<std::array<double, 3>>();
+    auto a = j.get<std::array<double, 3>>(); 
     return Vector4D(a[0], a[1], a[2], 0);
 }
 Vector4D parseDirection(const json& j) {
@@ -34,15 +34,23 @@ Screen makeScreen(const json& j) {
     return Screen(height, width, dpi, observerPos, screenPos);
 }
 
-// // Expects json type of a light source
-// std::unique_ptr<LightSource> makeLight(const json& j) {
-//     if (j.)
+Space makeSpace(const json& j) {
+    RGB ambient = parseColor(j.at("medium").at("ambient"));
+    int index = j.at("medium").at("index").get<int>();
+    int recursion = j.at("medium").at("recursion").get<int>();
+    return Space(ambient, index, recursion);
+}
 
-//     return std::make_unique<LightSource>(
-//         parsePosition(j.at("position")),
-//         parseColor(j.at("intensity"));
-//     ); 
-// }
+void makeLights(const json& j, Space& space) {
+    auto sources = j.at("sources");
+    for (auto s : sources) {
+        Vector4D pos  = parsePoint(s.at("position"));
+        RGB intensity = parseColor(s.at("intensity")); 
+        space.add(std::make_unique<LightSource>(pos, intensity));
+    }
+    std::cout << sources.size() << " light sources added." << std::endl; 
+}
+
 
 // // Expects json type of an element of object[]
 // std::unique_ptr<PrimitiveObject> makeObject(const json& j) {

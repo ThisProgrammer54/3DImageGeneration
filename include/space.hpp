@@ -21,10 +21,14 @@ public:
 class Space {
 public:
   std::vector<std::unique_ptr<Object>> objects;
-  std::vector<std::unique_ptr<LightSource>> lightsource;
+  std::vector<std::unique_ptr<LightSource>> lightSources;
   void add(std::unique_ptr<Object>);
-  void add(std::unique_ptr<LightSource>);
+  void add(std::unique_ptr<LightSource> ls);
+  void add(std::vector<std::unique_ptr<LightSource>>);
 
   RGB ambientLightIntensity;
+  int index;
+  int recursion;
   Space(RGB ambientLightIntensity);
+  Space(RGB ambientLightIntensity, int index, int recursion);
 };

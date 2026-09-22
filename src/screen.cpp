@@ -45,7 +45,7 @@ RGB Pixel::getColor(const Space &space,
 
   RGB sumLightComponents(0.0, 0.0, 0.0); // i.e. diffuse + specular
 
-  for (const auto &light : space.lightsource) {
+  for (const auto &light : space.lightSources) {
 
     Vector4D toLight = light->pos - intersectionResult.point.pos;
     double distanceToLight = toLight.norm();
