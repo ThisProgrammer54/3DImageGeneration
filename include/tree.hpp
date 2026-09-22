@@ -48,15 +48,30 @@ public:
 };
 
 class TransformationTree : public Tree {
-
-  virtual void buildMatrices(Vector4D in) = 0;
+  virtual void buildMatrices(const Vector4D in) = 0;
   virtual void buildInverses() = 0;
+  virtual Vector4D applyInverse(const Vector4D in) const = 0;
 
 public:
-  TransformationTree(Vector4D transform);
+  std::unique_ptr<Tree> node;
+
+public:
+  IntersectionResult intersectPoint(Ray &) override;
+  bool intersec(Ray &) override;
 };
 
-class Translation : public TransformationTree {};
+class Translation : public TransformationTree {
+protected:
+  Matrix4D mat;
+  Matrix4D inv;
+  void buildMatrices(const Vector4D in) override;
+  void buildInverses() override;
+  Vector4D applyInverse(const Vector4D in) const override;
+
+public:
+  Translation(std::unique_ptr<Tree> node, Vector4D tranformation);
+  bool inside(IntersectPoint &a) override;
+};
 class Rotation : public TransformationTree {};
 class Scaling : public TransformationTree {};
 

@@ -66,7 +66,10 @@ int main() {
   auto wall1 = std::make_unique<Object>(std::move(tmp));
 
   auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, RGB(0, 0, 1));
-  auto sphere1 = std::make_unique<Object>(std::move(tmp2));
+  auto transf =
+      std::make_unique<Translation>(std::move(tmp2), Vector4D(0, 0, 0, 1));
+
+  auto sphere1 = std::make_unique<Object>(std::move(transf));
 
   auto cube = makeCube(Vector4D(10, 10, 0, 1), 2, 2, 1, RGB(1, 0.5, 0.5));
   auto cube2 = makeCube(Vector4D(5, 5, 0, 1), 2, 2, 1, RGB(0.5, 1, 0.5));
