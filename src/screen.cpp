@@ -25,9 +25,10 @@ IntersectionResult Pixel::getIntersectionPoint(const Space &space,
   return finalResult;
 }
 
+//added depth parameter to track recursion steps
 RGB Pixel::getColor(const Space &space,
                     const IntersectionResult &intersectionResult,
-                    const Ray &ray) const {
+                    const Ray &ray, int depth) const {
 
   if (!intersectionResult.hit)
     return RGB(0, 0, 0);
@@ -87,9 +88,31 @@ RGB Pixel::getColor(const Space &space,
     sumLightComponents = sumLightComponents + (diffuse + spekular);
   }
 
-  // reflektierende und gebrochener Anteil fehlen noch
   RGB reflected = RGB(0, 0, 0); //  E_r = K_r * I_r
   RGB refracted = RGB(0, 0, 0); //  E_f = K_f * I_f
+
+  if (depth < space.recursion){
+    //Reflection E_r
+    double VN = scalarProduct(V, normal);
+    Vector4D R_ray_dir = normal * (2*VN) - V;
+    R_ray_dir.normalize();
+
+    Ray refRay(intersectionResult.point.pos + R_ray_dir * offset, R_ray_dir);
+    IntersectionResult refHit = getIntersectionPoint(space, refRay);
+
+    RGB I_r = getColor(space, refHit, refRay, depth + 1);
+    reflected = object->reflectionComponent * I_r;
+
+    //Refraction E_t
+    Vector4D T_ray_dir = ray.d; 
+    T_ray_dir.normalize();
+
+    Ray refracRay(intersectionResult.point.pos + T_ray_dir * offset, T_ray_dir);
+    IntersectionResult refracHit = getIntersectionPoint(space, refracRay);
+      
+    RGB I_t = getColor(space, refracHit, refracRay, depth + 1);
+    refracted = object->refractedComponent * I_t;
+  }
 
   RGB allComponents = ambient + sumLightComponents + reflected + refracted;
   return allComponents;
@@ -97,7 +120,7 @@ RGB Pixel::getColor(const Space &space,
 
 void Pixel::shootRay(const Space &space, const Ray &ray) {
   IntersectionResult res = this->getIntersectionPoint(space, ray);
-  this->value = getColor(space, res, ray);
+  this->value = getColor(space, res, ray, 0); //every ray starts with a depth of 0
 }
 
 Screen::Screen(int height, int width, int dpi, Vector4D observer,
