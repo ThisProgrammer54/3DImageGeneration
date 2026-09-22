@@ -3,6 +3,7 @@
 #include "render.hpp"
 #include "screen.hpp"
 #include "space.hpp"
+#include "tree.hpp"
 #include <fstream>
 
 #include <Eigen/Dense>
@@ -14,8 +15,8 @@ using namespace std;
 
 using Eigen::MatrixXd;
 
-std::unique_ptr<Object> makeCube(Vector4D start, double x, double y, double z,
-                                 RGB color) {
+std::unique_ptr<Intersection> makeCube(Vector4D start, double x, double y,
+                                       double z, RGB color) {
   auto tmp = std::make_unique<Halfspace>(start, Vector4D(-1, 0, 0, 0), color);
   auto tmp2 = std::make_unique<Halfspace>(start, Vector4D(0, -1, 0, 0), color);
   auto tmp3 = std::make_unique<Halfspace>(start, Vector4D(0, 0, -1, 0), color);
@@ -35,9 +36,7 @@ std::unique_ptr<Object> makeCube(Vector4D start, double x, double y, double z,
   tmpCube->add(std::move(tmp5));
   tmpCube->add(std::move(tmp6));
 
-  auto cube = std::make_unique<Object>(std::move(tmpCube));
-
-  return cube;
+  return tmpCube;
 }
 
 int main() {
@@ -67,16 +66,21 @@ int main() {
 
   auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, RGB(0, 0, 1));
   auto transf =
-      std::make_unique<Translation>(std::move(tmp2), Vector4D(0, 0, 0, 1));
+      std::make_unique<Scaling>(std::move(tmp2), Vector4D(1, 2, 1, 1));
 
   auto sphere1 = std::make_unique<Object>(std::move(transf));
 
-  auto cube = makeCube(Vector4D(10, 10, 0, 1), 2, 2, 1, RGB(1, 0.5, 0.5));
-  auto cube2 = makeCube(Vector4D(5, 5, 0, 1), 2, 2, 1, RGB(0.5, 1, 0.5));
+  auto cube = makeCube(Vector4D(0, 0, 0, 1), 2, 2, 1, RGB(1, 0.5, 0.5));
+
+  auto transf2 =
+      std::make_unique<Scaling>(std::move(cube), Vector4D(2, 2, 1, 1));
+  auto transf3 =
+      std::make_unique<Translation>(std::move(transf2), Vector4D(3, 2, 1, 1));
+
+  auto cubeObj = std::make_unique<Object>(std::move(transf3));
 
   space.add(std::move(wall1));
-  space.add(std::move(cube));
-  // space.add(std::move(cube2));
+  space.add(std::move(cubeObj));
   space.add(std::move(sphere1));
 
   screen.calculate(space);

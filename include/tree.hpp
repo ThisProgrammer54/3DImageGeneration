@@ -51,6 +51,7 @@ class TransformationTree : public Tree {
   virtual void buildMatrices(const Vector4D in) = 0;
   virtual void buildInverses() = 0;
   virtual Vector4D applyInverse(const Vector4D in) const = 0;
+  virtual Vector4D applyTransform(const Vector4D in) const = 0;
 
 public:
   std::unique_ptr<Tree> node;
@@ -58,6 +59,7 @@ public:
 public:
   IntersectionResult intersectPoint(Ray &) override;
   bool intersec(Ray &) override;
+  bool inside(IntersectPoint &a) override;
 };
 
 class Translation : public TransformationTree {
@@ -67,13 +69,25 @@ protected:
   void buildMatrices(const Vector4D in) override;
   void buildInverses() override;
   Vector4D applyInverse(const Vector4D in) const override;
+  Vector4D applyTransform(const Vector4D in) const override;
 
 public:
   Translation(std::unique_ptr<Tree> node, Vector4D tranformation);
-  bool inside(IntersectPoint &a) override;
 };
 class Rotation : public TransformationTree {};
-class Scaling : public TransformationTree {};
+class Scaling : public TransformationTree {
+
+protected:
+  Matrix4D mat;
+  Matrix4D inv;
+  void buildMatrices(const Vector4D in) override;
+  void buildInverses() override;
+  Vector4D applyInverse(const Vector4D in) const override;
+  Vector4D applyTransform(const Vector4D in) const override;
+
+public:
+  Scaling(std::unique_ptr<Tree> node, Vector4D tranformation);
+};
 
 class PrimitiveObject : public Tree {
 public:
