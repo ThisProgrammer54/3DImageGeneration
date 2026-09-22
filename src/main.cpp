@@ -43,28 +43,9 @@ std::unique_ptr<Object> makeCube(Vector4D start, double x, double y, double z,
 int main() {
 
   string json_file = "json/input1.json"; 
-  std::ifstream file(json_file);
-  if (!file.is_open()) {
-    file.clear(); 
-    file.open("../" + json_file);
-    if (!file.is_open()) { 
-      std::cerr << "Could not open scene file\n";
-      return 1;
-    }
-    
-  }
-  json scene = json::parse(file);
-  
-  // Screen parameters
-  auto dim = scene.at("screen").at("dimensions").get<std::array<int,2>>();
-  int height = dim[0]; 
-  int width = dim[1];
-  double dpi = scene.at("screen").at("dpi").get<double>();
-  auto screenPos = parseDirection(scene.at("screen").at("position"));    // PLSFIX: Previous version of this uses w=1, i.e. a direction, instead of point 
-  auto observerPos = parseDirection(scene.at("screen").at("observer"));
-
-  std::cout << "h: " << height << ", w: " << width << "\ndpi: " << dpi << std::endl;
-  Screen screen(height, width, dpi, observerPos, screenPos);
+  SceneLoader loader(json_file);
+  json scene = loader.load();
+  Screen screen = makeScreen(scene);
 
   // Object creation
   auto tmp = std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1),
@@ -94,7 +75,7 @@ int main() {
 
   screen.calculate(space);
 
-  Render render(width*dpi, height*dpi);
+  Render render(screen.width*screen.dpi, screen.height*screen.dpi);
   render.render(screen);
   render.show();
   return 0;

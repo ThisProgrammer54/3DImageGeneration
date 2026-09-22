@@ -21,18 +21,18 @@ RGB parseColor (const json& j) {
     return RGB(a[0], a[1], a[2]);
 }
 
+Screen makeScreen(const json& j) {
 
-// Screen makeScreen(const json& j) {
-//     const auto& s = j.at("screen"); 
-//     auto dims = s.at("dimensions");
-//     return Screen(
-//                 dims.at(0).get<int>(), 
-//                 dims.at(1).get<int>(), 
-//                 s.at("dpi").get<int>(),
-//                 parsePoint(s.at("observer")),
-//                 parsePoint(s.at("position")
-//                 );
-// }
+    auto dim = j.at("screen").at("dimensions").get<std::array<int,2>>();
+    int height = dim[0]; 
+    int width = dim[1];
+    double dpi = j.at("screen").at("dpi").get<double>();
+    auto screenPos = parseDirection(j.at("screen").at("position"));    // PLSFIX: Previous version of this uses w=1, i.e. a direction, instead of point 
+    auto observerPos = parseDirection(j.at("screen").at("observer"));
+
+    std::cout << "Window settings: \n" << "h: " << height << ", w: " << width << "\ndpi: " << dpi << std::endl;
+    return Screen(height, width, dpi, observerPos, screenPos);
+}
 
 // // Expects json type of a light source
 // std::unique_ptr<LightSource> makeLight(const json& j) {
