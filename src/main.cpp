@@ -47,16 +47,7 @@ int main() {
 
   Screen screen = makeScreen(scene);
   Space space = makeSpace(scene);
-  makeLights(scene, space);
-  // makeLights should read json parameters & add them to the space
-
-  // auto whiteLightSource =
-  //     std::make_unique<LightSource>(Vector4D(3, 3, 10, 1), RGB{1, 1, 1});
-  // auto redLightSource =
-  //     std::make_unique<LightSource>(Vector4D(1000, 0, 0, 1), RGB{1, 0, 0});
-
-  // space.add(std::move(whiteLightSource));
-  // space.add(std::move(redLightSource));
+  makeLights(scene, space); // reads json parameters & add them to the space 
 
   // Object creation
   auto tmp = std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1),
