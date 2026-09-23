@@ -39,7 +39,7 @@ RGB Pixel::getColor(const Space &space,
   Vector4D V = -ray.d;
   V.normalize();
 
-  double offset = 0.01;
+  double offset = 0.05;
 
   RGB ambient =
       object->ambientReflectionComponent * space.ambientLightIntensity;
@@ -103,8 +103,27 @@ RGB Pixel::getColor(const Space &space,
     RGB I_r = getColor(space, refHit, refRay, depth + 1);
     reflected = object->reflectionComponent * I_r;
 
-    //Refraction E_t
-    Vector4D T_ray_dir = ray.d; 
+    // Refraction E_t
+    double n = 1.0;                  // Ambient index
+    double np = space.index;         // Object index
+    Vector4D I = ray.d;
+    Vector4D N = normal;
+
+    //Check if the ray is inside the object trying to exit
+    if (scalarProduct(I, N) > 0) {
+        N = N * -1.0;      
+        std::swap(n, np);  //going from object to air
+    }
+
+    double I_N = scalarProduct(I, N);
+
+    double root_inner = (np/n)*(np/n) + (I_N*I_N) - 1.0;
+    Vector4D T_ray_dir = R_ray_dir; 
+
+    if (root_inner >= 0.0) {
+        T_ray_dir = (n/np) * (I - N * (I_N + std::sqrt(root_inner))); 
+    }
+
     T_ray_dir.normalize();
 
     Ray refracRay(intersectionResult.point.pos + T_ray_dir * offset, T_ray_dir);

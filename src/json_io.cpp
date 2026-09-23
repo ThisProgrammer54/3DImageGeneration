@@ -36,7 +36,7 @@ Screen makeScreen(const json& j) {
 
 Space makeSpace(const json& j) {
     RGB ambient = parseColor(j.at("medium").at("ambient"));
-    int index = j.at("medium").at("index").get<int>();
+    int index = j.at("medium").at("index").get<double>();
     int recursion = j.at("medium").at("recursion").get<int>();
     return Space(ambient, index, recursion);
 }
