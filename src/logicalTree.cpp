@@ -1,8 +1,13 @@
 #include "helper.hpp"
 #include <cstddef>
+#include <memory>
 #include <tree.hpp>
 
 using std::vector;
+
+void LogicalTree::add(std::unique_ptr<Tree> newNode) {
+  this->nodes.push_back(std::move(newNode));
+}
 
 IntersectionResult LogicalTree::intersectPoint(Ray &ray) {
   vector<IntersectionResult> allResults;
@@ -28,8 +33,6 @@ IntersectionResult LogicalTree::intersectPoint(Ray &ray) {
   }
   return IntersectionResult();
 }
-
-bool LogicalTree::intersec(Ray &ray) { return this->intersectPoint(ray).hit; }
 
 bool Intersection::inside(IntersectPoint &a) {
   for (size_t i = 0; i < this->nodes.size(); i++) {

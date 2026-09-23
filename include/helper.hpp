@@ -4,6 +4,7 @@
 #include <iostream>
 
 using Vector4D = Eigen::Vector<double, 4>;
+using Matrix4D = Eigen::Matrix4d;
 
 struct RGB {
   double red, green, blue;
