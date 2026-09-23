@@ -74,7 +74,25 @@ protected:
 public:
   Translation(std::unique_ptr<Tree> node, Vector4D tranformation);
 };
-class Rotation : public TransformationTree {};
+class Rotation : public TransformationTree {
+protected:
+  Matrix4D matX;
+  Matrix4D matY;
+  Matrix4D matZ;
+
+  Matrix4D invX;
+  Matrix4D invY;
+  Matrix4D invZ;
+
+  Vector4D rotation;
+  void buildMatrices(const Vector4D in) override;
+  void buildInverses() override;
+  Vector4D applyInverse(const Vector4D in) const override;
+  Vector4D applyTransform(const Vector4D in) const override;
+
+public:
+  Rotation(std::unique_ptr<Tree> node, Vector4D tranformation);
+};
 class Scaling : public TransformationTree {
 
 protected:

@@ -73,7 +73,7 @@ int main() {
   auto cube = makeCube(Vector4D(0, 0, 0, 1), 2, 2, 1, RGB(1, 0.5, 0.5));
 
   auto transf2 =
-      std::make_unique<Scaling>(std::move(cube), Vector4D(2, 2, 1, 1));
+      std::make_unique<Rotation>(std::move(cube), Vector4D(1, 0, 0, 1));
   auto transf3 =
       std::make_unique<Translation>(std::move(transf2), Vector4D(3, 2, 1, 1));
 
