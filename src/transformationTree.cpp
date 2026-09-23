@@ -18,10 +18,6 @@ IntersectionResult TransformationTree::intersectPoint(Ray &ray) {
       res.object);
 }
 
-bool TransformationTree::intersec(Ray &ray) {
-  return this->intersectPoint(ray).hit;
-}
-
 bool TransformationTree::inside(IntersectPoint &a) {
   IntersectPoint transPoint = IntersectPoint(applyInverse(a.pos), -1);
   return node->inside(transPoint);

@@ -34,8 +34,6 @@ IntersectionResult LogicalTree::intersectPoint(Ray &ray) {
   return IntersectionResult();
 }
 
-bool LogicalTree::intersec(Ray &ray) { return this->intersectPoint(ray).hit; }
-
 bool Intersection::inside(IntersectPoint &a) {
   for (size_t i = 0; i < this->nodes.size(); i++) {
     if (!this->nodes[i]->inside(a))

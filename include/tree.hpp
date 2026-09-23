@@ -17,7 +17,7 @@ public:
   /**
   / @brief check if ray intersects with tree
   */
-  virtual bool intersec(Ray &) = 0;
+  virtual bool intersec(Ray &);
 
   /**
    * @brief checks if point is in tree
@@ -31,7 +31,6 @@ public:
   std::vector<std::unique_ptr<Tree>> nodes;
 
   IntersectionResult intersectPoint(Ray &) override;
-  bool intersec(Ray &) override;
   void add(std::unique_ptr<Tree>);
 };
 
@@ -58,7 +57,6 @@ public:
 
 public:
   IntersectionResult intersectPoint(Ray &) override;
-  bool intersec(Ray &) override;
   bool inside(IntersectPoint &a) override;
 };
 
@@ -130,7 +128,6 @@ public:
   Sphere(Vector4D position, double radius);
 
   IntersectionResult intersectPoint(Ray &ray) override;
-  bool intersec(Ray &) override;
   bool inside(IntersectPoint &a) override;
 
   double Polynom(Vector4D) const override;
@@ -158,7 +155,6 @@ public:
    * @return intersectionpointPtr or nullptr if not existing
    */
   IntersectionResult intersectPoint(Ray &ray) override;
-  bool intersec(Ray &) override;
   bool inside(IntersectPoint &a) override;
 
   double Polynom(Vector4D) const override;
