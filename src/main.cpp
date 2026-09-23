@@ -47,7 +47,7 @@ int main() {
 
   Screen screen = makeScreen(scene);
   Space space = makeSpace(scene);
-  makeLights(scene, space); // reads json parameters & add them to the space 
+  makeLights(scene, space); // reads json parameters & add them to the space
 
   // Object creation
   auto tmp = std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1),
@@ -55,7 +55,7 @@ int main() {
 
   auto wall1 = std::make_unique<Object>(std::move(tmp));
 
-  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, RGB(0, 0, 1));
+  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, RGB(1, 1, 1));
   auto transf =
       std::make_unique<Scaling>(std::move(tmp2), Vector4D(1, 2, 1, 1));
 

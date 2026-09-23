@@ -1,11 +1,10 @@
 #include "helper.hpp"
-#include "opencv2/core/matx.hpp"
 #include <memory>
 #include <vector>
 
 #pragma once
 
-#define DEFSHINY 0
+#define DEFSHINY 1
 #define DEFCOLOR (RGB(1, 0, 0))
 
 class Tree {
