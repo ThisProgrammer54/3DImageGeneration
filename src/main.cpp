@@ -86,7 +86,7 @@ int main() {
   Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
   auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, metalMat);
 
-  auto transf =
+  auto transf2 =
       std::make_unique<Scaling>(std::move(tmp2), Vector4D(1, 2, 1, 1));
 
   auto sphere1 = std::make_unique<Object>(std::move(transf2));
