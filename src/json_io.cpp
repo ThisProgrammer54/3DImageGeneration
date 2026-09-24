@@ -10,11 +10,11 @@ using json = nlohmann::json;
 
 Vector4D parsePoint(const json& j) {
     auto a = j.get<std::array<double, 3>>(); 
-    return Vector4D(a[0], a[1], a[2], 0);
+    return Vector4D(a[0], a[1], a[2], 1);
 }
 Vector4D parseDirection(const json& j) {
     auto a = j.get<std::array<double, 3>>();
-    return Vector4D(a[0], a[1], a[2], 1);
+    return Vector4D(a[0], a[1], a[2], 0);
 }
 RGB parseColor (const json& j) {
     auto a = j.get<std::array<double, 3>>();
@@ -38,8 +38,8 @@ Screen makeScreen(const json& j) {
     int height = dim[0]; 
     int width = dim[1];
     double dpi = j.at("screen").at("dpi").get<double>();
-    auto screenPos = parseDirection(j.at("screen").at("position"));    // PLSFIX: Previous version of this uses w=1, i.e. a direction, instead of point 
-    auto observerPos = parseDirection(j.at("screen").at("observer"));
+    auto screenPos = parsePoint(j.at("screen").at("position")); 
+    auto observerPos = parsePoint(j.at("screen").at("observer"));
 
     std::cout << "Window settings: \n" << "h: " << height << ", w: " << width << "\ndpi: " << dpi << std::endl;
     return Screen(height, width, dpi, observerPos, screenPos);

@@ -76,41 +76,41 @@ int main() {
 
   // Object creation
   // wall creation parameters
-  RGB wAmb(1.0, 1.0, 1.0);
-  RGB wDiff(1.0, 1.0, 1.0);
-  RGB wSpec(0, 0, 0);
-  RGB wRefl(0, 0, 0);
-  RGB wRefr(0, 0, 0);
-  auto tmp =
-      std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0),
-                                  wAmb, wDiff, wSpec, wRefl, wRefr, 1.0);
+  // RGB wAmb(1.0, 1.0, 1.0);
+  // RGB wDiff(1.0, 1.0, 1.0);
+  // RGB wSpec(0, 0, 0);
+  // RGB wRefl(0, 0, 0);
+  // RGB wRefr(0, 0, 0);
+  // auto tmp =
+  //     std::make_unique<Halfspace>(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 1, 0),
+  //                                 wAmb, wDiff, wSpec, wRefl, wRefr, 1.0);
 
-  auto wall1 = std::make_unique<Object>(std::move(tmp));
+  // auto wall1 = std::make_unique<Object>(std::move(tmp));
 
-  // added specific parameters for metal material
-  RGB gAmb(0.2, 0.2, 0.2);
-  RGB gDiff(0.4, 0.4, 0.4);
-  RGB gSpec(0.95, 0.95, 0.95);
-  RGB gRefl(0.6, 0.6, 0.6);
-  RGB gRefr(0.0, 0.0, 0.0);
+  // // added specific parameters for metal material
+  // RGB gAmb(0.2, 0.2, 0.2);
+  // RGB gDiff(0.4, 0.4, 0.4);
+  // RGB gSpec(0.95, 0.95, 0.95);
+  // RGB gRefl(0.6, 0.6, 0.6);
+  // RGB gRefr(0.0, 0.0, 0.0);
 
-  Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
-  auto tmp2 = std::make_unique<Sphere>(Vector4D(0, 0, 0, 1), 1, metalMat);
+  // Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
+  // auto tmp2 = std::make_unique<Sphere>(Vector4D(0, 0, 0, 1), 1, metalMat);
 
-  auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
-                     Vector4D(2, 2, 1, 1), Vector4D(1, 1, 2, 1));
+  // auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
+  //                    Vector4D(2, 2, 1, 1), Vector4D(1, 1, 2, 1));
 
-  auto sphere1 = std::make_unique<Object>(std::move(hold));
+  // auto sphere1 = std::make_unique<Object>(std::move(hold));
 
-  auto cube = makeCube(Vector4D(0, 0, 0, 1), 2, 2, 1, RGB(1.0, 0.5, 0.5));
-  hold = modify(std::move(cube), Vector4D(3.4, 2, 1, 1), Vector4D(1, 3, 1, 1),
-                Vector4D(1, 0, 0, 1));
+  // auto cube = makeCube(Vector4D(0, 0, 0, 1), 2, 2, 1, RGB(1.0, 0.5, 0.5));
+  // hold = modify(std::move(cube), Vector4D(3.4, 2, 1, 1), Vector4D(1, 3, 1, 1),
+  //               Vector4D(1, 0, 0, 1));
 
-  auto cubeObj = std::make_unique<Object>(std::move(hold));
+  // auto cubeObj = std::make_unique<Object>(std::move(hold));
 
-  space.add(std::move(wall1));
-  // space.add(std::move(cubeObj));
-  space.add(std::move(sphere1));
+  // space.add(std::move(wall1));
+  // // space.add(std::move(cubeObj));
+  // space.add(std::move(sphere1));
 
   screen.calculate(space);
 
