@@ -17,9 +17,9 @@ using Eigen::MatrixXd;
 
 std::unique_ptr<Tree> modify(std::unique_ptr<Tree> toMod, Vector4D translation,
                              Vector4D scaling, Vector4D rotation) {
-  auto rot = std::make_unique<Rotation>(std::move(toMod), rotation);
-  auto scal = std::make_unique<Scaling>(std::move(rot), scaling);
-  auto transl = std::make_unique<Translation>(std::move(scal), translation);
+  auto scal = std::make_unique<Scaling>(std::move(toMod), scaling);
+  auto rot = std::make_unique<Rotation>(std::move(scal), rotation);
+  auto transl = std::make_unique<Translation>(std::move(rot), translation);
 
   return transl;
 }
@@ -96,7 +96,7 @@ int main() {
                                        gSpec, gRefl, gRefr, 50.0);
 
   auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
-                     Vector4D(2, 3, 1, 1), Vector4D(1, 1, 100, 1));
+                     Vector4D(2, 3, 1, 1), Vector4D(1, 1, 2, 1));
 
   auto sphere1 = std::make_unique<Object>(std::move(hold));
 

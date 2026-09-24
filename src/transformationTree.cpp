@@ -17,7 +17,7 @@ IntersectionResult TransformationTree::intersectPoint(Ray &ray) {
   double newT =
       (pos - ray.pos)
           .norm(); // muss angepasst werden weil wir d vorher normieren
-  Vector4D newNormal = applyTransform(res.normal);
+  Vector4D newNormal = applyNormalTransform(res.normal);
   newNormal.normalize();
 
   return IntersectionResult(true, IntersectPoint(pos, newT), res.object,
@@ -50,6 +50,9 @@ Vector4D Translation::applyInverse(const Vector4D in) const {
 Vector4D Translation::applyTransform(const Vector4D in) const {
   return this->mat * in;
 };
+Vector4D Translation::applyNormalTransform(const Vector4D in) const {
+  return in;
+}
 
 Scaling::Scaling(std::unique_ptr<Tree> node, Vector4D tranformation) {
   this->node = std::move(node);
@@ -72,6 +75,9 @@ Vector4D Scaling::applyInverse(const Vector4D in) const {
 Vector4D Scaling::applyTransform(const Vector4D in) const {
   return this->mat * in;
 };
+Vector4D Scaling::applyNormalTransform(const Vector4D in) const {
+  return this->applyInverse(in);
+}
 
 Rotation::Rotation(std::unique_ptr<Tree> node, Vector4D transformation) {
   this->node = std::move(node);
@@ -109,4 +115,7 @@ Vector4D Rotation::applyTransform(const Vector4D in) const {
 }
 Vector4D Rotation::applyInverse(const Vector4D in) const {
   return this->invZ * this->invY * this->invX * in;
+}
+Vector4D Rotation::applyNormalTransform(const Vector4D in) const {
+  return this->applyTransform(in);
 }

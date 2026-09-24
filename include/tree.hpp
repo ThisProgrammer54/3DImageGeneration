@@ -50,6 +50,7 @@ class TransformationTree : public Tree {
   virtual void buildInverses() = 0;
   virtual Vector4D applyInverse(const Vector4D in) const = 0;
   virtual Vector4D applyTransform(const Vector4D in) const = 0;
+  virtual Vector4D applyNormalTransform(const Vector4D in) const = 0;
 
 public:
   std::unique_ptr<Tree> node;
@@ -67,6 +68,7 @@ protected:
   void buildInverses() override;
   Vector4D applyInverse(const Vector4D in) const override;
   Vector4D applyTransform(const Vector4D in) const override;
+  Vector4D applyNormalTransform(const Vector4D in) const override;
 
 public:
   Translation(std::unique_ptr<Tree> node, Vector4D tranformation);
@@ -86,6 +88,7 @@ protected:
   void buildInverses() override;
   Vector4D applyInverse(const Vector4D in) const override;
   Vector4D applyTransform(const Vector4D in) const override;
+  Vector4D applyNormalTransform(const Vector4D in) const override;
 
 public:
   Rotation(std::unique_ptr<Tree> node, Vector4D tranformation);
@@ -99,6 +102,7 @@ protected:
   void buildInverses() override;
   Vector4D applyInverse(const Vector4D in) const override;
   Vector4D applyTransform(const Vector4D in) const override;
+  Vector4D applyNormalTransform(const Vector4D in) const override;
 
 public:
   Scaling(std::unique_ptr<Tree> node, Vector4D tranformation);
