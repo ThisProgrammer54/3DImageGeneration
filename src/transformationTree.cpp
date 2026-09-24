@@ -13,9 +13,11 @@ IntersectionResult TransformationTree::intersectPoint(Ray &ray) {
     return IntersectionResult();
   }
 
-  return IntersectionResult(
-      true, IntersectPoint(applyTransform(res.point.pos), res.point.t),
-      res.object);
+  Vector4D pos = applyTransform(res.point.pos);
+  double newT =
+      (pos - ray.pos)
+          .norm(); // muss angepasst werden weil wir d vorher normieren
+  return IntersectionResult(true, IntersectPoint(pos, newT), res.object);
 }
 
 bool TransformationTree::inside(IntersectPoint &a) {
