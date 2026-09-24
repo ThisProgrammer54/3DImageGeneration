@@ -40,15 +40,15 @@ Space makeSpace(const json& j);
 void makeLights(const json& j, Space& space);
 
 
-std::unique_ptr<Object> parseNode(const json& j);
-std::unique_ptr<Object> parseSphere(const json& j);
-std::unique_ptr<Object> parseHalfspace(const json& j);
+std::unique_ptr<Tree> parseNode(const json& j);
+std::unique_ptr<Tree> parseSphere(const json& j);
+std::unique_ptr<Tree> parseHalfspace(const json& j);
 
-std::unique_ptr<Object> parseTranslation(const json& j);
-std::unique_ptr<Object> parseRotation(const json& j);
-std::unique_ptr<Object> parseScaling(const json& j);
+std::unique_ptr<Tree> parseTranslation(const json& j);
+std::unique_ptr<Tree> parseRotation(const json& j);
+std::unique_ptr<Tree> parseScaling(const json& j);
 
-std::unique_ptr<Object> parseUnion(const json& j);
-std::unique_ptr<Object> parseIntersection(const json& j);
-std::unique_ptr<Object> parseExclusion(const json& j);
+std::unique_ptr<Tree> parseUnion(const json& j);
+std::unique_ptr<Tree> parseIntersection(const json& j);
+std::unique_ptr<Tree> parseExclusion(const json& j);
 
