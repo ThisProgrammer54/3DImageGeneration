@@ -5,7 +5,7 @@
 
 IntersectionResult TransformationTree::intersectPoint(Ray &ray) {
   Ray transRay(applyInverse(ray.pos), applyInverse(ray.d));
-  transRay.d = transRay.d / transRay.d.norm();
+  transRay.d.normalize();
 
   IntersectionResult res = this->node->intersectPoint(transRay);
 
@@ -17,7 +17,11 @@ IntersectionResult TransformationTree::intersectPoint(Ray &ray) {
   double newT =
       (pos - ray.pos)
           .norm(); // muss angepasst werden weil wir d vorher normieren
-  return IntersectionResult(true, IntersectPoint(pos, newT), res.object);
+  Vector4D newNormal = applyTransform(res.normal);
+  newNormal.normalize();
+
+  return IntersectionResult(true, IntersectPoint(pos, newT), res.object,
+                            newNormal);
 }
 
 bool TransformationTree::inside(IntersectPoint &a) {
