@@ -15,6 +15,15 @@ using namespace std;
 
 using Eigen::MatrixXd;
 
+std::unique_ptr<Tree> modify(std::unique_ptr<Tree> toMod, Vector4D translation,
+                             Vector4D scaling, Vector4D rotation) {
+  auto scal = std::make_unique<Scaling>(std::move(toMod), scaling);
+  auto rot = std::make_unique<Rotation>(std::move(scal), rotation);
+  auto transl = std::make_unique<Translation>(std::move(rot), translation);
+
+  return transl;
+}
+
 std::unique_ptr<Intersection> makeCube(Vector4D start, double x, double y,
                                        double z, RGB color) {
 
@@ -82,27 +91,25 @@ int main() {
   RGB gAmb(0.2, 0.2, 0.2);
   RGB gDiff(0.4, 0.4, 0.4);
   RGB gSpec(0.95, 0.95, 0.95);
-  RGB gRefl(0.6, 0.6, 0.6);   
-  RGB gRefr(0.0, 0.0, 0.0); 
+  RGB gRefl(0.6, 0.6, 0.6);
+  RGB gRefr(0.0, 0.0, 0.0);
+
   Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
-  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, metalMat);
+  auto tmp2 = std::make_unique<Sphere>(Vector4D(0, 0, 0, 1), 1, metalMat);
 
-  auto transf2 =
-      std::make_unique<Scaling>(std::move(tmp2), Vector4D(1, 2, 1, 1));
+  auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
+                     Vector4D(2, 2, 1, 1), Vector4D(1, 1, 2, 1));
 
-  auto sphere1 = std::make_unique<Object>(std::move(transf2));
+  auto sphere1 = std::make_unique<Object>(std::move(hold));
 
   auto cube = makeCube(Vector4D(0, 0, 0, 1), 2, 2, 1, RGB(1.0, 0.5, 0.5));
+  hold = modify(std::move(cube), Vector4D(3.4, 2, 1, 1), Vector4D(1, 3, 1, 1),
+                Vector4D(1, 0, 0, 1));
 
-  auto transf3 =
-      std::make_unique<Rotation>(std::move(cube), Vector4D(1, 0, 0, 1));
-  auto transf4 =
-      std::make_unique<Translation>(std::move(transf3), Vector4D(3.5, 2, 1, 1));
-
-  auto cubeObj = std::make_unique<Object>(std::move(transf4));
+  auto cubeObj = std::make_unique<Object>(std::move(hold));
 
   space.add(std::move(wall1));
-  space.add(std::move(cubeObj));
+  // space.add(std::move(cubeObj));
   space.add(std::move(sphere1));
 
   screen.calculate(space);

@@ -35,8 +35,14 @@ IntersectPoint::IntersectPoint(Vector4D pos, double t, RGB color)
     : pos(pos), t(t), color(color){};
 
 IntersectionResult::IntersectionResult(bool hit, IntersectPoint intersectPoint,
+                                       const PrimitiveObject *obj,
+                                       Vector4D normal)
+    : hit(hit), point(intersectPoint), object(obj), normal(normal){};
+
+IntersectionResult::IntersectionResult(bool hit, IntersectPoint intersectPoint,
                                        const PrimitiveObject *obj)
-    : hit(hit), point(intersectPoint), object(obj){};
+    : hit(hit), point(intersectPoint), object(obj),
+      normal(obj->getNormal(intersectPoint.pos)){};
 IntersectionResult::IntersectionResult()
     : hit(false), point(Vector4D(0, 0, 0, -1), -1){};
 

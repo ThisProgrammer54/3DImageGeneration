@@ -55,7 +55,10 @@ struct IntersectionResult {
   bool hit;
   IntersectPoint point;
   const PrimitiveObject *object = nullptr;
+  Vector4D normal;
 
+  IntersectionResult(bool, class IntersectPoint IntersectPoint,
+                     const PrimitiveObject *, Vector4D normal);
   IntersectionResult(bool, class IntersectPoint IntersectPoint,
                      const PrimitiveObject *);
 
