@@ -90,6 +90,21 @@ std::unique_ptr<Tree> parseTransform(const json& j){
     auto subject = parseNode(j.at("subject"));
     return std::make_unique<TransformationTree>(std::move(subject), factors);
 }
+std::unique_ptr<Tree> parseRotation(const json &j){
+    double angle = j.at("angle").get<double>(); 
+    // umwandlung in bogenmass
+    double pi = 2 * acos(0.0); 
+    angle = angle * (pi / 180); 
+
+    auto subject = parseNode(j.at("subject"));
+    int direction = j.at("direction").get<int>(); 
+    Vector4D rotationVec(0, 0, 0, 1);
+
+    if(direction == 3) rotationVec(2) = angle; 
+    else rotationVec(direction) = angle;    
+    
+    return std::make_unique<Rotation>(std::move(subject), rotationVec);
+}
 
 template<typename LogicalTree>
 std::unique_ptr<Tree> parseLogical(const json& j){
@@ -104,7 +119,7 @@ std::unique_ptr<Tree> parseNode(const json& j) {
     if (j.contains("sphere"))           return parseSphere(j.at("sphere"));
     if (j.contains("halfSpace"))        return parseHalfspace(j.at("halfSpace"));
     if (j.contains("translation"))      return parseTransform<Translation>(j.at("translation"));
-    if (j.contains("rotation"))         return parseTransform<Rotation>(j.at("rotation"));
+    if (j.contains("rotation"))         return parseRotation(j.at("rotation"));
     if (j.contains("scaling"))          return parseTransform<Scaling>(j.at("scaling"));
     if (j.contains("union"))            return parseLogical<Union>(j.at("union"));
     if (j.contains("intersection"))     return parseLogical<Intersection>(j.at("intersection"));
