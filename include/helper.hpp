@@ -19,6 +19,19 @@ struct RGB {
   friend bool operator==(const RGB &, const RGB &);
 };
 
+class Material {
+public:
+  RGB ambient;
+  RGB diffuse;
+  RGB specular;
+  RGB reflected;
+  RGB refracted;
+  double shininess;
+
+  Material(RGB, RGB, RGB, RGB, RGB, double);
+  Material();
+};
+
 class Ray {
 public:
   Vector4D pos;

@@ -51,6 +51,76 @@ void makeLights(const json& j, Space& space) {
     std::cout << sources.size() << " light sources added." << std::endl; 
 }
 
+Material parseMaterial(const json& j) {
+    Material mat;
+    mat.ambient   = parseColor(j.at("ambient"));
+    mat.diffuse   = parseColor(j.at("diffuse"));
+    mat.specular  = parseColor(j.at("specular"));
+    mat.reflected = parseColor(j.at("reflected"));
+    mat.refracted = parseColor(j.at("refracted"));
+    mat.shininess = j.at("shininess").get<double>();
+    return mat;
+};
+
+
+// Predeclaration so Recursion works
+std::unique_ptr<Object> parseNode(const json& j) {};
+
+std::unique_ptr<Object> parseSphere(const json& j){
+    Vector4D pos = parsePoint(j.at("position"));
+    double radius = j.at("radius").get<double>();
+    Material mat = parseMaterial(j.at("color"));
+    int index = j.at("index").get<int>();   // Template Json File contains some "index", no idea for what...
+    auto sphere = std::make_unique<Sphere>(
+                                    pos, radius, mat);
+    return std::make_unique<Object>(std::move(sphere));
+};
+
+std::unique_ptr<Object> parseHalfspace(const json& j){
+    Vector4D pos = parsePoint(j.at("position"));
+    Vector4D normal = parseDirection(j.at("normal"));
+    Material mat = parseMaterial(j.at("color"));
+    int index = j.at("index").get<int>();
+    auto hs = std::make_unique<Halfspace>(pos, normal, mat);
+    return std::make_unique<Object>(std::move(hs));
+};
+
+// std::unique_ptr<Object> parseTranslation(const json& j){
+//     Vector4D factors = parseDirection(j.at("factors"));
+//     auto subject = parseNode(j.at("subjects"));
+//     return std::make_unique<Object>(std::make_unique<Translation>(std::move(subject), factors));
+// };
+
+// std::unique_ptr<Object> parseRotation(const json& j){
+//     Vector4D factors = parseDirection(j.at("factors"));
+//     auto subject = parseNode(j.at("subjects"));
+//     return std::make_unique<Object>(std::make_unique<Rotation>(std::move(subject), factors));
+// };
+
+// std::unique_ptr<Object> parseScaling(const json& j){
+//     Vector4D factors = parseDirection(j.at("factors"));
+//     auto subject = parseNode(j.at("subjects"));
+//     return std::make_unique<Object>(std::make_unique<Rotation>(std::move(subject), factors));
+// };
+
+// std::unique_ptr<Object> parseUnion(const json& j);
+
+// std::unique_ptr<Object> parseIntersection(const json& j);
+
+// std::unique_ptr<Object> parseExclusion(const json& j);
+
+// std::unique_ptr<Object> parseNode(const json& j) {
+
+// };
+
+
+// void makeObjects(const json& j, Space& space) {
+//     auto objects = j.at("objects");
+//     for (auto obj : objects) {
+//         space.add(parseNode(obj));
+//     }
+// }
+
 
 // // Expects json type of an element of object[]
 // std::unique_ptr<PrimitiveObject> makeObject(const json& j) {

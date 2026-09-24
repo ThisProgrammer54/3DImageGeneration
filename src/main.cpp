@@ -76,7 +76,8 @@ int main() {
   RGB gSpec(0.95, 0.95, 0.95);
   RGB gRefl(0.6, 0.6, 0.6);   
   RGB gRefr(0.0, 0.0, 0.0); 
-  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
+  Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefl, 50.0);
+  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, metalMat);
 
   auto transf =
       std::make_unique<Scaling>(std::move(tmp2), Vector4D(1, 2, 1, 1));
