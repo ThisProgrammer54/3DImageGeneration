@@ -38,6 +38,7 @@ Material parseMaterial(const json& j);
 Screen makeScreen(const json& j);
 Space makeSpace(const json& j);
 void makeLights(const json& j, Space& space);
+void makeObjects(const json&j, Space& space);
 
 
 std::unique_ptr<Tree> parseNode(const json& j);
@@ -48,7 +49,6 @@ std::unique_ptr<Tree> parseTranslation(const json& j);
 std::unique_ptr<Tree> parseRotation(const json& j);
 std::unique_ptr<Tree> parseScaling(const json& j);
 
-std::unique_ptr<Tree> parseUnion(const json& j);
-std::unique_ptr<Tree> parseIntersection(const json& j);
-std::unique_ptr<Tree> parseExclusion(const json& j);
+std::unique_ptr<Tree> parseTransform(const json& j);
+std::unique_ptr<Tree> parseLogical(const json& j);
 

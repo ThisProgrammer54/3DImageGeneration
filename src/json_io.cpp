@@ -63,7 +63,6 @@ void makeLights(const json& j, Space& space) {
 }
 
 
-
 // Predeclaration so Recursion works
 std::unique_ptr<Tree> parseNode(const json& j);
 
@@ -83,61 +82,39 @@ std::unique_ptr<Tree> parseHalfspace(const json& j){
     return std::make_unique<Halfspace>(pos, normal, mat);
 };
 
-std::unique_ptr<Tree> parseTranslation(const json& j){
+template<typename TransformationTree>
+std::unique_ptr<Tree> parseTransform(const json& j){
     Vector4D factors = parseDirection(j.at("factors"));
-    auto subject = parseNode(j.at("subjects"));
-    return std::make_unique<Translation>(std::move(subject), factors);
-};
+    auto subject = parseNode(j.at("subject"));
+    return std::make_unique<TransformationTree>(std::move(subject), factors);
+}
 
-std::unique_ptr<Tree> parseRotation(const json& j){
-    Vector4D factors = parseDirection(j.at("factors"));
-    auto subject = parseNode(j.at("subjects"));
-    return std::make_unique<Rotation>(std::move(subject), factors);
-};
-
-std::unique_ptr<Tree> parseScaling(const json& j){
-    Vector4D factors = parseDirection(j.at("factors"));
-    auto subject = parseNode(j.at("subjects"));
-    return std::make_unique<Scaling>(std::move(subject), factors);
-};
-
-// std::unique_ptr<Tree> parseUnion(const json& j);
-
-// std::unique_ptr<Tree> parseIntersection(const json& j);
-
-// std::unique_ptr<Tree> parseExclusion(const json& j);
+template<typename LogicalTree>
+std::unique_ptr<Tree> parseLogical(const json& j){
+    auto tree = std::make_unique<LogicalTree>();
+    for (auto& node : j){
+        tree->add(parseNode(node));
+    }
+    return tree;
+}
 
 std::unique_ptr<Tree> parseNode(const json& j) {
-    if (j.contains("sphere"))   return parseSphere(j.at("sphere"));
-    if (j.contains("halfspace"))   return parseHalfspace(j.at("halfspace"));
-    if (j.contains("translation"))   return parseTranslation(j.at("translation"));
-    if (j.contains("rotation"))   return parseRotation(j.at("rotation"));
-    if (j.contains("scaling"))   return parseScaling(j.at("scaling"));
-    // if (j.contains("union"))   return parseUnion(j.at("union"));
-    // if (j.contains("intersection"))   return parseIntersection(j.at("intersection"));
-    // if (j.contains("exclusion"))   return parseExclusion(j.at("exclusion"));
+    if (j.contains("sphere"))           return parseSphere(j.at("sphere"));
+    if (j.contains("halfSpace"))        return parseHalfspace(j.at("halfSpace"));
+    if (j.contains("translation"))      return parseTransform<Translation>(j.at("translation"));
+    if (j.contains("rotation"))         return parseTransform<Rotation>(j.at("rotation"));
+    if (j.contains("scaling"))          return parseTransform<Scaling>(j.at("scaling"));
+    if (j.contains("union"))            return parseLogical<Union>(j.at("union"));
+    if (j.contains("intersection"))     return parseLogical<Intersection>(j.at("intersection"));
+    if (j.contains("exclusion"))        return parseLogical<Exclusion>(j.at("exclusion"));
+    
+    throw std::runtime_error("Unknown object node in JSON scene: " + j.dump(4));
 };
 
 
-// void makeObjects(const json& j, Space& space) {
-//     auto objects = j.at("objects");
-//     for (auto obj : objects) {
-//         space.add(parseNode(obj));
-//     }
-// }
-
-
-// // Expects json type of an element of object[]
-// std::unique_ptr<PrimitiveObject> makeObject(const json& j) {
-//     if (j.contains("halfSpace")) {
-//         return std::make_unique<Halfspace>(
-//             j.at("halfspace").at("position").get<Vector4D>(),
-//             j.at("halfspace").at("normal").get<Vector4D>().normalized());
-//     }
-//     // if (j.contains("sphere")) {
-//     //     return std::make_unique<Sphere>(
-//     //         j.at("sphere").at("position").get<Vector4D>(),
-//     //         j.at("sphere").at("radius").get<double>());
-//     // }
-//     throw std::runtime_error("Unknown or unsupported object entry: " + j.dump());
-// }
+void makeObjects(const json& j, Space& space) {
+    auto objects = j.at("objects");
+    for (auto obj : objects) {
+        space.add(std::make_unique<Object>(parseNode(obj)));
+    }
+}

@@ -63,6 +63,7 @@ int main() {
   Screen screen = makeScreen(scene);
   Space space = makeSpace(scene);
   makeLights(scene, space); // reads json parameters & add them to the space
+  makeObjects(scene, space);
 
   // Object creation
   // wall creation parameters
