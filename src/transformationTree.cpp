@@ -108,5 +108,5 @@ Vector4D Rotation::applyTransform(const Vector4D in) const {
   return this->matX * this->matY * this->matZ * in;
 }
 Vector4D Rotation::applyInverse(const Vector4D in) const {
-  return this->invX * this->invY * this->invZ * in;
+  return this->invZ * this->invY * this->invX * in;
 }

@@ -39,7 +39,7 @@ RGB Pixel::getColor(const Space &space,
   Vector4D V = -ray.d;
   V.normalize();
 
-  double offset = 0.05;
+  double offset = 1e-5;
 
   RGB ambient =
       object->ambientReflectionComponent * space.ambientLightIntensity;

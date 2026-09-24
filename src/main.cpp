@@ -96,7 +96,7 @@ int main() {
                                        gSpec, gRefl, gRefr, 50.0);
 
   auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
-                     Vector4D(2, 3, 1, 1), Vector4D(0, 1, 0, 1));
+                     Vector4D(2, 3, 1, 1), Vector4D(1, 1, 100, 1));
 
   auto sphere1 = std::make_unique<Object>(std::move(hold));
 
