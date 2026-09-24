@@ -33,7 +33,22 @@ public:
 Vector4D parsePoint(const json& j);
 Vector4D parseDirection(const json& j);
 RGB parseColor (const json& j);
+Material parseMaterial(const json& j);
 
 Screen makeScreen(const json& j);
 Space makeSpace(const json& j);
 void makeLights(const json& j, Space& space);
+
+
+std::unique_ptr<Tree> parseNode(const json& j);
+std::unique_ptr<Tree> parseSphere(const json& j);
+std::unique_ptr<Tree> parseHalfspace(const json& j);
+
+std::unique_ptr<Tree> parseTranslation(const json& j);
+std::unique_ptr<Tree> parseRotation(const json& j);
+std::unique_ptr<Tree> parseScaling(const json& j);
+
+std::unique_ptr<Tree> parseUnion(const json& j);
+std::unique_ptr<Tree> parseIntersection(const json& j);
+std::unique_ptr<Tree> parseExclusion(const json& j);
+

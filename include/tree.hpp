@@ -127,6 +127,7 @@ public:
 
   Sphere(Vector4D position, double radius, RGB ambRC, RGB specRC, RGB diffuseRC,
          RGB reflec, RGB refrac, double shininess);
+  Sphere(Vector4D position, double radius, Material mat);
   Sphere(Vector4D position, double radius, RGB color);
   Sphere(Vector4D position, double radius);
 
@@ -143,7 +144,7 @@ public:
 
   Halfspace(Vector4D position, Vector4D normal, RGB ambRC, RGB specRC,
             RGB diffuseRC, RGB reflec, RGB refrac, double shininess);
-
+  Halfspace(Vector4D position, Vector4D normal, Material mat);
   Halfspace(Vector4D position, Vector4D normal, RGB color);
   /**
    * @brief construcst the Halfspace

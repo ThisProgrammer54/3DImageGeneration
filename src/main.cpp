@@ -92,8 +92,10 @@ int main() {
   RGB gSpec(0.95, 0.95, 0.95);
   RGB gRefl(0.6, 0.6, 0.6);
   RGB gRefr(0.0, 0.0, 0.0);
-  auto tmp2 = std::make_unique<Sphere>(Vector4D(0, 0, 0, 1), 1, gAmb, gDiff,
-                                       gSpec, gRefl, gRefr, 50.0);
+
+
+  Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
+  auto tmp2 = std::make_unique<Sphere>(Vector4D(2, 2, 2, 1), 1, metalMat);
 
   auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
                      Vector4D(2, 3, 1, 1), Vector4D(1, 1, 2, 1));

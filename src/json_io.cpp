@@ -21,6 +21,17 @@ RGB parseColor (const json& j) {
     return RGB(a[0], a[1], a[2]);
 }
 
+Material parseMaterial(const json& j) {
+    Material mat;
+    mat.ambient   = parseColor(j.at("ambient"));
+    mat.diffuse   = parseColor(j.at("diffuse"));
+    mat.specular  = parseColor(j.at("specular"));
+    mat.reflected = parseColor(j.at("reflected"));
+    mat.refracted = parseColor(j.at("refracted"));
+    mat.shininess = j.at("shininess").get<double>();
+    return mat;
+};
+
 Screen makeScreen(const json& j) {
 
     auto dim = j.at("screen").at("dimensions").get<std::array<int,2>>();
@@ -50,6 +61,70 @@ void makeLights(const json& j, Space& space) {
     }
     std::cout << sources.size() << " light sources added." << std::endl; 
 }
+
+
+
+// Predeclaration so Recursion works
+std::unique_ptr<Tree> parseNode(const json& j);
+
+std::unique_ptr<Tree> parseSphere(const json& j){
+    Vector4D pos = parsePoint(j.at("position"));
+    double radius = j.at("radius").get<double>();
+    Material mat = parseMaterial(j.at("color"));
+    int index = j.at("index").get<int>();   // Template Json File contains some "index", no idea for what...
+    return std::make_unique<Sphere>(pos, radius, mat);
+};
+
+std::unique_ptr<Tree> parseHalfspace(const json& j){
+    Vector4D pos = parsePoint(j.at("position"));
+    Vector4D normal = parseDirection(j.at("normal"));
+    Material mat = parseMaterial(j.at("color"));
+    int index = j.at("index").get<int>();
+    return std::make_unique<Halfspace>(pos, normal, mat);
+};
+
+std::unique_ptr<Tree> parseTranslation(const json& j){
+    Vector4D factors = parseDirection(j.at("factors"));
+    auto subject = parseNode(j.at("subjects"));
+    return std::make_unique<Translation>(std::move(subject), factors);
+};
+
+std::unique_ptr<Tree> parseRotation(const json& j){
+    Vector4D factors = parseDirection(j.at("factors"));
+    auto subject = parseNode(j.at("subjects"));
+    return std::make_unique<Rotation>(std::move(subject), factors);
+};
+
+std::unique_ptr<Tree> parseScaling(const json& j){
+    Vector4D factors = parseDirection(j.at("factors"));
+    auto subject = parseNode(j.at("subjects"));
+    return std::make_unique<Scaling>(std::move(subject), factors);
+};
+
+// std::unique_ptr<Tree> parseUnion(const json& j);
+
+// std::unique_ptr<Tree> parseIntersection(const json& j);
+
+// std::unique_ptr<Tree> parseExclusion(const json& j);
+
+std::unique_ptr<Tree> parseNode(const json& j) {
+    if (j.contains("sphere"))   return parseSphere(j.at("sphere"));
+    if (j.contains("halfspace"))   return parseHalfspace(j.at("halfspace"));
+    if (j.contains("translation"))   return parseTranslation(j.at("translation"));
+    if (j.contains("rotation"))   return parseRotation(j.at("rotation"));
+    if (j.contains("scaling"))   return parseScaling(j.at("scaling"));
+    // if (j.contains("union"))   return parseUnion(j.at("union"));
+    // if (j.contains("intersection"))   return parseIntersection(j.at("intersection"));
+    // if (j.contains("exclusion"))   return parseExclusion(j.at("exclusion"));
+};
+
+
+// void makeObjects(const json& j, Space& space) {
+//     auto objects = j.at("objects");
+//     for (auto obj : objects) {
+//         space.add(parseNode(obj));
+//     }
+// }
 
 
 // // Expects json type of an element of object[]

@@ -4,6 +4,22 @@
 #include <strings.h>
 #include <tree.hpp>
 
+Halfspace::Halfspace(Vector4D position, Vector4D normal, Material mat) {
+  Vector4D normedNormal = normal / normal.norm();
+  this->normal = normedNormal;
+
+  double r = scalarProduct(this->normal, position);
+  this->position = r * normedNormal;
+  this->position(3) = 1;
+
+  this->ambientReflectionComponent = mat.ambient;
+  this->diffuseReflectionComponent = mat.diffuse;
+  this->specularReflectionComponent = mat.specular;
+  this->reflectionComponent = mat.reflected;
+  this->refractedComponent = mat.refracted;
+  this->shininess = mat.shininess;
+}
+
 Halfspace::Halfspace(Vector4D position, Vector4D normal, RGB ambRC,
                      RGB diffuseReflectionComponent,
                      RGB specularReflectionComponent, RGB reflec, RGB refrac,
@@ -59,6 +75,18 @@ Vector4D Halfspace::getNormal(Vector4D point) const {
   point * 1; // damit die Warnung weg ist
   return this->normal;
 }
+
+Sphere::Sphere(Vector4D position, double radius, Material mat){
+  this->position = position;
+  this->radius = radius;
+
+  this->ambientReflectionComponent = mat.ambient;
+  this->specularReflectionComponent = mat.specular;
+  this->diffuseReflectionComponent = mat.diffuse;
+  this->reflectionComponent = mat.reflected;
+  this->refractedComponent = mat.refracted;
+  this->shininess = mat.shininess;
+};
 
 Sphere::Sphere(Vector4D position, double radius, RGB ambRC, RGB specRC,
                RGB diffuseRC, RGB reflec, RGB refrac, double shininess) {
