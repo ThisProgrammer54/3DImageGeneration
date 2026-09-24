@@ -70,7 +70,8 @@ std::unique_ptr<Tree> parseSphere(const json& j){
     Vector4D pos = parsePoint(j.at("position"));
     double radius = j.at("radius").get<double>();
     Material mat = parseMaterial(j.at("color"));
-    int index = j.at("index").get<int>();   // Template Json File contains some "index", no idea for what...
+    int index = j.at("index").get<int>(); 
+    (void) index;
     return std::make_unique<Sphere>(pos, radius, mat);
 };
 
@@ -79,6 +80,7 @@ std::unique_ptr<Tree> parseHalfspace(const json& j){
     Vector4D normal = parseDirection(j.at("normal"));
     Material mat = parseMaterial(j.at("color"));
     int index = j.at("index").get<int>();
+    (void) index;
     return std::make_unique<Halfspace>(pos, normal, mat);
 };
 
