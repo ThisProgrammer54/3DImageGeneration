@@ -35,6 +35,15 @@ std::unique_ptr<Intersection> makeCube(Vector4D start, double x, double y,
   return tmpCube;
 }
 
+std::unique_ptr<Tree> modify(std::unique_ptr<Tree> toMod, Vector4D translation,
+                             Vector4D scaling, Vector4D rotation) {
+  auto scal = std::make_unique<Scaling>(std::move(toMod), scaling);
+  auto rot = std::make_unique<Rotation>(std::move(scal), rotation);
+  auto transl = std::make_unique<Translation>(std::move(rot), translation);
+
+  return transl;
+}
+
 Vector4D parsePoint(const json& j) {
     auto a = j.get<std::array<double, 3>>(); 
     return Vector4D(a[0], a[1], a[2], 1);
@@ -111,6 +120,16 @@ std::unique_ptr<Tree> parseHalfspace(const json& j){
     return std::make_unique<Halfspace>(pos, normal, mat);
 };
 
+std::unique_ptr<Tree> parseCube(const json& j){
+  Vector4D pos = parsePoint(j.at("position"));
+  Vector4D dimensions = parsePoint(j.at("dimensions")); 
+  Material mat = parseMaterial(j.at("color")); 
+  int index = j.at("index").get<int>();
+  (void) index; 
+  
+  return makeCube(pos, dimensions(0), dimensions(1), dimensions(2), mat);
+}
+
 template<typename TransformationTree>
 std::unique_ptr<Tree> parseTransform(const json& j){
     Vector4D factors = parseDirection(j.at("factors"));
@@ -133,6 +152,26 @@ std::unique_ptr<Tree> parseRotation(const json &j){
     return std::make_unique<Rotation>(std::move(subject), rotationVec);
 }
 
+/**
+* @brief parses basic modify for compacter transformatons 
+*/
+std::unique_ptr<Tree> parseModify(const json& j){
+  Vector4D scal = parseDirection(j.at("scaling")); 
+  Vector4D rot = parseDirection(j.at("rotation")); 
+  
+  // umwandlung in bogenmass
+  double pi = 2 * acos(0.0);
+  for(int i = 0; i<3; i++){
+    rot(i) = rot(i) * (pi / 180);
+  }
+
+
+  Vector4D transl = parseDirection(j.at("translation")); 
+
+  auto subject = parseNode(j.at("subject")); 
+  return modify(std::move(subject), transl, scal, rot);
+}
+
 template<typename LogicalTree>
 std::unique_ptr<Tree> parseLogical(const json& j){
     auto tree = std::make_unique<LogicalTree>();
@@ -142,20 +181,12 @@ std::unique_ptr<Tree> parseLogical(const json& j){
     return tree;
 }
 
-std::unique_ptr<Tree> parseCube(const json& j){
-  Vector4D pos = parsePoint(j.at("position"));
-  Vector4D dimensions = parsePoint(j.at("dimensions")); 
-  Material mat = parseMaterial(j.at("color")); 
-  int index = j.at("index").get<int>();
-  (void) index; 
-  
-  return makeCube(pos, dimensions(0), dimensions(1), dimensions(2), mat);
-}
 
 std::unique_ptr<Tree> parseNode(const json& j) {
     if (j.contains("cube"))             return parseCube(j.at("cube"));
     if (j.contains("sphere"))           return parseSphere(j.at("sphere"));
     if (j.contains("halfSpace"))        return parseHalfspace(j.at("halfSpace"));
+    if (j.contains("modify"))           return parseModify(j.at("modify"));
     if (j.contains("translation"))      return parseTransform<Translation>(j.at("translation"));
     if (j.contains("rotation"))         return parseRotation(j.at("rotation"));
     if (j.contains("scaling"))          return parseTransform<Scaling>(j.at("scaling"));

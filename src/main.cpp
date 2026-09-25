@@ -15,14 +15,6 @@ using namespace std;
 
 using Eigen::MatrixXd;
 
-std::unique_ptr<Tree> modify(std::unique_ptr<Tree> toMod, Vector4D translation,
-                             Vector4D scaling, Vector4D rotation) {
-  auto scal = std::make_unique<Scaling>(std::move(toMod), scaling);
-  auto rot = std::make_unique<Rotation>(std::move(scal), rotation);
-  auto transl = std::make_unique<Translation>(std::move(rot), translation);
-
-  return transl;
-}
 
 
 int main() {

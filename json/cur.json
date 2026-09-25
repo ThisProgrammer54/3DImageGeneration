@@ -64,19 +64,27 @@
                 }
             ]
         },
-        {"cube": {
-            "position": [5, 0, 0],
-            "dimensions" : [4, 2, 2],
-            "color": {
-                "ambient": [0.5, 0.5, 0.5],
-                "diffuse": [1, 1, 1],
-                "specular": [1, 1, 1],
-                "reflected": [0, 0, 0],
-                "refracted": [0, 0, 0],
-                "shininess": 1
-                },
-            "index": 1
+        {"modify": {
+            "scaling": [1, 1, 1],
+            "rotation": [0, 180, 0],
+            "translation": [5, 0, 0],
+            "subject":{
+                "cube": {
+                    "position": [0, 0, 0],
+                    "dimensions" : [4, 2, 2],
+                    "color": {
+                        "ambient": [0.5, 0.5, 0.5],
+                        "diffuse": [1, 1, 1],
+                        "specular": [1, 1, 1],
+                        "reflected": [0, 0, 0],
+                        "refracted": [0, 0, 0],
+                        "shininess": 1
+                    },
+                
+                    "index": 1
+                }
             }
+          } 
         }
     ]
 }

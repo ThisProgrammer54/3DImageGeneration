@@ -5,6 +5,9 @@
 #include <screen.hpp>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include <unordered_map>
+
+using std::pmr::unordered_map, std::string;
 
 using json = nlohmann::json;
 
@@ -30,6 +33,16 @@ public:
     };
 };
 
+class SzeneContext{
+public:
+  unordered_map<string, Material> materials;
+  const Material& mat(string name){
+    return this->materials[name];
+  }
+  void add(string name, Material mat){
+    this->materials[name] = mat; 
+  }
+}; 
 
 Vector4D parsePoint(const json& j);
 Vector4D parseDirection(const json& j);
@@ -47,6 +60,8 @@ std::unique_ptr<Tree> parseSphere(const json& j);
 std::unique_ptr<Tree> parseHalfspace(const json& j);
 std::unique_ptr<Tree> parseCube(const json& j);
 
+
+std::unique_ptr<Tree> parseModify(const json& j);
 std::unique_ptr<Tree> parseTranslation(const json& j);
 std::unique_ptr<Tree> parseRotation(const json& j);
 std::unique_ptr<Tree> parseScaling(const json& j);
