@@ -32,7 +32,7 @@ double \doxymbox{\hyperlink{classHalfspace_ac958622b6a10b2476cd5274fe0597ce8}{Po
 \doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+virtual bool \doxymbox{\hyperlink{classTree_acf00bbb98fafec8c433aa0a26647878a}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&ray)
 \begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -91,9 +91,9 @@ construcst the \doxylink{classHalfspace}{Halfspace}
 
 
 \begin{DoxyParams}{Parameters}
-{\em point} & on plane \\
+{\em position} & point on plane \\
 \hline
-{\em normal} & normal vector away from plane \\
+{\em normal} & vector away from plane \\
 \hline
 \end{DoxyParams}
 
@@ -115,7 +115,7 @@ Implements \doxymbox{\hyperlink{classPrimitiveObject_a9e0c673535e297e405c6543cdf
 \index{inside@{inside}!Halfspace@{Halfspace}}
 \doxysubsubsection{\texorpdfstring{inside()}{inside()}}
 {\footnotesize\ttfamily \label{classHalfspace_afef97f6779e16f18e258976f32e51f52} 
-bool Halfspace::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+bool Halfspace::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -128,7 +128,7 @@ checks if point is in tree
 \end{DoxyParams}
 
 
-Implements \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{Tree}}.
+Implements \doxymbox{\hyperlink{classTree_af18be17736f822f3fab90199adcf0501}{Tree}}.
 
 \Hypertarget{classHalfspace_a342ab973cd1bfa6031d8fe65afc42a2f}\index{Halfspace@{Halfspace}!intersectPoint@{intersectPoint}}
 \index{intersectPoint@{intersectPoint}!Halfspace@{Halfspace}}

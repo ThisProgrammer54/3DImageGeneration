@@ -4,9 +4,6 @@
 
 #pragma once
 
-#define DEFSHINY 1
-#define DEFCOLOR (RGB(1, 0, 0))
-
 class Tree {
 public:
   /**
@@ -16,13 +13,13 @@ public:
   /**
   / @brief check if ray intersects with tree
   */
-  virtual bool intersec(Ray &);
+  virtual bool intersec(Ray &ray);
 
   /**
    * @brief checks if point is in tree
    * @param point
    */
-  virtual bool inside(IntersectPoint &) = 0;
+  virtual bool inside(IntersectPoint &point) = 0;
 };
 
 class LogicalTree : public Tree {
@@ -148,8 +145,8 @@ public:
   Halfspace(Vector4D position, Vector4D normal, RGB color);
   /**
    * @brief construcst the Halfspace
-   * @param point on plane
-   * @param normal normal vector away from plane
+   * @param position point on plane
+   * @param normal vector away from plane
    */
   Halfspace(Vector4D position, Vector4D normal);
 

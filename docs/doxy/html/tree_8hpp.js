@@ -11,7 +11,5 @@ var tree_8hpp =
     [ "Scaling", "classScaling.html", "classScaling" ],
     [ "PrimitiveObject", "classPrimitiveObject.html", "classPrimitiveObject" ],
     [ "Sphere", "classSphere.html", "classSphere" ],
-    [ "Halfspace", "classHalfspace.html", "classHalfspace" ],
-    [ "DEFCOLOR", "tree_8hpp.html#ae5314b4ed32e86fb438e011ac3046456", null ],
-    [ "DEFSHINY", "tree_8hpp.html#ac09841456dbcb4f969e01fba940e323e", null ]
+    [ "Halfspace", "classHalfspace.html", "classHalfspace" ]
 ];
