@@ -4,6 +4,8 @@
 #include <strings.h>
 #include <tree.hpp>
 
+#define DEFCOLOR RGB()
+
 Halfspace::Halfspace(Vector4D position, Vector4D normal, Material mat) {
   Vector4D normedNormal = normal / normal.norm();
   this->normal = normedNormal;
@@ -76,7 +78,7 @@ Vector4D Halfspace::getNormal(Vector4D point) const {
   return this->normal;
 }
 
-Sphere::Sphere(Vector4D position, double radius, Material mat){
+Sphere::Sphere(Vector4D position, double radius, Material mat) {
   this->position = position;
   this->radius = radius;
 
