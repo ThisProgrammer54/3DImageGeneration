@@ -95,22 +95,6 @@ int main() {
   // RGB gRefr(0.0, 0.0, 0.0);
 
   // Material metalMat(gAmb, gDiff, gSpec, gRefl, gRefr, 50.0);
-  // auto tmp2 = std::make_unique<Sphere>(Vector4D(0, 0, 0, 1), 1, metalMat);
-
-  // auto hold = modify(std::move(tmp2), Vector4D(2, 5, 1, 1),
-  //                    Vector4D(2, 2, 1, 1), Vector4D(1, 1, 2, 1));
-
-  // auto sphere1 = std::make_unique<Object>(std::move(hold));
-
-  // auto cube = makeCube(Vector4D(0, 0, 0, 1), 2, 2, 1, RGB(1.0, 0.5, 0.5));
-  // hold = modify(std::move(cube), Vector4D(3.4, 2, 1, 1), Vector4D(1, 3, 1, 1),
-  //               Vector4D(1, 0, 0, 1));
-
-  // auto cubeObj = std::make_unique<Object>(std::move(hold));
-
-  // space.add(std::move(wall1));
-  // // space.add(std::move(cubeObj));
-  // space.add(std::move(sphere1));
 
   screen.calculate(space);
 
