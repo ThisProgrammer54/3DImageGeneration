@@ -1,0 +1,113 @@
+\doxysection{Space Class Reference}
+\hypertarget{classSpace}{}\label{classSpace}\index{Space@{Space}}
+
+
+{\ttfamily \+\#include $<$space.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classSpace_a7a43eec43468a5190918d80a39c03a4b}{add}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classObject}{Object}} $>$)
+\item 
+void \doxymbox{\hyperlink{classSpace_a721b29f61f137cbdd8ef5ee717a374b4}{add}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classLightSource}{Light\+Source}} $>$ ls)
+\item 
+void \doxymbox{\hyperlink{classSpace_a5e1792a004b2153c87266213d7c5912d}{add}} (std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classLightSource}{Light\+Source}} $>$ $>$)
+\item 
+\doxymbox{\hyperlink{classSpace_ac5462c516a3f9de5feaeef946d7ce569}{Space}} (\doxymbox{\hyperlink{structRGB}{RGB}} ambient\+Light\+Intensity)
+\item 
+\doxymbox{\hyperlink{classSpace_a8562f26dc6c9016e62dac2156f84ce33}{Space}} (\doxymbox{\hyperlink{structRGB}{RGB}} ambient\+Light\+Intensity, int index, int recursion)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classObject}{Object}} $>$ $>$ \doxymbox{\hyperlink{classSpace_a30556152241d60059bb45d439833029b}{objects}}
+\item 
+std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classLightSource}{Light\+Source}} $>$ $>$ \doxymbox{\hyperlink{classSpace_a68265e2db3014e108e2ffaf0ae880cde}{light\+Sources}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classSpace_a04857eab2bd495da7ff365955768805e}{ambient\+Light\+Intensity}}
+\item 
+int \doxymbox{\hyperlink{classSpace_a23bdc8b5a5364bbafeaaeab7d880611a}{index}}
+\item 
+int \doxymbox{\hyperlink{classSpace_af5bfcd458b32c601a28030abd2788db5}{recursion}}
+\end{DoxyCompactItemize}
+
+
+\label{classSpace_doc-constructors}
+\Hypertarget{classSpace_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSpace_ac5462c516a3f9de5feaeef946d7ce569}\index{Space@{Space}!Space@{Space}}
+\index{Space@{Space}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{Space()}{Space()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classSpace_ac5462c516a3f9de5feaeef946d7ce569} 
+Space::\+\+Space (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{ambient\+Light\+Intensity}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSpace_a8562f26dc6c9016e62dac2156f84ce33}\index{Space@{Space}!Space@{Space}}
+\index{Space@{Space}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{Space()}{Space()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classSpace_a8562f26dc6c9016e62dac2156f84ce33} 
+Space::\+\+Space (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{ambient\+Light\+Intensity}{, }\item[{int}]{index}{, }\item[{int}]{recursion}{}\end{DoxyParamCaption})}
+
+
+
+\label{classSpace_doc-func-members}
+\Hypertarget{classSpace_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSpace_a721b29f61f137cbdd8ef5ee717a374b4}\index{Space@{Space}!add@{add}}
+\index{add@{add}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classSpace_a721b29f61f137cbdd8ef5ee717a374b4} 
+void Space::\+add (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classLightSource}{Light\+Source}} $>$}]{ls}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSpace_a7a43eec43468a5190918d80a39c03a4b}\index{Space@{Space}!add@{add}}
+\index{add@{add}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classSpace_a7a43eec43468a5190918d80a39c03a4b} 
+void Space::\+add (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classObject}{Object}} $>$}]{obj}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSpace_a5e1792a004b2153c87266213d7c5912d}\index{Space@{Space}!add@{add}}
+\index{add@{add}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classSpace_a5e1792a004b2153c87266213d7c5912d} 
+void Space::\+add (\begin{DoxyParamCaption}\item[{std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classLightSource}{Light\+Source}} $>$ $>$}]{}{}\end{DoxyParamCaption})}
+
+
+
+\label{classSpace_doc-variable-members}
+\Hypertarget{classSpace_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSpace_a04857eab2bd495da7ff365955768805e}\index{Space@{Space}!ambientLightIntensity@{ambientLightIntensity}}
+\index{ambientLightIntensity@{ambientLightIntensity}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{ambientLightIntensity}{ambientLightIntensity}}
+{\footnotesize\ttfamily \label{classSpace_a04857eab2bd495da7ff365955768805e} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Space::\+ambient\+Light\+Intensity}
+
+\Hypertarget{classSpace_a23bdc8b5a5364bbafeaaeab7d880611a}\index{Space@{Space}!index@{index}}
+\index{index@{index}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily \label{classSpace_a23bdc8b5a5364bbafeaaeab7d880611a} 
+int Space::\+index}
+
+\Hypertarget{classSpace_a68265e2db3014e108e2ffaf0ae880cde}\index{Space@{Space}!lightSources@{lightSources}}
+\index{lightSources@{lightSources}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{lightSources}{lightSources}}
+{\footnotesize\ttfamily \label{classSpace_a68265e2db3014e108e2ffaf0ae880cde} 
+std::\+vector$<$std::\+unique\+\_\+ptr$<$\doxymbox{\hyperlink{classLightSource}{Light\+Source}}$>$ $>$ Space::\+light\+Sources}
+
+\Hypertarget{classSpace_a30556152241d60059bb45d439833029b}\index{Space@{Space}!objects@{objects}}
+\index{objects@{objects}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{objects}{objects}}
+{\footnotesize\ttfamily \label{classSpace_a30556152241d60059bb45d439833029b} 
+std::\+vector$<$std::\+unique\+\_\+ptr$<$\doxymbox{\hyperlink{classObject}{Object}}$>$ $>$ Space::\+objects}
+
+\Hypertarget{classSpace_af5bfcd458b32c601a28030abd2788db5}\index{Space@{Space}!recursion@{recursion}}
+\index{recursion@{recursion}!Space@{Space}}
+\doxysubsubsection{\texorpdfstring{recursion}{recursion}}
+{\footnotesize\ttfamily \label{classSpace_af5bfcd458b32c601a28030abd2788db5} 
+int Space::\+recursion}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{space_8hpp}{space.\+hpp}}\item 
+src/\doxymbox{\hyperlink{space_8cpp}{space.\+cpp}}\end{DoxyCompactItemize}

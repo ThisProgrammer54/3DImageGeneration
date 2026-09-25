@@ -1,0 +1,65 @@
+\doxysection{Union Class Reference}
+\hypertarget{classUnion}{}\label{classUnion}\index{Union@{Union}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Union:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classUnion}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classUnion_a230c9a1036ee0ebef37feb13a92f4166}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classLogicalTree_a23191da46c4ed2b56f20ed830fccd3a4}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classLogicalTree_a1e0aba95f11c087446bb705fc6bdcb0a}{add}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ $>$ \doxymbox{\hyperlink{classLogicalTree_af9db99aa55a7b90f02c583a5b8e0c951}{nodes}}
+\end{DoxyCompactItemize}
+
+
+\label{classUnion_doc-func-members}
+\Hypertarget{classUnion_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classUnion_a230c9a1036ee0ebef37feb13a92f4166}\index{Union@{Union}!inside@{inside}}
+\index{inside@{inside}!Union@{Union}}
+\doxysubsubsection{\texorpdfstring{inside()}{inside()}}
+{\footnotesize\ttfamily \label{classUnion_a230c9a1036ee0ebef37feb13a92f4166} 
+bool Union::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+checks if point is in tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{Tree}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{logicalTree_8cpp}{logical\+Tree.\+cpp}}\end{DoxyCompactItemize}

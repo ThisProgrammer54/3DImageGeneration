@@ -1,0 +1,184 @@
+\doxysection{Rotation Class Reference}
+\hypertarget{classRotation}{}\label{classRotation}\index{Rotation@{Rotation}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Rotation:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classRotation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classRotation_aa673c227a94a16f3e5f06e465a2f55b3}{Rotation}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ node, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} tranformation)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classTransformationTree_aa029b9069a88d19acc1d0736e1732c16}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classTransformationTree_a856f7e543b72497d808812c4b0a148ee}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&a) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classRotation_a9832f261542555070d97eeea3554d968}{build\+Matrices}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) override
+\item 
+void \doxymbox{\hyperlink{classRotation_ad75cdc5059fbf776890aa2de2c03a35f}{build\+Inverses}} () override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classRotation_a6d182f8e1ea5d1ffd55b14f74014a307}{apply\+Inverse}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classRotation_ace5bf36f5f7da2d605d6bad6364b579d}{apply\+Transform}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classRotation_a320d8f7876612ca71a420c30e3935bd8}{apply\+Normal\+Transform}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classRotation_a5e7c90f3f31f4a68956a7e74d1dd7623}{matX}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classRotation_ada038f1117318ea0364ff073471368e1}{matY}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classRotation_a533f89de3b7dcb2394ad415eec6f4a01}{matZ}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classRotation_af6fa2ed4d1671b723b61a0d06c5a6d21}{invX}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classRotation_adbf8481b8fc545b50d58e5c9052a641b}{invY}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classRotation_aaaece7920b931249649580183adc0068}{invZ}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classRotation_a4de408e4f1640c50a5a447e8d8301d6f}{rotation}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{classTransformationTree_a038671549a8f317d0b8fb69e0cc990ba}{node}}
+\end{DoxyCompactItemize}
+
+
+\label{classRotation_doc-constructors}
+\Hypertarget{classRotation_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRotation_aa673c227a94a16f3e5f06e465a2f55b3}\index{Rotation@{Rotation}!Rotation@{Rotation}}
+\index{Rotation@{Rotation}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{Rotation()}{Rotation()}}
+{\footnotesize\ttfamily \label{classRotation_aa673c227a94a16f3e5f06e465a2f55b3} 
+Rotation::\+\+Rotation (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$}]{node}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{tranformation}{}\end{DoxyParamCaption})}
+
+
+
+\label{classRotation_doc-func-members}
+\Hypertarget{classRotation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRotation_a6d182f8e1ea5d1ffd55b14f74014a307}\index{Rotation@{Rotation}!applyInverse@{applyInverse}}
+\index{applyInverse@{applyInverse}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{applyInverse()}{applyInverse()}}
+{\footnotesize\ttfamily \label{classRotation_a6d182f8e1ea5d1ffd55b14f74014a307} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Rotation::\+apply\+Inverse (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_aa32be548e858ad28a17a9191d6954cce}{Transformation\+Tree}}.
+
+\Hypertarget{classRotation_a320d8f7876612ca71a420c30e3935bd8}\index{Rotation@{Rotation}!applyNormalTransform@{applyNormalTransform}}
+\index{applyNormalTransform@{applyNormalTransform}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{applyNormalTransform()}{applyNormalTransform()}}
+{\footnotesize\ttfamily \label{classRotation_a320d8f7876612ca71a420c30e3935bd8} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Rotation::\+apply\+Normal\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_a86b53752c260fda7209b7200c8b641e9}{Transformation\+Tree}}.
+
+\Hypertarget{classRotation_ace5bf36f5f7da2d605d6bad6364b579d}\index{Rotation@{Rotation}!applyTransform@{applyTransform}}
+\index{applyTransform@{applyTransform}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{applyTransform()}{applyTransform()}}
+{\footnotesize\ttfamily \label{classRotation_ace5bf36f5f7da2d605d6bad6364b579d} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Rotation::\+apply\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_a9ad8a3538e821b3c1b44cef4763dee5e}{Transformation\+Tree}}.
+
+\Hypertarget{classRotation_ad75cdc5059fbf776890aa2de2c03a35f}\index{Rotation@{Rotation}!buildInverses@{buildInverses}}
+\index{buildInverses@{buildInverses}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{buildInverses()}{buildInverses()}}
+{\footnotesize\ttfamily \label{classRotation_ad75cdc5059fbf776890aa2de2c03a35f} 
+void Rotation::\+build\+Inverses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_a217f6a7da5c754626ed20b88d3144079}{Transformation\+Tree}}.
+
+\Hypertarget{classRotation_a9832f261542555070d97eeea3554d968}\index{Rotation@{Rotation}!buildMatrices@{buildMatrices}}
+\index{buildMatrices@{buildMatrices}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{buildMatrices()}{buildMatrices()}}
+{\footnotesize\ttfamily \label{classRotation_a9832f261542555070d97eeea3554d968} 
+void Rotation::\+build\+Matrices (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_ae649a213b81c30cc9b814d68087222d9}{Transformation\+Tree}}.
+
+
+
+\label{classRotation_doc-variable-members}
+\Hypertarget{classRotation_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classRotation_af6fa2ed4d1671b723b61a0d06c5a6d21}\index{Rotation@{Rotation}!invX@{invX}}
+\index{invX@{invX}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{invX}{invX}}
+{\footnotesize\ttfamily \label{classRotation_af6fa2ed4d1671b723b61a0d06c5a6d21} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Rotation::\+invX\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classRotation_adbf8481b8fc545b50d58e5c9052a641b}\index{Rotation@{Rotation}!invY@{invY}}
+\index{invY@{invY}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{invY}{invY}}
+{\footnotesize\ttfamily \label{classRotation_adbf8481b8fc545b50d58e5c9052a641b} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Rotation::\+invY\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classRotation_aaaece7920b931249649580183adc0068}\index{Rotation@{Rotation}!invZ@{invZ}}
+\index{invZ@{invZ}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{invZ}{invZ}}
+{\footnotesize\ttfamily \label{classRotation_aaaece7920b931249649580183adc0068} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Rotation::\+invZ\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classRotation_a5e7c90f3f31f4a68956a7e74d1dd7623}\index{Rotation@{Rotation}!matX@{matX}}
+\index{matX@{matX}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{matX}{matX}}
+{\footnotesize\ttfamily \label{classRotation_a5e7c90f3f31f4a68956a7e74d1dd7623} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Rotation::\+matX\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classRotation_ada038f1117318ea0364ff073471368e1}\index{Rotation@{Rotation}!matY@{matY}}
+\index{matY@{matY}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{matY}{matY}}
+{\footnotesize\ttfamily \label{classRotation_ada038f1117318ea0364ff073471368e1} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Rotation::\+matY\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classRotation_a533f89de3b7dcb2394ad415eec6f4a01}\index{Rotation@{Rotation}!matZ@{matZ}}
+\index{matZ@{matZ}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{matZ}{matZ}}
+{\footnotesize\ttfamily \label{classRotation_a533f89de3b7dcb2394ad415eec6f4a01} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Rotation::\+matZ\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classRotation_a4de408e4f1640c50a5a447e8d8301d6f}\index{Rotation@{Rotation}!rotation@{rotation}}
+\index{rotation@{rotation}!Rotation@{Rotation}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily \label{classRotation_a4de408e4f1640c50a5a447e8d8301d6f} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Rotation::\+rotation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{transformationTree_8cpp}{transformation\+Tree.\+cpp}}\end{DoxyCompactItemize}

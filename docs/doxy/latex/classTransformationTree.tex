@@ -1,0 +1,147 @@
+\doxysection{Transformation\+Tree Class Reference}
+\hypertarget{classTransformationTree}{}\label{classTransformationTree}\index{TransformationTree@{TransformationTree}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Transformation\+Tree:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classTransformationTree}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classTransformationTree_aa029b9069a88d19acc1d0736e1732c16}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classTransformationTree_a856f7e543b72497d808812c4b0a148ee}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&a) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{classTransformationTree_a038671549a8f317d0b8fb69e0cc990ba}{node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{classTransformationTree_ae649a213b81c30cc9b814d68087222d9}{build\+Matrices}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in)=0
+\item 
+virtual void \doxymbox{\hyperlink{classTransformationTree_a217f6a7da5c754626ed20b88d3144079}{build\+Inverses}} ()=0
+\item 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classTransformationTree_aa32be548e858ad28a17a9191d6954cce}{apply\+Inverse}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const =0
+\item 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classTransformationTree_a9ad8a3538e821b3c1b44cef4763dee5e}{apply\+Transform}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const =0
+\item 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classTransformationTree_a86b53752c260fda7209b7200c8b641e9}{apply\+Normal\+Transform}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const =0
+\end{DoxyCompactItemize}
+
+
+\label{classTransformationTree_doc-func-members}
+\Hypertarget{classTransformationTree_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTransformationTree_aa32be548e858ad28a17a9191d6954cce}\index{TransformationTree@{TransformationTree}!applyInverse@{applyInverse}}
+\index{applyInverse@{applyInverse}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{applyInverse()}{applyInverse()}}
+{\footnotesize\ttfamily \label{classTransformationTree_aa32be548e858ad28a17a9191d6954cce} 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Transformation\+Tree::\+apply\+Inverse (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classRotation_a6d182f8e1ea5d1ffd55b14f74014a307}{Rotation}}, \doxymbox{\hyperlink{classScaling_aa35955a153a6d534ca99d6d67c1db8fa}{Scaling}}, and \doxymbox{\hyperlink{classTranslation_aaebd8bb8c4b4fc5f0f74e7028232c4a8}{Translation}}.
+
+\Hypertarget{classTransformationTree_a86b53752c260fda7209b7200c8b641e9}\index{TransformationTree@{TransformationTree}!applyNormalTransform@{applyNormalTransform}}
+\index{applyNormalTransform@{applyNormalTransform}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{applyNormalTransform()}{applyNormalTransform()}}
+{\footnotesize\ttfamily \label{classTransformationTree_a86b53752c260fda7209b7200c8b641e9} 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Transformation\+Tree::\+apply\+Normal\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classRotation_a320d8f7876612ca71a420c30e3935bd8}{Rotation}}, \doxymbox{\hyperlink{classScaling_abe030869f5cfeb644be395a844c491ae}{Scaling}}, and \doxymbox{\hyperlink{classTranslation_a81e96b8bd1aca2f2a40e40ccf71cb7eb}{Translation}}.
+
+\Hypertarget{classTransformationTree_a9ad8a3538e821b3c1b44cef4763dee5e}\index{TransformationTree@{TransformationTree}!applyTransform@{applyTransform}}
+\index{applyTransform@{applyTransform}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{applyTransform()}{applyTransform()}}
+{\footnotesize\ttfamily \label{classTransformationTree_a9ad8a3538e821b3c1b44cef4763dee5e} 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Transformation\+Tree::\+apply\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classRotation_ace5bf36f5f7da2d605d6bad6364b579d}{Rotation}}, \doxymbox{\hyperlink{classScaling_aaf7176b6134c7d06f7c3d70f52a6076f}{Scaling}}, and \doxymbox{\hyperlink{classTranslation_a2946225e1b226447d0581dc7cc819157}{Translation}}.
+
+\Hypertarget{classTransformationTree_a217f6a7da5c754626ed20b88d3144079}\index{TransformationTree@{TransformationTree}!buildInverses@{buildInverses}}
+\index{buildInverses@{buildInverses}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{buildInverses()}{buildInverses()}}
+{\footnotesize\ttfamily \label{classTransformationTree_a217f6a7da5c754626ed20b88d3144079} 
+virtual void Transformation\+Tree::\+build\+Inverses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classRotation_ad75cdc5059fbf776890aa2de2c03a35f}{Rotation}}, \doxymbox{\hyperlink{classScaling_a482588ae0ad14fe369aadbf65eae538d}{Scaling}}, and \doxymbox{\hyperlink{classTranslation_a5f5e76061a0eb92a9f838ade733ba99d}{Translation}}.
+
+\Hypertarget{classTransformationTree_ae649a213b81c30cc9b814d68087222d9}\index{TransformationTree@{TransformationTree}!buildMatrices@{buildMatrices}}
+\index{buildMatrices@{buildMatrices}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{buildMatrices()}{buildMatrices()}}
+{\footnotesize\ttfamily \label{classTransformationTree_ae649a213b81c30cc9b814d68087222d9} 
+virtual void Transformation\+Tree::\+build\+Matrices (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classRotation_a9832f261542555070d97eeea3554d968}{Rotation}}, \doxymbox{\hyperlink{classScaling_af1344d1eb260833ae05b76c5af86f02c}{Scaling}}, and \doxymbox{\hyperlink{classTranslation_a9434cab921a871df0a0e97815a719fa0}{Translation}}.
+
+\Hypertarget{classTransformationTree_a856f7e543b72497d808812c4b0a148ee}\index{TransformationTree@{TransformationTree}!inside@{inside}}
+\index{inside@{inside}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{inside()}{inside()}}
+{\footnotesize\ttfamily \label{classTransformationTree_a856f7e543b72497d808812c4b0a148ee} 
+bool Transformation\+Tree::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+checks if point is in tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{Tree}}.
+
+\Hypertarget{classTransformationTree_aa029b9069a88d19acc1d0736e1732c16}\index{TransformationTree@{TransformationTree}!intersectPoint@{intersectPoint}}
+\index{intersectPoint@{intersectPoint}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{intersectPoint()}{intersectPoint()}}
+{\footnotesize\ttfamily \label{classTransformationTree_aa029b9069a88d19acc1d0736e1732c16} 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} Transformation\+Tree::\+intersect\+Point (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classRay}{Ray}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns \doxylink{classIntersection}{Intersection} with tree 
+
+
+
+Implements \doxymbox{\hyperlink{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}{Tree}}.
+
+
+
+\label{classTransformationTree_doc-variable-members}
+\Hypertarget{classTransformationTree_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classTransformationTree_a038671549a8f317d0b8fb69e0cc990ba}\index{TransformationTree@{TransformationTree}!node@{node}}
+\index{node@{node}!TransformationTree@{TransformationTree}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily \label{classTransformationTree_a038671549a8f317d0b8fb69e0cc990ba} 
+std::\+unique\+\_\+ptr$<$\doxymbox{\hyperlink{classTree}{Tree}}$>$ Transformation\+Tree::\+node}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{transformationTree_8cpp}{transformation\+Tree.\+cpp}}\end{DoxyCompactItemize}

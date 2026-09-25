@@ -1,0 +1,73 @@
+\doxysection{Logical\+Tree Class Reference}
+\hypertarget{classLogicalTree}{}\label{classLogicalTree}\index{LogicalTree@{LogicalTree}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Logical\+Tree:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classLogicalTree}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classLogicalTree_a23191da46c4ed2b56f20ed830fccd3a4}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classLogicalTree_a1e0aba95f11c087446bb705fc6bdcb0a}{add}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&)=0
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ $>$ \doxymbox{\hyperlink{classLogicalTree_af9db99aa55a7b90f02c583a5b8e0c951}{nodes}}
+\end{DoxyCompactItemize}
+
+
+\label{classLogicalTree_doc-func-members}
+\Hypertarget{classLogicalTree_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogicalTree_a1e0aba95f11c087446bb705fc6bdcb0a}\index{LogicalTree@{LogicalTree}!add@{add}}
+\index{add@{add}!LogicalTree@{LogicalTree}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{classLogicalTree_a1e0aba95f11c087446bb705fc6bdcb0a} 
+void Logical\+Tree::\+add (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$}]{new\+Node}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classLogicalTree_a23191da46c4ed2b56f20ed830fccd3a4}\index{LogicalTree@{LogicalTree}!intersectPoint@{intersectPoint}}
+\index{intersectPoint@{intersectPoint}!LogicalTree@{LogicalTree}}
+\doxysubsubsection{\texorpdfstring{intersectPoint()}{intersectPoint()}}
+{\footnotesize\ttfamily \label{classLogicalTree_a23191da46c4ed2b56f20ed830fccd3a4} 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} Logical\+Tree::\+intersect\+Point (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classRay}{Ray}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns \doxylink{classIntersection}{Intersection} with tree 
+
+
+
+Implements \doxymbox{\hyperlink{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}{Tree}}.
+
+
+
+\label{classLogicalTree_doc-variable-members}
+\Hypertarget{classLogicalTree_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLogicalTree_af9db99aa55a7b90f02c583a5b8e0c951}\index{LogicalTree@{LogicalTree}!nodes@{nodes}}
+\index{nodes@{nodes}!LogicalTree@{LogicalTree}}
+\doxysubsubsection{\texorpdfstring{nodes}{nodes}}
+{\footnotesize\ttfamily \label{classLogicalTree_af9db99aa55a7b90f02c583a5b8e0c951} 
+std::\+vector$<$std::\+unique\+\_\+ptr$<$\doxymbox{\hyperlink{classTree}{Tree}}$>$ $>$ Logical\+Tree::\+nodes}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{logicalTree_8cpp}{logical\+Tree.\+cpp}}\end{DoxyCompactItemize}

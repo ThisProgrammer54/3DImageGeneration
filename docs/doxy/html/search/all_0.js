@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['add_0',['add',['../classSpace.html#a7a43eec43468a5190918d80a39c03a4b',1,'Space::add(std::unique_ptr&lt; Object &gt;)'],['../classSpace.html#a721b29f61f137cbdd8ef5ee717a374b4',1,'Space::add(std::unique_ptr&lt; LightSource &gt; ls)'],['../classSpace.html#a5e1792a004b2153c87266213d7c5912d',1,'Space::add(std::vector&lt; std::unique_ptr&lt; LightSource &gt; &gt;)'],['../classLogicalTree.html#a1e0aba95f11c087446bb705fc6bdcb0a',1,'LogicalTree::add()']]],
+  ['ambient_1',['ambient',['../classMaterial.html#a54e2bdc004a2de2a8184864b5da9df57',1,'Material']]],
+  ['ambientlightintensity_2',['ambientLightIntensity',['../classSpace.html#a04857eab2bd495da7ff365955768805e',1,'Space']]],
+  ['ambientreflectioncomponent_3',['ambientReflectionComponent',['../classPrimitiveObject.html#a70f896ec4b9950159252ab8f06775508',1,'PrimitiveObject']]],
+  ['applyinverse_4',['applyInverse',['../classTransformationTree.html#aa32be548e858ad28a17a9191d6954cce',1,'TransformationTree::applyInverse()'],['../classTranslation.html#aaebd8bb8c4b4fc5f0f74e7028232c4a8',1,'Translation::applyInverse()'],['../classRotation.html#a6d182f8e1ea5d1ffd55b14f74014a307',1,'Rotation::applyInverse()'],['../classScaling.html#aa35955a153a6d534ca99d6d67c1db8fa',1,'Scaling::applyInverse()']]],
+  ['applynormaltransform_5',['applyNormalTransform',['../classTransformationTree.html#a86b53752c260fda7209b7200c8b641e9',1,'TransformationTree::applyNormalTransform()'],['../classTranslation.html#a81e96b8bd1aca2f2a40e40ccf71cb7eb',1,'Translation::applyNormalTransform()'],['../classRotation.html#a320d8f7876612ca71a420c30e3935bd8',1,'Rotation::applyNormalTransform()'],['../classScaling.html#abe030869f5cfeb644be395a844c491ae',1,'Scaling::applyNormalTransform()']]],
+  ['applytransform_6',['applyTransform',['../classTransformationTree.html#a9ad8a3538e821b3c1b44cef4763dee5e',1,'TransformationTree::applyTransform()'],['../classTranslation.html#a2946225e1b226447d0581dc7cc819157',1,'Translation::applyTransform()'],['../classRotation.html#ace5bf36f5f7da2d605d6bad6364b579d',1,'Rotation::applyTransform()'],['../classScaling.html#aaf7176b6134c7d06f7c3d70f52a6076f',1,'Scaling::applyTransform()']]]
+];

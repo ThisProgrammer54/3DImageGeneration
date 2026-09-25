@@ -1,0 +1,27 @@
+var annotated_dup =
+[
+    [ "Exclusion", "classExclusion.html", "classExclusion" ],
+    [ "Halfspace", "classHalfspace.html", "classHalfspace" ],
+    [ "Intersection", "classIntersection.html", "classIntersection" ],
+    [ "IntersectionResult", "structIntersectionResult.html", "structIntersectionResult" ],
+    [ "IntersectPoint", "classIntersectPoint.html", "classIntersectPoint" ],
+    [ "LightSource", "classLightSource.html", "classLightSource" ],
+    [ "LogicalTree", "classLogicalTree.html", "classLogicalTree" ],
+    [ "Material", "classMaterial.html", "classMaterial" ],
+    [ "Object", "classObject.html", "classObject" ],
+    [ "Pixel", "classPixel.html", "classPixel" ],
+    [ "PrimitiveObject", "classPrimitiveObject.html", "classPrimitiveObject" ],
+    [ "Ray", "classRay.html", "classRay" ],
+    [ "Render", "classRender.html", "classRender" ],
+    [ "RGB", "structRGB.html", "structRGB" ],
+    [ "Rotation", "classRotation.html", "classRotation" ],
+    [ "Scaling", "classScaling.html", "classScaling" ],
+    [ "SceneLoader", "classSceneLoader.html", "classSceneLoader" ],
+    [ "Screen", "classScreen.html", "classScreen" ],
+    [ "Space", "classSpace.html", "classSpace" ],
+    [ "Sphere", "classSphere.html", "classSphere" ],
+    [ "TransformationTree", "classTransformationTree.html", "classTransformationTree" ],
+    [ "Translation", "classTranslation.html", "classTranslation" ],
+    [ "Tree", "classTree.html", "classTree" ],
+    [ "Union", "classUnion.html", "classUnion" ]
+];

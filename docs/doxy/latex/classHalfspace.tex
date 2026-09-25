@@ -1,0 +1,187 @@
+\doxysection{Halfspace Class Reference}
+\hypertarget{classHalfspace}{}\label{classHalfspace}\index{Halfspace@{Halfspace}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Halfspace:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classHalfspace}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classHalfspace_ae8567cece032e1b39aaa49b47c223feb}{Halfspace}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} normal, \doxymbox{\hyperlink{structRGB}{RGB}} amb\+RC, \doxymbox{\hyperlink{structRGB}{RGB}} spec\+RC, \doxymbox{\hyperlink{structRGB}{RGB}} diffuse\+RC, \doxymbox{\hyperlink{structRGB}{RGB}} reflec, \doxymbox{\hyperlink{structRGB}{RGB}} refrac, double shininess)
+\item 
+\doxymbox{\hyperlink{classHalfspace_a4b47649c1b9a93bab4cd95e7f59a647a}{Halfspace}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} normal, \doxymbox{\hyperlink{classMaterial}{Material}} mat)
+\item 
+\doxymbox{\hyperlink{classHalfspace_a5e90bd1c91b92239a9a09d46b3e48994}{Halfspace}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} normal, \doxymbox{\hyperlink{structRGB}{RGB}} color)
+\item 
+\doxymbox{\hyperlink{classHalfspace_a5f419aa18a535a6c2a8e39c0c24f078f}{Halfspace}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} normal)
+\begin{DoxyCompactList}\small\item\em construcst the \doxylink{classHalfspace}{Halfspace} \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classHalfspace_a342ab973cd1bfa6031d8fe65afc42a2f}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&ray) override
+\begin{DoxyCompactList}\small\item\em calculates intersection of \doxylink{classRay}{Ray} with itself \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classHalfspace_afef97f6779e16f18e258976f32e51f52}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&a) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{classHalfspace_ac958622b6a10b2476cd5274fe0597ce8}{Polynom}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}) const override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classHalfspace_aa0dfc3301ea0faf50d698e8535bcc68b}{get\+Normal}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} point) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classHalfspace_a68249e6483408228af19f6163d4083b0}{position}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classHalfspace_a4558fddfe494ddcde2894345283eb281}{normal}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classPrimitiveObject}{Primitive\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a70f896ec4b9950159252ab8f06775508}{ambient\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_aee81f29fac030d5191aaa23fe41aba49}{diffuse\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a67c96720fa3be871fece508708515235}{specular\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a00a53014c307386e7435ade3e7e89854}{reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a75f3e658554a5ef3155027ee04fca5ce}{refracted\+Component}}
+\item 
+double \doxymbox{\hyperlink{classPrimitiveObject_a71aad535360b0d59cac72afffa34da18}{shininess}}
+\end{DoxyCompactItemize}
+
+
+\label{classHalfspace_doc-constructors}
+\Hypertarget{classHalfspace_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classHalfspace_ae8567cece032e1b39aaa49b47c223feb}\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{Halfspace()}{Halfspace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classHalfspace_ae8567cece032e1b39aaa49b47c223feb} 
+Halfspace::\+\+Halfspace (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{normal}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{amb\+RC}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{spec\+RC}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{diffuse\+RC}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{reflec}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{refrac}{, }\item[{double}]{shininess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classHalfspace_a4b47649c1b9a93bab4cd95e7f59a647a}\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{Halfspace()}{Halfspace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classHalfspace_a4b47649c1b9a93bab4cd95e7f59a647a} 
+Halfspace::\+\+Halfspace (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{normal}{, }\item[{\doxymbox{\hyperlink{classMaterial}{Material}}}]{mat}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classHalfspace_a5e90bd1c91b92239a9a09d46b3e48994}\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{Halfspace()}{Halfspace()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classHalfspace_a5e90bd1c91b92239a9a09d46b3e48994} 
+Halfspace::\+\+Halfspace (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{normal}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{color}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classHalfspace_a5f419aa18a535a6c2a8e39c0c24f078f}\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\index{Halfspace@{Halfspace}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{Halfspace()}{Halfspace()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classHalfspace_a5f419aa18a535a6c2a8e39c0c24f078f} 
+Halfspace::\+\+Halfspace (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{normal}{}\end{DoxyParamCaption})}
+
+
+
+construcst the \doxylink{classHalfspace}{Halfspace} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & on plane \\
+\hline
+{\em normal} & normal vector away from plane \\
+\hline
+\end{DoxyParams}
+
+
+\label{classHalfspace_doc-func-members}
+\Hypertarget{classHalfspace_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHalfspace_aa0dfc3301ea0faf50d698e8535bcc68b}\index{Halfspace@{Halfspace}!getNormal@{getNormal}}
+\index{getNormal@{getNormal}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{getNormal()}{getNormal()}}
+{\footnotesize\ttfamily \label{classHalfspace_aa0dfc3301ea0faf50d698e8535bcc68b} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Halfspace::\+get\+Normal (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{point}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classPrimitiveObject_a9e0c673535e297e405c6543cdf13d54a}{Primitive\+Object}}.
+
+\Hypertarget{classHalfspace_afef97f6779e16f18e258976f32e51f52}\index{Halfspace@{Halfspace}!inside@{inside}}
+\index{inside@{inside}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{inside()}{inside()}}
+{\footnotesize\ttfamily \label{classHalfspace_afef97f6779e16f18e258976f32e51f52} 
+bool Halfspace::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+checks if point is in tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{Tree}}.
+
+\Hypertarget{classHalfspace_a342ab973cd1bfa6031d8fe65afc42a2f}\index{Halfspace@{Halfspace}!intersectPoint@{intersectPoint}}
+\index{intersectPoint@{intersectPoint}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{intersectPoint()}{intersectPoint()}}
+{\footnotesize\ttfamily \label{classHalfspace_a342ab973cd1bfa6031d8fe65afc42a2f} 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} Halfspace::\+intersect\+Point (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classRay}{Ray}} \&}]{ray}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+calculates intersection of \doxylink{classRay}{Ray} with itself 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & the \doxylink{classRay}{Ray} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+intersectionpoint\+Ptr or nullptr if not existing 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}{Tree}}.
+
+\Hypertarget{classHalfspace_ac958622b6a10b2476cd5274fe0597ce8}\index{Halfspace@{Halfspace}!Polynom@{Polynom}}
+\index{Polynom@{Polynom}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{Polynom()}{Polynom()}}
+{\footnotesize\ttfamily \label{classHalfspace_ac958622b6a10b2476cd5274fe0597ce8} 
+double Halfspace::\+\+Polynom (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classPrimitiveObject_a8420157ae956bc345f44565dddd773ea}{Primitive\+Object}}.
+
+
+
+\label{classHalfspace_doc-variable-members}
+\Hypertarget{classHalfspace_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classHalfspace_a4558fddfe494ddcde2894345283eb281}\index{Halfspace@{Halfspace}!normal@{normal}}
+\index{normal@{normal}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{normal}{normal}}
+{\footnotesize\ttfamily \label{classHalfspace_a4558fddfe494ddcde2894345283eb281} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Halfspace::\+normal}
+
+\Hypertarget{classHalfspace_a68249e6483408228af19f6163d4083b0}\index{Halfspace@{Halfspace}!position@{position}}
+\index{position@{position}!Halfspace@{Halfspace}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \label{classHalfspace_a68249e6483408228af19f6163d4083b0} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Halfspace::\+position}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{ObjectTree_8cpp}{Object\+Tree.\+cpp}}\end{DoxyCompactItemize}

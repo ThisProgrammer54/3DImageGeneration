@@ -1,0 +1,114 @@
+\doxysection{Primitive\+Object Class Reference}
+\hypertarget{classPrimitiveObject}{}\label{classPrimitiveObject}\index{PrimitiveObject@{PrimitiveObject}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Primitive\+Object:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classPrimitiveObject}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \doxymbox{\hyperlink{classPrimitiveObject_a8420157ae956bc345f44565dddd773ea}{Polynom}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}) const =0
+\item 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classPrimitiveObject_a9e0c673535e297e405c6543cdf13d54a}{get\+Normal}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} point) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)=0
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&)=0
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a70f896ec4b9950159252ab8f06775508}{ambient\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_aee81f29fac030d5191aaa23fe41aba49}{diffuse\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a67c96720fa3be871fece508708515235}{specular\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a00a53014c307386e7435ade3e7e89854}{reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a75f3e658554a5ef3155027ee04fca5ce}{refracted\+Component}}
+\item 
+double \doxymbox{\hyperlink{classPrimitiveObject_a71aad535360b0d59cac72afffa34da18}{shininess}}
+\end{DoxyCompactItemize}
+
+
+\label{classPrimitiveObject_doc-func-members}
+\Hypertarget{classPrimitiveObject_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPrimitiveObject_a9e0c673535e297e405c6543cdf13d54a}\index{PrimitiveObject@{PrimitiveObject}!getNormal@{getNormal}}
+\index{getNormal@{getNormal}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{getNormal()}{getNormal()}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a9e0c673535e297e405c6543cdf13d54a} 
+virtual \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Primitive\+Object::\+get\+Normal (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{point}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classHalfspace_aa0dfc3301ea0faf50d698e8535bcc68b}{Halfspace}}, and \doxymbox{\hyperlink{classSphere_a0fb3b1e944ec67e6347ded622f38af31}{Sphere}}.
+
+\Hypertarget{classPrimitiveObject_a8420157ae956bc345f44565dddd773ea}\index{PrimitiveObject@{PrimitiveObject}!Polynom@{Polynom}}
+\index{Polynom@{Polynom}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{Polynom()}{Polynom()}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a8420157ae956bc345f44565dddd773ea} 
+virtual double Primitive\+Object::\+\+Polynom (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \doxymbox{\hyperlink{classHalfspace_ac958622b6a10b2476cd5274fe0597ce8}{Halfspace}}, and \doxymbox{\hyperlink{classSphere_a2c48ab64f2f08dde8a9d3052899ee673}{Sphere}}.
+
+
+
+\label{classPrimitiveObject_doc-variable-members}
+\Hypertarget{classPrimitiveObject_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPrimitiveObject_a70f896ec4b9950159252ab8f06775508}\index{PrimitiveObject@{PrimitiveObject}!ambientReflectionComponent@{ambientReflectionComponent}}
+\index{ambientReflectionComponent@{ambientReflectionComponent}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{ambientReflectionComponent}{ambientReflectionComponent}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a70f896ec4b9950159252ab8f06775508} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Primitive\+Object::\+ambient\+Reflection\+Component}
+
+\Hypertarget{classPrimitiveObject_aee81f29fac030d5191aaa23fe41aba49}\index{PrimitiveObject@{PrimitiveObject}!diffuseReflectionComponent@{diffuseReflectionComponent}}
+\index{diffuseReflectionComponent@{diffuseReflectionComponent}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{diffuseReflectionComponent}{diffuseReflectionComponent}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_aee81f29fac030d5191aaa23fe41aba49} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Primitive\+Object::\+diffuse\+Reflection\+Component}
+
+\Hypertarget{classPrimitiveObject_a00a53014c307386e7435ade3e7e89854}\index{PrimitiveObject@{PrimitiveObject}!reflectionComponent@{reflectionComponent}}
+\index{reflectionComponent@{reflectionComponent}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{reflectionComponent}{reflectionComponent}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a00a53014c307386e7435ade3e7e89854} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Primitive\+Object::\+reflection\+Component}
+
+\Hypertarget{classPrimitiveObject_a75f3e658554a5ef3155027ee04fca5ce}\index{PrimitiveObject@{PrimitiveObject}!refractedComponent@{refractedComponent}}
+\index{refractedComponent@{refractedComponent}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{refractedComponent}{refractedComponent}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a75f3e658554a5ef3155027ee04fca5ce} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Primitive\+Object::\+refracted\+Component}
+
+\Hypertarget{classPrimitiveObject_a71aad535360b0d59cac72afffa34da18}\index{PrimitiveObject@{PrimitiveObject}!shininess@{shininess}}
+\index{shininess@{shininess}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{shininess}{shininess}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a71aad535360b0d59cac72afffa34da18} 
+double Primitive\+Object::\+shininess}
+
+\Hypertarget{classPrimitiveObject_a67c96720fa3be871fece508708515235}\index{PrimitiveObject@{PrimitiveObject}!specularReflectionComponent@{specularReflectionComponent}}
+\index{specularReflectionComponent@{specularReflectionComponent}!PrimitiveObject@{PrimitiveObject}}
+\doxysubsubsection{\texorpdfstring{specularReflectionComponent}{specularReflectionComponent}}
+{\footnotesize\ttfamily \label{classPrimitiveObject_a67c96720fa3be871fece508708515235} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Primitive\+Object::\+specular\+Reflection\+Component}
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,129 @@
+\doxysection{Screen Class Reference}
+\hypertarget{classScreen}{}\label{classScreen}\index{Screen@{Screen}}
+
+
+{\ttfamily \+\#include $<$screen.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}} (int heigth, int width, int dpi, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} observer, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position)
+\item 
+void \doxymbox{\hyperlink{classScreen_a76a594f20a840680ff50e1f301a414e9}{set\+Dimensions}} (int height, int width)
+\item 
+void \doxymbox{\hyperlink{classScreen_a39a427acc04f820c23999616c9d770d5}{calculate}} (const \doxymbox{\hyperlink{classSpace}{Space}} \&)
+\item 
+void \doxymbox{\hyperlink{classScreen_a0bba243ac1f79cb5ed62b01d35d7e979}{generate\+Image}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classScreen_a55405920693276db8fbdbf3a903b8d2f}{height}}
+\item 
+int \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}}
+\item 
+int \doxymbox{\hyperlink{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c}{dpi}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classScreen_aaf67478d89289fbdb037ed79b07e1fd8}{observer}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classScreen_a42188c6778d91235d4d745bf706c2c0c}{position}}
+\item 
+vector$<$ vector$<$ \doxymbox{\hyperlink{classPixel}{Pixel}} $>$ $>$ \doxymbox{\hyperlink{classScreen_a99297b68ac1a52ccdfac0f498d89bbad}{values}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::\+ostream \& \doxymbox{\hyperlink{classScreen_a758578dcc2b33bb5bac660dffa257261}{operator$<$$<$}} (std::\+ostream \&out, const \doxymbox{\hyperlink{classScreen}{Screen}} \&in)
+\end{DoxyCompactItemize}
+
+
+\label{classScreen_doc-constructors}
+\Hypertarget{classScreen_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classScreen_aae5409b12978634ab990ffe9b9f02bbb}\index{Screen@{Screen}!Screen@{Screen}}
+\index{Screen@{Screen}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{Screen()}{Screen()}}
+{\footnotesize\ttfamily \label{classScreen_aae5409b12978634ab990ffe9b9f02bbb} 
+Screen::\+\+Screen (\begin{DoxyParamCaption}\item[{int}]{heigth}{, }\item[{int}]{width}{, }\item[{int}]{dpi}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{observer}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{}\end{DoxyParamCaption})}
+
+
+
+\label{classScreen_doc-func-members}
+\Hypertarget{classScreen_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classScreen_a39a427acc04f820c23999616c9d770d5}\index{Screen@{Screen}!calculate@{calculate}}
+\index{calculate@{calculate}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily \label{classScreen_a39a427acc04f820c23999616c9d770d5} 
+void Screen::\+calculate (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classScreen_a0bba243ac1f79cb5ed62b01d35d7e979}\index{Screen@{Screen}!generateImage@{generateImage}}
+\index{generateImage@{generateImage}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{generateImage()}{generateImage()}}
+{\footnotesize\ttfamily \label{classScreen_a0bba243ac1f79cb5ed62b01d35d7e979} 
+void Screen::\+generate\+Image (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classScreen_a76a594f20a840680ff50e1f301a414e9}\index{Screen@{Screen}!setDimensions@{setDimensions}}
+\index{setDimensions@{setDimensions}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{setDimensions()}{setDimensions()}}
+{\footnotesize\ttfamily \label{classScreen_a76a594f20a840680ff50e1f301a414e9} 
+void Screen::\+set\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{height}{, }\item[{int}]{width}{}\end{DoxyParamCaption})}
+
+
+
+\label{classScreen_doc-related-members}
+\Hypertarget{classScreen_doc-related-members}
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classScreen_a758578dcc2b33bb5bac660dffa257261}\index{Screen@{Screen}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{classScreen_a758578dcc2b33bb5bac660dffa257261} 
+std::\+ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{out}{, }\item[{const \doxymbox{\hyperlink{classScreen}{Screen}} \&}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\label{classScreen_doc-variable-members}
+\Hypertarget{classScreen_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c}\index{Screen@{Screen}!dpi@{dpi}}
+\index{dpi@{dpi}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{dpi}{dpi}}
+{\footnotesize\ttfamily \label{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c} 
+int Screen::\+dpi}
+
+\Hypertarget{classScreen_a55405920693276db8fbdbf3a903b8d2f}\index{Screen@{Screen}!height@{height}}
+\index{height@{height}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily \label{classScreen_a55405920693276db8fbdbf3a903b8d2f} 
+int Screen::\+height}
+
+\Hypertarget{classScreen_aaf67478d89289fbdb037ed79b07e1fd8}\index{Screen@{Screen}!observer@{observer}}
+\index{observer@{observer}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{observer}{observer}}
+{\footnotesize\ttfamily \label{classScreen_aaf67478d89289fbdb037ed79b07e1fd8} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Screen::\+observer}
+
+\Hypertarget{classScreen_a42188c6778d91235d4d745bf706c2c0c}\index{Screen@{Screen}!position@{position}}
+\index{position@{position}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \label{classScreen_a42188c6778d91235d4d745bf706c2c0c} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Screen::\+position}
+
+\Hypertarget{classScreen_a99297b68ac1a52ccdfac0f498d89bbad}\index{Screen@{Screen}!values@{values}}
+\index{values@{values}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily \label{classScreen_a99297b68ac1a52ccdfac0f498d89bbad} 
+vector$<$vector$<$\doxymbox{\hyperlink{classPixel}{Pixel}}$>$ $>$ Screen::\+values}
+
+\Hypertarget{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}\index{Screen@{Screen}!width@{width}}
+\index{width@{width}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily \label{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21} 
+int Screen::\+width}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{screen_8hpp}{screen.\+hpp}}\item 
+src/\doxymbox{\hyperlink{screen_8cpp}{screen.\+cpp}}\end{DoxyCompactItemize}

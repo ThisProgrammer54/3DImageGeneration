@@ -1,0 +1,113 @@
+\doxysection{Pixel Class Reference}
+\hypertarget{classPixel}{}\label{classPixel}\index{Pixel@{Pixel}}
+
+
+{\ttfamily \+\#include $<$screen.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classPixel_a74bb690b61baae3c7ee4ef433fb8dda9}{shoot\+Ray}} (const \doxymbox{\hyperlink{classSpace}{Space}} \&, const \doxymbox{\hyperlink{classRay}{Ray}} \&)
+\item 
+\doxymbox{\hyperlink{classPixel_a27ad99a2f705e635c42d242d530d4756}{Pixel}} ()
+\item 
+\doxymbox{\hyperlink{classPixel_a1a1fd802f28bca4e1492eb03ff019e9a}{Pixel}} (int x, int y, \doxymbox{\hyperlink{structRGB}{RGB}} value, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} vis\+Point)
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classPixel_a1f6dd1829b52c57e79c60394d8d68cf4}{get\+Intersection\+Point}} (const \doxymbox{\hyperlink{classSpace}{Space}} \&, const \doxymbox{\hyperlink{classRay}{Ray}} \&) const
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPixel_a57b6d454d1bf307e0893d9af3484a29d}{get\+Color}} (const \doxymbox{\hyperlink{classSpace}{Space}} \&, const \doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \&, const \doxymbox{\hyperlink{classRay}{Ray}} \&, int depth=0) const
+\item 
+void \doxymbox{\hyperlink{classPixel_a5dd0096b849255c807c4d120a734c12b}{calc\+New\+Ray}} (const \doxymbox{\hyperlink{classSpace}{Space}} \&, const \doxymbox{\hyperlink{classRay}{Ray}} \&, const \doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{classPixel_a0451a91303d22a81d30b062433abf9fe}{x}}
+\item 
+int \doxymbox{\hyperlink{classPixel_a3a6f19c4ea8a705a5b7e0aeb99c63450}{y}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPixel_aeac8f8bfe029927e747f26a4355a637e}{value}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classPixel_af4e88d921de414d7cca482a3a8bb3ebd}{vis\+Point}}
+\end{DoxyCompactItemize}
+
+
+\label{classPixel_doc-constructors}
+\Hypertarget{classPixel_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPixel_a27ad99a2f705e635c42d242d530d4756}\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{Pixel()}{Pixel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classPixel_a27ad99a2f705e635c42d242d530d4756} 
+Pixel::\+\+Pixel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classPixel_a1a1fd802f28bca4e1492eb03ff019e9a}\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{Pixel()}{Pixel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classPixel_a1a1fd802f28bca4e1492eb03ff019e9a} 
+Pixel::\+\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{value}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{vis\+Point}{}\end{DoxyParamCaption})}
+
+
+
+\label{classPixel_doc-func-members}
+\Hypertarget{classPixel_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPixel_a5dd0096b849255c807c4d120a734c12b}\index{Pixel@{Pixel}!calcNewRay@{calcNewRay}}
+\index{calcNewRay@{calcNewRay}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{calcNewRay()}{calcNewRay()}}
+{\footnotesize\ttfamily \label{classPixel_a5dd0096b849255c807c4d120a734c12b} 
+void Pixel::\+calc\+New\+Ray (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSpace}{Space}} \&}]{}{, }\item[{const \doxymbox{\hyperlink{classRay}{Ray}} \&}]{}{, }\item[{const \doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPixel_a57b6d454d1bf307e0893d9af3484a29d}\index{Pixel@{Pixel}!getColor@{getColor}}
+\index{getColor@{getColor}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily \label{classPixel_a57b6d454d1bf307e0893d9af3484a29d} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Pixel::\+get\+Color (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{, }\item[{const \doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \&}]{intersection\+Result}{, }\item[{const \doxymbox{\hyperlink{classRay}{Ray}} \&}]{ray}{, }\item[{int}]{depth}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPixel_a1f6dd1829b52c57e79c60394d8d68cf4}\index{Pixel@{Pixel}!getIntersectionPoint@{getIntersectionPoint}}
+\index{getIntersectionPoint@{getIntersectionPoint}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{getIntersectionPoint()}{getIntersectionPoint()}}
+{\footnotesize\ttfamily \label{classPixel_a1f6dd1829b52c57e79c60394d8d68cf4} 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} Pixel::\+get\+Intersection\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{, }\item[{const \doxymbox{\hyperlink{classRay}{Ray}} \&}]{ray}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPixel_a74bb690b61baae3c7ee4ef433fb8dda9}\index{Pixel@{Pixel}!shootRay@{shootRay}}
+\index{shootRay@{shootRay}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{shootRay()}{shootRay()}}
+{\footnotesize\ttfamily \label{classPixel_a74bb690b61baae3c7ee4ef433fb8dda9} 
+void Pixel::\+shoot\+Ray (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{, }\item[{const \doxymbox{\hyperlink{classRay}{Ray}} \&}]{ray}{}\end{DoxyParamCaption})}
+
+
+
+\label{classPixel_doc-variable-members}
+\Hypertarget{classPixel_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPixel_aeac8f8bfe029927e747f26a4355a637e}\index{Pixel@{Pixel}!value@{value}}
+\index{value@{value}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{classPixel_aeac8f8bfe029927e747f26a4355a637e} 
+\doxymbox{\hyperlink{structRGB}{RGB}} Pixel::\+value}
+
+\Hypertarget{classPixel_af4e88d921de414d7cca482a3a8bb3ebd}\index{Pixel@{Pixel}!visPoint@{visPoint}}
+\index{visPoint@{visPoint}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{visPoint}{visPoint}}
+{\footnotesize\ttfamily \label{classPixel_af4e88d921de414d7cca482a3a8bb3ebd} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Pixel::\+vis\+Point}
+
+\Hypertarget{classPixel_a0451a91303d22a81d30b062433abf9fe}\index{Pixel@{Pixel}!x@{x}}
+\index{x@{x}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily \label{classPixel_a0451a91303d22a81d30b062433abf9fe} 
+int Pixel::\+x}
+
+\Hypertarget{classPixel_a3a6f19c4ea8a705a5b7e0aeb99c63450}\index{Pixel@{Pixel}!y@{y}}
+\index{y@{y}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily \label{classPixel_a3a6f19c4ea8a705a5b7e0aeb99c63450} 
+int Pixel::\+y}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{screen_8hpp}{screen.\+hpp}}\item 
+src/\doxymbox{\hyperlink{screen_8cpp}{screen.\+cpp}}\end{DoxyCompactItemize}

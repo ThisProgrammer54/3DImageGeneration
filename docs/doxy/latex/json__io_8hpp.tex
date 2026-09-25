@@ -1,0 +1,147 @@
+\doxysection{include/\+json\+\_\+io.hpp File Reference}
+\hypertarget{json__io_8hpp}{}\label{json__io_8hpp}\index{include/json\_io.hpp@{include/json\_io.hpp}}
+{\ttfamily \+\#include $<$helper.\+hpp$>$}\newline
+{\ttfamily \+\#include $<$screen.\+hpp$>$}\newline
+{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$nlohmann/\+json.\+hpp$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classSceneLoader}{Scene\+Loader}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{json__io_8hpp_ac905de220920278a8cfc222d1cb1ee54}{parse\+Point}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{json__io_8hpp_a2f9837f405093911d9dd184f347ed3be}{parse\+Direction}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{json__io_8hpp_a9d7ee0afa98d9a22c690fc0e9509b065}{parse\+Color}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+\doxymbox{\hyperlink{classMaterial}{Material}} \doxymbox{\hyperlink{json__io_8hpp_a873d5a826920933374036aa28561cf25}{parse\+Material}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+\doxymbox{\hyperlink{classScreen}{Screen}} \doxymbox{\hyperlink{json__io_8hpp_aa7c4da0b97280ee52fc24b69db8e8701}{make\+Screen}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+\doxymbox{\hyperlink{classSpace}{Space}} \doxymbox{\hyperlink{json__io_8hpp_ae42ac003cd4a98ed7d9aa2e5cb65da71}{make\+Space}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+void \doxymbox{\hyperlink{json__io_8hpp_a09d69f585f98fc919f204f8f93df268a}{make\+Lights}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, \doxymbox{\hyperlink{classSpace}{Space}} \&space)
+\item 
+void \doxymbox{\hyperlink{json__io_8hpp_ac9c08837e3dbd98763e37aea943ed653}{make\+Objects}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, \doxymbox{\hyperlink{classSpace}{Space}} \&space)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_ad1a86b759c5d9513b39966ddbf2a15da}{parse\+Node}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a7c0aac16c63cb099be3f35b76c230411}{parse\+Sphere}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a113ef28e89926e78f480da165eaa2a4f}{parse\+Halfspace}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a6ed6ae6ad96a834a38d223e125256ce7}{parse\+Translation}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a6499ab12b3c710a91749775cb7fe3081}{parse\+Rotation}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a98789883e37d18687882d83af2eb35c0}{parse\+Scaling}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a5080075b75f132cf065b7900dc5d1c67}{parse\+Transform}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8hpp_a4b5c1b1061d843be0afa09d9aa54fd8d}{parse\+Logical}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\end{DoxyCompactItemize}
+
+
+\label{json__io_8hpp_doc-func-members}
+\Hypertarget{json__io_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{json__io_8hpp_a09d69f585f98fc919f204f8f93df268a}\index{json\_io.hpp@{json\_io.hpp}!makeLights@{makeLights}}
+\index{makeLights@{makeLights}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{makeLights()}{makeLights()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a09d69f585f98fc919f204f8f93df268a} 
+void make\+Lights (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{\doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_ac9c08837e3dbd98763e37aea943ed653}\index{json\_io.hpp@{json\_io.hpp}!makeObjects@{makeObjects}}
+\index{makeObjects@{makeObjects}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{makeObjects()}{makeObjects()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_ac9c08837e3dbd98763e37aea943ed653} 
+void make\+Objects (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{\doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_aa7c4da0b97280ee52fc24b69db8e8701}\index{json\_io.hpp@{json\_io.hpp}!makeScreen@{makeScreen}}
+\index{makeScreen@{makeScreen}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{makeScreen()}{makeScreen()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_aa7c4da0b97280ee52fc24b69db8e8701} 
+\doxymbox{\hyperlink{classScreen}{Screen}} make\+Screen (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_ae42ac003cd4a98ed7d9aa2e5cb65da71}\index{json\_io.hpp@{json\_io.hpp}!makeSpace@{makeSpace}}
+\index{makeSpace@{makeSpace}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{makeSpace()}{makeSpace()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_ae42ac003cd4a98ed7d9aa2e5cb65da71} 
+\doxymbox{\hyperlink{classSpace}{Space}} make\+Space (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a9d7ee0afa98d9a22c690fc0e9509b065}\index{json\_io.hpp@{json\_io.hpp}!parseColor@{parseColor}}
+\index{parseColor@{parseColor}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseColor()}{parseColor()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a9d7ee0afa98d9a22c690fc0e9509b065} 
+\doxymbox{\hyperlink{structRGB}{RGB}} parse\+Color (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a2f9837f405093911d9dd184f347ed3be}\index{json\_io.hpp@{json\_io.hpp}!parseDirection@{parseDirection}}
+\index{parseDirection@{parseDirection}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseDirection()}{parseDirection()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a2f9837f405093911d9dd184f347ed3be} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} parse\+Direction (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a113ef28e89926e78f480da165eaa2a4f}\index{json\_io.hpp@{json\_io.hpp}!parseHalfspace@{parseHalfspace}}
+\index{parseHalfspace@{parseHalfspace}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseHalfspace()}{parseHalfspace()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a113ef28e89926e78f480da165eaa2a4f} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Halfspace (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a4b5c1b1061d843be0afa09d9aa54fd8d}\index{json\_io.hpp@{json\_io.hpp}!parseLogical@{parseLogical}}
+\index{parseLogical@{parseLogical}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseLogical()}{parseLogical()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a4b5c1b1061d843be0afa09d9aa54fd8d} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Logical (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a873d5a826920933374036aa28561cf25}\index{json\_io.hpp@{json\_io.hpp}!parseMaterial@{parseMaterial}}
+\index{parseMaterial@{parseMaterial}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseMaterial()}{parseMaterial()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a873d5a826920933374036aa28561cf25} 
+\doxymbox{\hyperlink{classMaterial}{Material}} parse\+Material (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_ad1a86b759c5d9513b39966ddbf2a15da}\index{json\_io.hpp@{json\_io.hpp}!parseNode@{parseNode}}
+\index{parseNode@{parseNode}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseNode()}{parseNode()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_ad1a86b759c5d9513b39966ddbf2a15da} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Node (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_ac905de220920278a8cfc222d1cb1ee54}\index{json\_io.hpp@{json\_io.hpp}!parsePoint@{parsePoint}}
+\index{parsePoint@{parsePoint}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parsePoint()}{parsePoint()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_ac905de220920278a8cfc222d1cb1ee54} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} parse\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a6499ab12b3c710a91749775cb7fe3081}\index{json\_io.hpp@{json\_io.hpp}!parseRotation@{parseRotation}}
+\index{parseRotation@{parseRotation}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseRotation()}{parseRotation()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a6499ab12b3c710a91749775cb7fe3081} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Rotation (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a98789883e37d18687882d83af2eb35c0}\index{json\_io.hpp@{json\_io.hpp}!parseScaling@{parseScaling}}
+\index{parseScaling@{parseScaling}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseScaling()}{parseScaling()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a98789883e37d18687882d83af2eb35c0} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Scaling (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a7c0aac16c63cb099be3f35b76c230411}\index{json\_io.hpp@{json\_io.hpp}!parseSphere@{parseSphere}}
+\index{parseSphere@{parseSphere}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseSphere()}{parseSphere()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a7c0aac16c63cb099be3f35b76c230411} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Sphere (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a5080075b75f132cf065b7900dc5d1c67}\index{json\_io.hpp@{json\_io.hpp}!parseTransform@{parseTransform}}
+\index{parseTransform@{parseTransform}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseTransform()}{parseTransform()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a5080075b75f132cf065b7900dc5d1c67} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8hpp_a6ed6ae6ad96a834a38d223e125256ce7}\index{json\_io.hpp@{json\_io.hpp}!parseTranslation@{parseTranslation}}
+\index{parseTranslation@{parseTranslation}!json\_io.hpp@{json\_io.hpp}}
+\doxysubsubsection{\texorpdfstring{parseTranslation()}{parseTranslation()}}
+{\footnotesize\ttfamily \label{json__io_8hpp_a6ed6ae6ad96a834a38d223e125256ce7} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Translation (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+

@@ -1,0 +1,40 @@
+\doxysection{space.\+hpp}
+\hypertarget{space_8hpp_source}{}\label{space_8hpp_source}\index{include/space.hpp@{include/space.hpp}}
+\doxymbox{\hyperlink{space_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Eigen/Core"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{helper_8hpp}{helper.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{tree_8hpp}{tree.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classLightSource_a1e2cddb876584f4207ea0d3c29807b94}{LightSource}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classLightSource_affc6143843163ac3b83e51579924652c}{pos}};}
+\DoxyCodeLine{00011\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classLightSource_a7433bfb822eaf77f254db7af455c5c6e}{intensity}};}
+\DoxyCodeLine{00012\ \ \ \doxymbox{\hyperlink{classLightSource_a1e2cddb876584f4207ea0d3c29807b94}{LightSource}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classLightSource_affc6143843163ac3b83e51579924652c}{pos}},\ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classLightSource_a7433bfb822eaf77f254db7af455c5c6e}{intensity}});}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classObject_a648382ee5d7010d92687e9b7cebdf5ff}{Object}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{classObject_a485373c3c5ca60ad989de38fe1f60015}{start}};}
+\DoxyCodeLine{00018\ \ \ \doxymbox{\hyperlink{classObject_a648382ee5d7010d92687e9b7cebdf5ff}{Object}}(std::unique\_ptr<Tree>);}
+\DoxyCodeLine{00019\ \ \ \doxymbox{\hyperlink{structIntersectionResult}{IntersectionResult}}\ \doxymbox{\hyperlink{classObject_a5e3a09336331bb1d7e8ba511ec8bfa6a}{intersectPoint}}(\doxymbox{\hyperlink{classRay}{Ray}});}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSpace_ac5462c516a3f9de5feaeef946d7ce569}{Space}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ std::vector<std::unique\_ptr<Object>>\ \doxymbox{\hyperlink{classSpace_a30556152241d60059bb45d439833029b}{objects}};}
+\DoxyCodeLine{00024\ \ \ std::vector<std::unique\_ptr<LightSource>>\ \doxymbox{\hyperlink{classSpace_a68265e2db3014e108e2ffaf0ae880cde}{lightSources}};}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSpace_a7a43eec43468a5190918d80a39c03a4b}{add}}(std::unique\_ptr<Object>);}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSpace_a7a43eec43468a5190918d80a39c03a4b}{add}}(std::unique\_ptr<LightSource>\ ls);}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSpace_a5e1792a004b2153c87266213d7c5912d}{add}}(std::vector<std::unique\_ptr<LightSource>>);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classSpace_a04857eab2bd495da7ff365955768805e}{ambientLightIntensity}};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSpace_a23bdc8b5a5364bbafeaaeab7d880611a}{index}};}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSpace_af5bfcd458b32c601a28030abd2788db5}{recursion}};}
+\DoxyCodeLine{00032\ \ \ \doxymbox{\hyperlink{classSpace_ac5462c516a3f9de5feaeef946d7ce569}{Space}}(\doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classSpace_a04857eab2bd495da7ff365955768805e}{ambientLightIntensity}});}
+\DoxyCodeLine{00033\ \ \ \doxymbox{\hyperlink{classSpace_ac5462c516a3f9de5feaeef946d7ce569}{Space}}(\doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classSpace_a04857eab2bd495da7ff365955768805e}{ambientLightIntensity}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSpace_a23bdc8b5a5364bbafeaaeab7d880611a}{index}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSpace_af5bfcd458b32c601a28030abd2788db5}{recursion}});}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}

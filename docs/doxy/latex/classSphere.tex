@@ -1,0 +1,168 @@
+\doxysection{Sphere Class Reference}
+\hypertarget{classSphere}{}\label{classSphere}\index{Sphere@{Sphere}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Sphere:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classSphere}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classSphere_a7c3903c9efa82ef3a14fcc9cda06b5a3}{Sphere}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, double radius, \doxymbox{\hyperlink{structRGB}{RGB}} amb\+RC, \doxymbox{\hyperlink{structRGB}{RGB}} spec\+RC, \doxymbox{\hyperlink{structRGB}{RGB}} diffuse\+RC, \doxymbox{\hyperlink{structRGB}{RGB}} reflec, \doxymbox{\hyperlink{structRGB}{RGB}} refrac, double shininess)
+\item 
+\doxymbox{\hyperlink{classSphere_a79cc29a568ce16424a5d47b994a92736}{Sphere}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, double radius, \doxymbox{\hyperlink{classMaterial}{Material}} mat)
+\item 
+\doxymbox{\hyperlink{classSphere_a93d11ba5dc86f22dd052d914c46c4008}{Sphere}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, double radius, \doxymbox{\hyperlink{structRGB}{RGB}} color)
+\item 
+\doxymbox{\hyperlink{classSphere_a959c572079f8d54b98b7fc2a3e8df72b}{Sphere}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} position, double radius)
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classSphere_a1bac215e89a8a30644b0bc6acbf46abd}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&ray) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classSphere_a43cccbb104b8a76c73de21bb31054c04}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&a) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{classSphere_a2c48ab64f2f08dde8a9d3052899ee673}{Polynom}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}) const override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classSphere_a0fb3b1e944ec67e6347ded622f38af31}{get\+Normal}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} point) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classSphere_a890237c099b87a8d5121a3ba2a77a850}{position}}
+\item 
+double \doxymbox{\hyperlink{classSphere_a45d6c6c870fac7c2a885ad2e226334ad}{radius}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classPrimitiveObject}{Primitive\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a70f896ec4b9950159252ab8f06775508}{ambient\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_aee81f29fac030d5191aaa23fe41aba49}{diffuse\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a67c96720fa3be871fece508708515235}{specular\+Reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a00a53014c307386e7435ade3e7e89854}{reflection\+Component}}
+\item 
+\doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{classPrimitiveObject_a75f3e658554a5ef3155027ee04fca5ce}{refracted\+Component}}
+\item 
+double \doxymbox{\hyperlink{classPrimitiveObject_a71aad535360b0d59cac72afffa34da18}{shininess}}
+\end{DoxyCompactItemize}
+
+
+\label{classSphere_doc-constructors}
+\Hypertarget{classSphere_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSphere_a7c3903c9efa82ef3a14fcc9cda06b5a3}\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classSphere_a7c3903c9efa82ef3a14fcc9cda06b5a3} 
+Sphere::\+\+Sphere (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{double}]{radius}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{amb\+RC}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{spec\+RC}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{diffuse\+RC}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{reflec}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{refrac}{, }\item[{double}]{shininess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSphere_a79cc29a568ce16424a5d47b994a92736}\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classSphere_a79cc29a568ce16424a5d47b994a92736} 
+Sphere::\+\+Sphere (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{double}]{radius}{, }\item[{\doxymbox{\hyperlink{classMaterial}{Material}}}]{mat}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSphere_a93d11ba5dc86f22dd052d914c46c4008}\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classSphere_a93d11ba5dc86f22dd052d914c46c4008} 
+Sphere::\+\+Sphere (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{double}]{radius}{, }\item[{\doxymbox{\hyperlink{structRGB}{RGB}}}]{color}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSphere_a959c572079f8d54b98b7fc2a3e8df72b}\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classSphere_a959c572079f8d54b98b7fc2a3e8df72b} 
+Sphere::\+\+Sphere (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{position}{, }\item[{double}]{radius}{}\end{DoxyParamCaption})}
+
+
+
+\label{classSphere_doc-func-members}
+\Hypertarget{classSphere_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSphere_a0fb3b1e944ec67e6347ded622f38af31}\index{Sphere@{Sphere}!getNormal@{getNormal}}
+\index{getNormal@{getNormal}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{getNormal()}{getNormal()}}
+{\footnotesize\ttfamily \label{classSphere_a0fb3b1e944ec67e6347ded622f38af31} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Sphere::\+get\+Normal (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{point}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classPrimitiveObject_a9e0c673535e297e405c6543cdf13d54a}{Primitive\+Object}}.
+
+\Hypertarget{classSphere_a43cccbb104b8a76c73de21bb31054c04}\index{Sphere@{Sphere}!inside@{inside}}
+\index{inside@{inside}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{inside()}{inside()}}
+{\footnotesize\ttfamily \label{classSphere_a43cccbb104b8a76c73de21bb31054c04} 
+bool Sphere::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{a}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+checks if point is in tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{Tree}}.
+
+\Hypertarget{classSphere_a1bac215e89a8a30644b0bc6acbf46abd}\index{Sphere@{Sphere}!intersectPoint@{intersectPoint}}
+\index{intersectPoint@{intersectPoint}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{intersectPoint()}{intersectPoint()}}
+{\footnotesize\ttfamily \label{classSphere_a1bac215e89a8a30644b0bc6acbf46abd} 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} Sphere::\+intersect\+Point (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classRay}{Ray}} \&}]{ray}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns \doxylink{classIntersection}{Intersection} with tree 
+
+
+
+Implements \doxymbox{\hyperlink{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}{Tree}}.
+
+\Hypertarget{classSphere_a2c48ab64f2f08dde8a9d3052899ee673}\index{Sphere@{Sphere}!Polynom@{Polynom}}
+\index{Polynom@{Polynom}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Polynom()}{Polynom()}}
+{\footnotesize\ttfamily \label{classSphere_a2c48ab64f2f08dde8a9d3052899ee673} 
+double Sphere::\+\+Polynom (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classPrimitiveObject_a8420157ae956bc345f44565dddd773ea}{Primitive\+Object}}.
+
+
+
+\label{classSphere_doc-variable-members}
+\Hypertarget{classSphere_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSphere_a890237c099b87a8d5121a3ba2a77a850}\index{Sphere@{Sphere}!position@{position}}
+\index{position@{position}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \label{classSphere_a890237c099b87a8d5121a3ba2a77a850} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Sphere::\+position}
+
+\Hypertarget{classSphere_a45d6c6c870fac7c2a885ad2e226334ad}\index{Sphere@{Sphere}!radius@{radius}}
+\index{radius@{radius}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily \label{classSphere_a45d6c6c870fac7c2a885ad2e226334ad} 
+double Sphere::\+radius}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{ObjectTree_8cpp}{Object\+Tree.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['img_0',['img',['../classRender.html#ad7f6a508a24607a38589d9b84bcfadc7',1,'Render']]],
+  ['index_1',['index',['../classSpace.html#a23bdc8b5a5364bbafeaaeab7d880611a',1,'Space']]],
+  ['inside_2',['inside',['../classTree.html#a116b503ecee7709924dd4eae89add41c',1,'Tree::inside()'],['../classUnion.html#a230c9a1036ee0ebef37feb13a92f4166',1,'Union::inside()'],['../classIntersection.html#a2d2c839559b3d13ef7366350907677b2',1,'Intersection::inside()'],['../classExclusion.html#acb6ced99607d1747d5c98c7699142c2f',1,'Exclusion::inside()'],['../classTransformationTree.html#a856f7e543b72497d808812c4b0a148ee',1,'TransformationTree::inside()'],['../classSphere.html#a43cccbb104b8a76c73de21bb31054c04',1,'Sphere::inside()'],['../classHalfspace.html#afef97f6779e16f18e258976f32e51f52',1,'Halfspace::inside()']]],
+  ['intensity_3',['intensity',['../classLightSource.html#a7433bfb822eaf77f254db7af455c5c6e',1,'LightSource']]],
+  ['intersec_4',['intersec',['../classTree.html#a060eab6282f0327f27526a38a9582775',1,'Tree']]],
+  ['intersection_5',['Intersection',['../classIntersection.html',1,'']]],
+  ['intersectionresult_6',['IntersectionResult',['../structIntersectionResult.html',1,'IntersectionResult'],['../structIntersectionResult.html#a2bc269d6cd1b0b9afdee4c7c96e70c30',1,'IntersectionResult::IntersectionResult(bool, class IntersectPoint IntersectPoint, const PrimitiveObject *, Vector4D normal)'],['../structIntersectionResult.html#a15dacacbe3ea09a603dfc03e43b5418c',1,'IntersectionResult::IntersectionResult(bool, class IntersectPoint IntersectPoint, const PrimitiveObject *)'],['../structIntersectionResult.html#a77f7dd8830f1875ecd3ba53582fbfcc0',1,'IntersectionResult::IntersectionResult()']]],
+  ['intersectpoint_7',['IntersectPoint',['../classIntersectPoint.html',1,'IntersectPoint'],['../classIntersectPoint.html#aa2017dd74d615f6e6b1ddd06eaf867ad',1,'IntersectPoint::IntersectPoint(Vector4D, double)'],['../classIntersectPoint.html#ab824790b967bf9e4e463f47cad4eb2ff',1,'IntersectPoint::IntersectPoint(Vector4D, double, RGB)']]],
+  ['intersectpoint_8',['intersectPoint',['../classObject.html#a5e3a09336331bb1d7e8ba511ec8bfa6a',1,'Object::intersectPoint()'],['../classTree.html#a0996a36ee5c7caf595ec046d52dd4a0d',1,'Tree::intersectPoint()'],['../classLogicalTree.html#a23191da46c4ed2b56f20ed830fccd3a4',1,'LogicalTree::intersectPoint()'],['../classTransformationTree.html#aa029b9069a88d19acc1d0736e1732c16',1,'TransformationTree::intersectPoint()'],['../classSphere.html#a1bac215e89a8a30644b0bc6acbf46abd',1,'Sphere::intersectPoint()'],['../classHalfspace.html#a342ab973cd1bfa6031d8fe65afc42a2f',1,'Halfspace::intersectPoint()']]],
+  ['inv_9',['inv',['../classTranslation.html#a5c389f63e71a1f5309a27f6880c31735',1,'Translation::inv'],['../classScaling.html#a5ba43cadd52a8b4bd143bb4098f72042',1,'Scaling::inv']]],
+  ['invx_10',['invX',['../classRotation.html#af6fa2ed4d1671b723b61a0d06c5a6d21',1,'Rotation']]],
+  ['invy_11',['invY',['../classRotation.html#adbf8481b8fc545b50d58e5c9052a641b',1,'Rotation']]],
+  ['invz_12',['invZ',['../classRotation.html#aaaece7920b931249649580183adc0068',1,'Rotation']]]
+];

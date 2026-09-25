@@ -1,0 +1,65 @@
+\doxysection{Exclusion Class Reference}
+\hypertarget{classExclusion}{}\label{classExclusion}\index{Exclusion@{Exclusion}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Exclusion:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classExclusion}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classExclusion_acb6ced99607d1747d5c98c7699142c2f}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classLogicalTree_a23191da46c4ed2b56f20ed830fccd3a4}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classLogicalTree_a1e0aba95f11c087446bb705fc6bdcb0a}{add}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ $>$ \doxymbox{\hyperlink{classLogicalTree_af9db99aa55a7b90f02c583a5b8e0c951}{nodes}}
+\end{DoxyCompactItemize}
+
+
+\label{classExclusion_doc-func-members}
+\Hypertarget{classExclusion_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classExclusion_acb6ced99607d1747d5c98c7699142c2f}\index{Exclusion@{Exclusion}!inside@{inside}}
+\index{inside@{inside}!Exclusion@{Exclusion}}
+\doxysubsubsection{\texorpdfstring{inside()}{inside()}}
+{\footnotesize\ttfamily \label{classExclusion_acb6ced99607d1747d5c98c7699142c2f} 
+bool Exclusion::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+checks if point is in tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{Tree}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{logicalTree_8cpp}{logical\+Tree.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,144 @@
+\doxysection{Scaling Class Reference}
+\hypertarget{classScaling}{}\label{classScaling}\index{Scaling@{Scaling}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Scaling:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classScaling}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classScaling_aa2ebdfb4fc63ca34e11c2c91d37ed9ce}{Scaling}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ node, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} tranformation)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classTransformationTree_aa029b9069a88d19acc1d0736e1732c16}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&) override
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classTransformationTree_a856f7e543b72497d808812c4b0a148ee}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&a) override
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classTree}{Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{classScaling_af1344d1eb260833ae05b76c5af86f02c}{build\+Matrices}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) override
+\item 
+void \doxymbox{\hyperlink{classScaling_a482588ae0ad14fe369aadbf65eae538d}{build\+Inverses}} () override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classScaling_aa35955a153a6d534ca99d6d67c1db8fa}{apply\+Inverse}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classScaling_aaf7176b6134c7d06f7c3d70f52a6076f}{apply\+Transform}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const override
+\item 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{classScaling_abe030869f5cfeb644be395a844c491ae}{apply\+Normal\+Transform}} (const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} in) const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classScaling_a26c75b05ba503cb64abff3c21cb12bef}{mat}}
+\item 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} \doxymbox{\hyperlink{classScaling_a5ba43cadd52a8b4bd143bb4098f72042}{inv}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{classTransformationTree_a038671549a8f317d0b8fb69e0cc990ba}{node}}
+\end{DoxyCompactItemize}
+
+
+\label{classScaling_doc-constructors}
+\Hypertarget{classScaling_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classScaling_aa2ebdfb4fc63ca34e11c2c91d37ed9ce}\index{Scaling@{Scaling}!Scaling@{Scaling}}
+\index{Scaling@{Scaling}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{Scaling()}{Scaling()}}
+{\footnotesize\ttfamily \label{classScaling_aa2ebdfb4fc63ca34e11c2c91d37ed9ce} 
+Scaling::\+\+Scaling (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$}]{node}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{tranformation}{}\end{DoxyParamCaption})}
+
+
+
+\label{classScaling_doc-func-members}
+\Hypertarget{classScaling_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classScaling_aa35955a153a6d534ca99d6d67c1db8fa}\index{Scaling@{Scaling}!applyInverse@{applyInverse}}
+\index{applyInverse@{applyInverse}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{applyInverse()}{applyInverse()}}
+{\footnotesize\ttfamily \label{classScaling_aa35955a153a6d534ca99d6d67c1db8fa} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Scaling::\+apply\+Inverse (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_aa32be548e858ad28a17a9191d6954cce}{Transformation\+Tree}}.
+
+\Hypertarget{classScaling_abe030869f5cfeb644be395a844c491ae}\index{Scaling@{Scaling}!applyNormalTransform@{applyNormalTransform}}
+\index{applyNormalTransform@{applyNormalTransform}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{applyNormalTransform()}{applyNormalTransform()}}
+{\footnotesize\ttfamily \label{classScaling_abe030869f5cfeb644be395a844c491ae} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Scaling::\+apply\+Normal\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_a86b53752c260fda7209b7200c8b641e9}{Transformation\+Tree}}.
+
+\Hypertarget{classScaling_aaf7176b6134c7d06f7c3d70f52a6076f}\index{Scaling@{Scaling}!applyTransform@{applyTransform}}
+\index{applyTransform@{applyTransform}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{applyTransform()}{applyTransform()}}
+{\footnotesize\ttfamily \label{classScaling_aaf7176b6134c7d06f7c3d70f52a6076f} 
+\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} Scaling::\+apply\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_a9ad8a3538e821b3c1b44cef4763dee5e}{Transformation\+Tree}}.
+
+\Hypertarget{classScaling_a482588ae0ad14fe369aadbf65eae538d}\index{Scaling@{Scaling}!buildInverses@{buildInverses}}
+\index{buildInverses@{buildInverses}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{buildInverses()}{buildInverses()}}
+{\footnotesize\ttfamily \label{classScaling_a482588ae0ad14fe369aadbf65eae538d} 
+void Scaling::\+build\+Inverses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_a217f6a7da5c754626ed20b88d3144079}{Transformation\+Tree}}.
+
+\Hypertarget{classScaling_af1344d1eb260833ae05b76c5af86f02c}\index{Scaling@{Scaling}!buildMatrices@{buildMatrices}}
+\index{buildMatrices@{buildMatrices}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{buildMatrices()}{buildMatrices()}}
+{\footnotesize\ttfamily \label{classScaling_af1344d1eb260833ae05b76c5af86f02c} 
+void Scaling::\+build\+Matrices (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classTransformationTree_ae649a213b81c30cc9b814d68087222d9}{Transformation\+Tree}}.
+
+
+
+\label{classScaling_doc-variable-members}
+\Hypertarget{classScaling_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classScaling_a5ba43cadd52a8b4bd143bb4098f72042}\index{Scaling@{Scaling}!inv@{inv}}
+\index{inv@{inv}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{inv}{inv}}
+{\footnotesize\ttfamily \label{classScaling_a5ba43cadd52a8b4bd143bb4098f72042} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Scaling::\+inv\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classScaling_a26c75b05ba503cb64abff3c21cb12bef}\index{Scaling@{Scaling}!mat@{mat}}
+\index{mat@{mat}!Scaling@{Scaling}}
+\doxysubsubsection{\texorpdfstring{mat}{mat}}
+{\footnotesize\ttfamily \label{classScaling_a26c75b05ba503cb64abff3c21cb12bef} 
+\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}} Scaling::\+mat\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{transformationTree_8cpp}{transformation\+Tree.\+cpp}}\end{DoxyCompactItemize}

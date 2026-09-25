@@ -1,0 +1,75 @@
+\doxysection{Tree Class Reference}
+\hypertarget{classTree}{}\label{classTree}\index{Tree@{Tree}}
+
+
+{\ttfamily \+\#include $<$tree.\+hpp$>$}
+
+Inheritance diagram for Tree:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.589744cm]{classTree}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} \doxymbox{\hyperlink{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}{intersect\+Point}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)=0
+\begin{DoxyCompactList}\small\item\em returns \doxylink{classIntersection}{Intersection} with tree \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{classTree_a060eab6282f0327f27526a38a9582775}{intersec}} (\doxymbox{\hyperlink{classRay}{Ray}} \&)
+\begin{DoxyCompactList}\small\item\em check if ray intersects with tree \end{DoxyCompactList}\item 
+virtual bool \doxymbox{\hyperlink{classTree_a116b503ecee7709924dd4eae89add41c}{inside}} (\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&)=0
+\begin{DoxyCompactList}\small\item\em checks if point is in tree \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{classTree_doc-func-members}
+\Hypertarget{classTree_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTree_a116b503ecee7709924dd4eae89add41c}\index{Tree@{Tree}!inside@{inside}}
+\index{inside@{inside}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{inside()}{inside()}}
+{\footnotesize\ttfamily \label{classTree_a116b503ecee7709924dd4eae89add41c} 
+virtual bool Tree::\+inside (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classIntersectPoint}{Intersect\+Point}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+checks if point is in tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \doxymbox{\hyperlink{classExclusion_acb6ced99607d1747d5c98c7699142c2f}{Exclusion}}, \doxymbox{\hyperlink{classHalfspace_afef97f6779e16f18e258976f32e51f52}{Halfspace}}, \doxymbox{\hyperlink{classIntersection_a2d2c839559b3d13ef7366350907677b2}{Intersection}}, \doxymbox{\hyperlink{classSphere_a43cccbb104b8a76c73de21bb31054c04}{Sphere}}, \doxymbox{\hyperlink{classTransformationTree_a856f7e543b72497d808812c4b0a148ee}{Transformation\+Tree}}, and \doxymbox{\hyperlink{classUnion_a230c9a1036ee0ebef37feb13a92f4166}{Union}}.
+
+\Hypertarget{classTree_a060eab6282f0327f27526a38a9582775}\index{Tree@{Tree}!intersec@{intersec}}
+\index{intersec@{intersec}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{intersec()}{intersec()}}
+{\footnotesize\ttfamily \label{classTree_a060eab6282f0327f27526a38a9582775} 
+bool Tree::\+intersec (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classRay}{Ray}} \&}]{ray}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+check if ray intersects with tree 
+
+/ \Hypertarget{classTree_a0996a36ee5c7caf595ec046d52dd4a0d}\index{Tree@{Tree}!intersectPoint@{intersectPoint}}
+\index{intersectPoint@{intersectPoint}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{intersectPoint()}{intersectPoint()}}
+{\footnotesize\ttfamily \label{classTree_a0996a36ee5c7caf595ec046d52dd4a0d} 
+virtual \doxymbox{\hyperlink{structIntersectionResult}{Intersection\+Result}} Tree::\+intersect\+Point (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classRay}{Ray}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+returns \doxylink{classIntersection}{Intersection} with tree 
+
+
+
+Implemented in \doxymbox{\hyperlink{classHalfspace_a342ab973cd1bfa6031d8fe65afc42a2f}{Halfspace}}, \doxymbox{\hyperlink{classLogicalTree_a23191da46c4ed2b56f20ed830fccd3a4}{Logical\+Tree}}, \doxymbox{\hyperlink{classSphere_a1bac215e89a8a30644b0bc6acbf46abd}{Sphere}}, and \doxymbox{\hyperlink{classTransformationTree_aa029b9069a88d19acc1d0736e1732c16}{Transformation\+Tree}}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\doxymbox{\hyperlink{tree_8hpp}{tree.\+hpp}}\item 
+src/\doxymbox{\hyperlink{tree_8cpp}{tree.\+cpp}}\end{DoxyCompactItemize}
