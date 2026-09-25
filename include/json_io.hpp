@@ -36,8 +36,8 @@ public:
 class SzeneContext{
 public:
   unordered_map<string, Material> materials;
-  const Material& mat(string name){
-    return this->materials[name];
+  const Material& mat(const string &name) const {
+    return this->materials.at(name); 
   }
   void add(string name, Material mat){
     this->materials[name] = mat; 

@@ -58,14 +58,20 @@ RGB parseColor (const json& j) {
 }
 
 Material parseMaterial(const json& j, const SzeneContext &ctx) {
-    Material mat;
-    mat.ambient   = parseColor(j.at("ambient"));
-    mat.diffuse   = parseColor(j.at("diffuse"));
-    mat.specular  = parseColor(j.at("specular"));
-    mat.reflected = parseColor(j.at("reflected"));
-    mat.refracted = parseColor(j.at("refracted"));
-    mat.shininess = j.at("shininess").get<double>();
-    return mat;
+  if (j.contains("color")){
+      Material mat;
+      json j2 = j.at("color");
+      mat.ambient   = parseColor(j2.at("ambient"));
+      mat.diffuse   = parseColor(j2.at("diffuse"));
+      mat.specular  = parseColor(j2.at("specular"));
+      mat.reflected = parseColor(j2.at("reflected"));
+      mat.refracted = parseColor(j2.at("refracted"));
+      mat.shininess = j2.at("shininess").get<double>();
+      return mat;
+  }
+  else if (j.contains("material")) {return ctx.mat(j.at("material").at("name")); } 
+  return Material();
+
 };
 
 Screen makeScreen(const json& j) {
@@ -83,7 +89,7 @@ Screen makeScreen(const json& j) {
 
 Space makeSpace(const json& j) {
     RGB ambient = parseColor(j.at("medium").at("ambient"));
-    int index = j.at("medium").at("index").get<double>();
+    double index = j.at("medium").at("index").get<double>();
     int recursion = j.at("medium").at("recursion").get<int>();
     return Space(ambient, index, recursion);
 }
@@ -98,7 +104,15 @@ void makeLights(const json& j, Space& space) {
     std::cout << sources.size() << " light sources added." << std::endl; 
 }
 SzeneContext makeMaterials(const json &j){
-  return SzeneContext();
+  json materials = j.at("materials");
+  SzeneContext ctx;
+
+  for(const auto &material: materials.items()){
+    Material mat = parseMaterial(material.value(), ctx);
+    ctx.add(material.key(), mat);
+  }
+
+  return ctx;
 }
 
 
@@ -108,7 +122,7 @@ std::unique_ptr<Tree> parseNode(const json& j, const SzeneContext &ctx);
 std::unique_ptr<Tree> parseSphere(const json& j, const SzeneContext &ctx){
     Vector4D pos = parsePoint(j.at("position"));
     double radius = j.at("radius").get<double>();
-    Material mat = parseMaterial(j.at("color"), ctx);
+    Material mat = parseMaterial(j, ctx);
     int index = j.at("index").get<int>(); 
     (void) index;
     return std::make_unique<Sphere>(pos, radius, mat);
@@ -117,7 +131,7 @@ std::unique_ptr<Tree> parseSphere(const json& j, const SzeneContext &ctx){
 std::unique_ptr<Tree> parseHalfspace(const json& j, const SzeneContext &ctx){
     Vector4D pos = parsePoint(j.at("position"));
     Vector4D normal = parseDirection(j.at("normal"));
-    Material mat = parseMaterial(j.at("color"), ctx);
+    Material mat = parseMaterial(j, ctx);
     int index = j.at("index").get<int>();
     (void) index;
     return std::make_unique<Halfspace>(pos, normal, mat);
@@ -126,7 +140,7 @@ std::unique_ptr<Tree> parseHalfspace(const json& j, const SzeneContext &ctx){
 std::unique_ptr<Tree> parseCube(const json& j, const SzeneContext &ctx){
   Vector4D pos = parsePoint(j.at("position"));
   Vector4D dimensions = parsePoint(j.at("dimensions")); 
-  Material mat = parseMaterial(j.at("color"), ctx); 
+  Material mat = parseMaterial(j, ctx); 
   int index = j.at("index").get<int>();
   (void) index; 
   
