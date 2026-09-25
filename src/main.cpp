@@ -24,48 +24,10 @@ std::unique_ptr<Tree> modify(std::unique_ptr<Tree> toMod, Vector4D translation,
   return transl;
 }
 
-std::unique_ptr<Intersection> makeCube(Vector4D start, double x, double y,
-                                       double z, RGB color) {
-
-  // added specific parameters for glass material
-  RGB amb = color * 0.5;
-  RGB diff = color * 0.6;
-  RGB spec = RGB(1.0, 0.8, 0.8);
-  RGB refl = RGB(0.0, 0.0, 0.0);
-  RGB refr = color * 0.8;
-  double shininess = 2.0;
-
-  auto tmp = std::make_unique<Halfspace>(start, Vector4D(-1, 0, 0, 0), amb,
-                                         diff, spec, refl, refr, shininess);
-  auto tmp2 = std::make_unique<Halfspace>(start, Vector4D(0, -1, 0, 0), amb,
-                                          diff, spec, refl, refr, shininess);
-  auto tmp3 = std::make_unique<Halfspace>(start, Vector4D(0, 0, -1, 0), amb,
-                                          diff, spec, refl, refr, shininess);
-
-  auto tmp4 = std::make_unique<Halfspace>(start + Vector4D(x, 0, 0, 0),
-                                          Vector4D(1, 0, 0, 0), amb, diff, spec,
-                                          refl, refr, shininess);
-  auto tmp5 = std::make_unique<Halfspace>(start + Vector4D(0, y, 0, 0),
-                                          Vector4D(0, 1, 0, 0), amb, diff, spec,
-                                          refl, refr, shininess);
-  auto tmp6 = std::make_unique<Halfspace>(start + Vector4D(0, 0, z, 0),
-                                          Vector4D(0, 0, 1, 0), amb, diff, spec,
-                                          refl, refr, shininess);
-
-  auto tmpCube = std::make_unique<Intersection>();
-  tmpCube->add(std::move(tmp));
-  tmpCube->add(std::move(tmp2));
-  tmpCube->add(std::move(tmp3));
-  tmpCube->add(std::move(tmp4));
-  tmpCube->add(std::move(tmp5));
-  tmpCube->add(std::move(tmp6));
-
-  return tmpCube;
-}
 
 int main() {
 
-  string json_file = "json/input1.json";
+  string json_file = "json/cur.json";
   SceneLoader loader(json_file);
   json scene = loader.load();
 

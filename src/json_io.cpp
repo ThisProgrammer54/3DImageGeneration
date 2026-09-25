@@ -1,5 +1,6 @@
+#include "helper.hpp"
 #include <iostream>
-#include <fstream>
+#include <memory>
 #include <nlohmann/json.hpp>
 #include <string>
 #include <screen.hpp>
@@ -7,6 +8,32 @@
 
 using std::string, std::cout, std::endl;
 using json = nlohmann::json;
+
+std::unique_ptr<Intersection> makeCube(Vector4D start, double x, double y,
+                                       double z, const Material &mat) {
+
+
+  auto tmp = std::make_unique<Halfspace>(start, Vector4D(-1, 0, 0, 0), mat);
+  auto tmp2 = std::make_unique<Halfspace>(start, Vector4D(0, -1, 0, 0), mat);
+  auto tmp3 = std::make_unique<Halfspace>(start, Vector4D(0, 0, -1, 0), mat);
+
+  auto tmp4 = std::make_unique<Halfspace>(start + Vector4D(x, 0, 0, 0),
+                                          Vector4D(1, 0, 0, 0), mat);
+  auto tmp5 = std::make_unique<Halfspace>(start + Vector4D(0, y, 0, 0),
+                                          Vector4D(0, 1, 0, 0), mat);
+  auto tmp6 = std::make_unique<Halfspace>(start + Vector4D(0, 0, z, 0),
+                                          Vector4D(0, 0, 1, 0), mat);
+ 
+  auto tmpCube = std::make_unique<Intersection>();
+  tmpCube->add(std::move(tmp));
+  tmpCube->add(std::move(tmp2));
+  tmpCube->add(std::move(tmp3));
+  tmpCube->add(std::move(tmp4));
+  tmpCube->add(std::move(tmp5));
+  tmpCube->add(std::move(tmp6));
+
+  return tmpCube;
+}
 
 Vector4D parsePoint(const json& j) {
     auto a = j.get<std::array<double, 3>>(); 
@@ -115,7 +142,18 @@ std::unique_ptr<Tree> parseLogical(const json& j){
     return tree;
 }
 
+std::unique_ptr<Tree> parseCube(const json& j){
+  Vector4D pos = parsePoint(j.at("position"));
+  Vector4D dimensions = parsePoint(j.at("dimensions")); 
+  Material mat = parseMaterial(j.at("color")); 
+  int index = j.at("index").get<int>();
+  (void) index; 
+  
+  return makeCube(pos, dimensions(0), dimensions(1), dimensions(2), mat);
+}
+
 std::unique_ptr<Tree> parseNode(const json& j) {
+    if (j.contains("cube"))             return parseCube(j.at("cube"));
     if (j.contains("sphere"))           return parseSphere(j.at("sphere"));
     if (j.contains("halfSpace"))        return parseHalfspace(j.at("halfSpace"));
     if (j.contains("translation"))      return parseTransform<Translation>(j.at("translation"));

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <helper.hpp>
+#include <memory>
 #include <screen.hpp>
 #include <fstream>
 #include <nlohmann/json.hpp>
@@ -44,6 +45,7 @@ void makeObjects(const json&j, Space& space);
 std::unique_ptr<Tree> parseNode(const json& j);
 std::unique_ptr<Tree> parseSphere(const json& j);
 std::unique_ptr<Tree> parseHalfspace(const json& j);
+std::unique_ptr<Tree> parseCube(const json& j);
 
 std::unique_ptr<Tree> parseTranslation(const json& j);
 std::unique_ptr<Tree> parseRotation(const json& j);
