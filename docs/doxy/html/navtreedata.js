@@ -51,7 +51,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ObjectTree_8cpp.html",
-"structRGB.html#a8ee5a167fcbe5d8ce456b21b02a6cdb0"
+"structRGB.html#a8133324507cf77453368f86c9251ba5e"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

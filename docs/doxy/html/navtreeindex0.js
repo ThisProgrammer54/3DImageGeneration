@@ -181,9 +181,10 @@ var NAVTREEINDEX0 =
 "helper_8cpp.html#aab00051854b946333aae2dd7bf1d99ce":[1,0,1,0,0],
 "helper_8cpp.html#aacb6fb897446055151a19cdd1900c705":[1,0,1,0,1],
 "helper_8hpp.html":[1,0,0,0],
-"helper_8hpp.html#a020902339f5500a062e44d79b0b5c472":[1,0,0,0,6],
-"helper_8hpp.html#a9d97ec773b5462a5fa12686e8a5aeafa":[1,0,0,0,7],
-"helper_8hpp.html#ae0f26efe68061e086dfe5dadbcd897cc":[1,0,0,0,5],
+"helper_8hpp.html#a020902339f5500a062e44d79b0b5c472":[1,0,0,0,7],
+"helper_8hpp.html#a9d97ec773b5462a5fa12686e8a5aeafa":[1,0,0,0,8],
+"helper_8hpp.html#ac09841456dbcb4f969e01fba940e323e":[1,0,0,0,5],
+"helper_8hpp.html#ae0f26efe68061e086dfe5dadbcd897cc":[1,0,0,0,6],
 "helper_8hpp_source.html":[1,0,0,0],
 "hierarchy.html":[0,2],
 "index.html":[],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "structRGB.html#a0f3e2ecabacb5747c4d63a1a0321fb2d":[0,0,13,9],
 "structRGB.html#a48b7f324b44901edc6efa1b78b7a58fb":[0,0,13,7],
 "structRGB.html#a6b5f233fc8132c110d8cbbc0696cf384":[0,0,13,8],
-"structRGB.html#a77e8e00b689fbe79689c7fbf3ffc8612":[0,0,13,5],
-"structRGB.html#a8133324507cf77453368f86c9251ba5e":[0,0,13,6]
+"structRGB.html#a77e8e00b689fbe79689c7fbf3ffc8612":[0,0,13,5]
 };

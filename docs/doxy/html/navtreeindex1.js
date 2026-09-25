@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"structRGB.html#a8133324507cf77453368f86c9251ba5e":[0,0,13,6],
 "structRGB.html#a8ee5a167fcbe5d8ce456b21b02a6cdb0":[0,0,13,4],
 "structRGB.html#aab00051854b946333aae2dd7bf1d99ce":[0,0,13,2],
 "structRGB.html#aacb6fb897446055151a19cdd1900c705":[0,0,13,3],

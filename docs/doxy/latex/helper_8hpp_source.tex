@@ -10,65 +10,68 @@
 \DoxyCodeLine{00006\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ =\ Eigen::Vector<double,\ 4>;}
 \DoxyCodeLine{00007\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{helper_8hpp_ae0f26efe68061e086dfe5dadbcd897cc}{Matrix4D}}\ =\ Eigen::Matrix4d;}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \{}
-\DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{structRGB_a0f3e2ecabacb5747c4d63a1a0321fb2d}{red}},\ \doxymbox{\hyperlink{structRGB_a6b5f233fc8132c110d8cbbc0696cf384}{green}},\ \doxymbox{\hyperlink{structRGB_a48b7f324b44901edc6efa1b78b7a58fb}{blue}};}
-\DoxyCodeLine{00011\ \ \ \doxymbox{\hyperlink{structRGB_ac82f37558b845c294de41eb2558c6619}{RGB}}(\textcolor{keywordtype}{double},\ \textcolor{keywordtype}{double},\ \textcolor{keywordtype}{double});}
-\DoxyCodeLine{00012\ \ \ \doxymbox{\hyperlink{structRGB_ac82f37558b845c294de41eb2558c6619}{RGB}}();}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ Simon:\ hab\ mal\ die\ Operatoren\ für\ die\ Farben\ hinzugefügt}}
-\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_a77e8e00b689fbe79689c7fbf3ffc8612}{operator+}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_aab00051854b946333aae2dd7bf1d99ce}{operator*}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_aab00051854b946333aae2dd7bf1d99ce}{operator*}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keywordtype}{double});}
-\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_aab00051854b946333aae2dd7bf1d99ce}{operator*}}(\textcolor{keywordtype}{double},\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
-\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structRGB_a8133324507cf77453368f86c9251ba5e}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
-\DoxyCodeLine{00020\ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classMaterial_a6827c517b228779c389dc1567ce39f6c}{Material}}\ \{}
-\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00024\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_a54e2bdc004a2de2a8184864b5da9df57}{ambient}};}
-\DoxyCodeLine{00025\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_aee2ee442adfe53c70e074d22a09dd0a4}{diffuse}};}
-\DoxyCodeLine{00026\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_a8f1a9c58643b45666ce4aa15267adc20}{specular}};}
-\DoxyCodeLine{00027\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_af464a2c2e7dd0329f88792f10c80ce72}{reflected}};}
-\DoxyCodeLine{00028\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_a6314df393e5edb5956fd88b2360c40aa}{refracted}};}
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classMaterial_a3ebd453f91d79ab97ec25632d3ba5959}{shininess}};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \doxymbox{\hyperlink{classMaterial_a137e987401b63eb7c6c27c3e38bc74b5}{Material}}(\doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \textcolor{keywordtype}{double});}
-\DoxyCodeLine{00032\ \ \ \doxymbox{\hyperlink{classMaterial_a137e987401b63eb7c6c27c3e38bc74b5}{Material}}();}
-\DoxyCodeLine{00033\ \};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classRay_adaf5e745e35999287de0ab3133ff6090}{Ray}}\ \{}
-\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00037\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classRay_a3721e6a1245213497dc818b49501c10b}{pos}};}
-\DoxyCodeLine{00038\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classRay_ae7acfd6528ceadb6af37f0ad1076c766}{d}};}
-\DoxyCodeLine{00039\ \ \ \doxymbox{\hyperlink{classRay_adaf5e745e35999287de0ab3133ff6090}{Ray}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}});}
-\DoxyCodeLine{00040\ \};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classIntersectPoint_aa2017dd74d615f6e6b1ddd06eaf867ad}{IntersectPoint}}\ \{}
-\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00044\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classIntersectPoint_a27084ca85d0a6b6e9aa08e34f2f0ee9c}{pos}};}
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classIntersectPoint_a8fcf4b6a0abb581d091f6b9019657d1b}{t}};}
-\DoxyCodeLine{00046\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classIntersectPoint_a5a6411ab70dc0d3fe7fd084c5833bd63}{color}};}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DEFSHINY\ 1}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{structRGB_a0f3e2ecabacb5747c4d63a1a0321fb2d}{red}},\ \doxymbox{\hyperlink{structRGB_a6b5f233fc8132c110d8cbbc0696cf384}{green}},\ \doxymbox{\hyperlink{structRGB_a48b7f324b44901edc6efa1b78b7a58fb}{blue}};}
+\DoxyCodeLine{00013\ \ \ \doxymbox{\hyperlink{structRGB_ac82f37558b845c294de41eb2558c6619}{RGB}}(\textcolor{keywordtype}{double},\ \textcolor{keywordtype}{double},\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00014\ \ \ \doxymbox{\hyperlink{structRGB_ac82f37558b845c294de41eb2558c6619}{RGB}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_a77e8e00b689fbe79689c7fbf3ffc8612}{operator+}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_aab00051854b946333aae2dd7bf1d99ce}{operator*}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_aab00051854b946333aae2dd7bf1d99ce}{operator*}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{friend}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \doxymbox{\hyperlink{structRGB_aab00051854b946333aae2dd7bf1d99ce}{operator*}}(\textcolor{keywordtype}{double},\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structRGB_a8133324507cf77453368f86c9251ba5e}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structRGB_ad173957fb36278d9c988f92d1c8af468}{RGB}}\ \&);}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classMaterial_a6827c517b228779c389dc1567ce39f6c}{Material}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_a54e2bdc004a2de2a8184864b5da9df57}{ambient}};}
+\DoxyCodeLine{00026\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_aee2ee442adfe53c70e074d22a09dd0a4}{diffuse}};}
+\DoxyCodeLine{00027\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_a8f1a9c58643b45666ce4aa15267adc20}{specular}};}
+\DoxyCodeLine{00028\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_af464a2c2e7dd0329f88792f10c80ce72}{reflected}};}
+\DoxyCodeLine{00029\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classMaterial_a6314df393e5edb5956fd88b2360c40aa}{refracted}};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classMaterial_a3ebd453f91d79ab97ec25632d3ba5959}{shininess}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \doxymbox{\hyperlink{classMaterial_a137e987401b63eb7c6c27c3e38bc74b5}{Material}}(\doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \doxymbox{\hyperlink{structRGB}{RGB}},\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \doxymbox{\hyperlink{classMaterial_a137e987401b63eb7c6c27c3e38bc74b5}{Material}}();}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classRay_adaf5e745e35999287de0ab3133ff6090}{Ray}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classRay_a3721e6a1245213497dc818b49501c10b}{pos}};}
+\DoxyCodeLine{00044\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classRay_ae7acfd6528ceadb6af37f0ad1076c766}{d}};}
+\DoxyCodeLine{00045\ \ \ \doxymbox{\hyperlink{classRay_adaf5e745e35999287de0ab3133ff6090}{Ray}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}});}
+\DoxyCodeLine{00046\ \};}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \doxymbox{\hyperlink{classIntersectPoint_aa2017dd74d615f6e6b1ddd06eaf867ad}{IntersectPoint}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \textcolor{keywordtype}{double});}
-\DoxyCodeLine{00049\ \ \ \doxymbox{\hyperlink{classIntersectPoint_aa2017dd74d615f6e6b1ddd06eaf867ad}{IntersectPoint}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \textcolor{keywordtype}{double},\ \doxymbox{\hyperlink{structRGB}{RGB}});}
-\DoxyCodeLine{00050\ \};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classIntersectPoint_aa2017dd74d615f6e6b1ddd06eaf867ad}{IntersectPoint}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classIntersectPoint_a27084ca85d0a6b6e9aa08e34f2f0ee9c}{pos}};}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classIntersectPoint_a8fcf4b6a0abb581d091f6b9019657d1b}{t}};}
+\DoxyCodeLine{00052\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classIntersectPoint_a5a6411ab70dc0d3fe7fd084c5833bd63}{color}};}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structIntersectionResult_a2bc269d6cd1b0b9afdee4c7c96e70c30}{IntersectionResult}}\ \{}
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structIntersectionResult_af1809ff3cd643eb89a870fef1acd4493}{hit}};}
-\DoxyCodeLine{00056\ \ \ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \doxymbox{\hyperlink{structIntersectionResult_a13a3dd5872d8c9dfdeed274d86c6b1ef}{point}};}
-\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}}\ *\textcolor{keywordtype}{object}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00058\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{structIntersectionResult_a7492ac694f30e5c432b3d3ff897f7b7b}{normal}};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \doxymbox{\hyperlink{structIntersectionResult_a77f7dd8830f1875ecd3ba53582fbfcc0}{IntersectionResult}}(\textcolor{keywordtype}{bool},\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}},}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}}\ *,\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{structIntersectionResult_a7492ac694f30e5c432b3d3ff897f7b7b}{normal}});}
-\DoxyCodeLine{00062\ \ \ \doxymbox{\hyperlink{structIntersectionResult_a77f7dd8830f1875ecd3ba53582fbfcc0}{IntersectionResult}}(\textcolor{keywordtype}{bool},\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}},}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}}\ *);}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \doxymbox{\hyperlink{structIntersectionResult_a77f7dd8830f1875ecd3ba53582fbfcc0}{IntersectionResult}}();}
-\DoxyCodeLine{00066\ \};}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{helper_8cpp_a11bb66a09c8c0ad3530c0dd4e6e7ff57}{scalarProduct}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}});}
+\DoxyCodeLine{00057\ \ \ \doxymbox{\hyperlink{classIntersectPoint_aa2017dd74d615f6e6b1ddd06eaf867ad}{IntersectPoint}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00058\ \ \ \doxymbox{\hyperlink{classIntersectPoint_aa2017dd74d615f6e6b1ddd06eaf867ad}{IntersectPoint}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \textcolor{keywordtype}{double},\ \doxymbox{\hyperlink{structRGB}{RGB}});}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structIntersectionResult_a2bc269d6cd1b0b9afdee4c7c96e70c30}{IntersectionResult}}\ \{}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structIntersectionResult_af1809ff3cd643eb89a870fef1acd4493}{hit}};}
+\DoxyCodeLine{00065\ \ \ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \doxymbox{\hyperlink{structIntersectionResult_a13a3dd5872d8c9dfdeed274d86c6b1ef}{point}};}
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}}\ *\textcolor{keywordtype}{object}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00067\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{structIntersectionResult_a7492ac694f30e5c432b3d3ff897f7b7b}{normal}};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \doxymbox{\hyperlink{structIntersectionResult_a77f7dd8830f1875ecd3ba53582fbfcc0}{IntersectionResult}}(\textcolor{keywordtype}{bool},\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}}\ *,\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{structIntersectionResult_a7492ac694f30e5c432b3d3ff897f7b7b}{normal}});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \doxymbox{\hyperlink{structIntersectionResult_a77f7dd8830f1875ecd3ba53582fbfcc0}{IntersectionResult}}(\textcolor{keywordtype}{bool},\ \textcolor{keyword}{class}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classPrimitiveObject}{PrimitiveObject}}\ *);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \doxymbox{\hyperlink{structIntersectionResult_a77f7dd8830f1875ecd3ba53582fbfcc0}{IntersectionResult}}();}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{helper_8cpp_a11bb66a09c8c0ad3530c0dd4e6e7ff57}{scalarProduct}}(\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}});}
 
 \end{DoxyCode}

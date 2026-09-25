@@ -6,12 +6,13 @@
 using Vector4D = Eigen::Vector<double, 4>;
 using Matrix4D = Eigen::Matrix4d;
 
+#define DEFSHINY 1
+
 struct RGB {
   double red, green, blue;
   RGB(double, double, double);
   RGB();
 
-  // Simon: hab mal die Operatoren für die Farben hinzugefügt
   friend RGB operator+(const RGB &, const RGB &);
   friend RGB operator*(const RGB &, const RGB &);
   friend RGB operator*(const RGB &, double);
@@ -29,6 +30,11 @@ public:
   double shininess;
 
   Material(RGB, RGB, RGB, RGB, RGB, double);
+
+  /**
+   * @brief constructs an material with default values for RGB and default for
+   * shininess
+   */
   Material();
 };
 
@@ -45,6 +51,9 @@ public:
   double t;
   RGB color;
 
+  /**
+   * @brief uses default RGB
+   */
   IntersectPoint(Vector4D, double);
   IntersectPoint(Vector4D, double, RGB);
 };
@@ -59,9 +68,16 @@ struct IntersectionResult {
 
   IntersectionResult(bool, class IntersectPoint IntersectPoint,
                      const PrimitiveObject *, Vector4D normal);
+  /**
+   * @brief uses the normal function of the PrimitiveObject to determine normal
+   */
+
   IntersectionResult(bool, class IntersectPoint IntersectPoint,
                      const PrimitiveObject *);
 
+  /**
+   * @brief constructor for not existing Interesection
+   */
   IntersectionResult();
 };
 

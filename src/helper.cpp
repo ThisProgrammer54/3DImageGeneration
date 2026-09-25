@@ -23,13 +23,16 @@ bool operator==(const RGB &a, const RGB &b) {
   return (a.red == b.red && a.blue == b.blue && a.green == b.green);
 }
 
-Material::Material() : 
-              ambient(DEFCOLOR), diffuse(), specular(), reflected(), refracted(), shininess(0.0) {};
-Material::Material(RGB ambient, RGB diffuse, RGB specular, RGB reflected, RGB refracted, double shininess) : 
-              ambient(ambient), diffuse(diffuse), specular(specular), reflected(reflected), refracted(refracted), shininess(shininess) {};
+Material::Material()
+    : ambient(), diffuse(), specular(), reflected(), refracted(),
+      shininess(DEFSHINY){};
+Material::Material(RGB ambient, RGB diffuse, RGB specular, RGB reflected,
+                   RGB refracted, double shininess)
+    : ambient(ambient), diffuse(diffuse), specular(specular),
+      reflected(reflected), refracted(refracted), shininess(shininess){};
 
 IntersectPoint::IntersectPoint(Vector4D pos, double t)
-    : pos(pos), t(t), color(RGB{-1, -1, -1}){};
+    : pos(pos), t(t), color(){};
 
 IntersectPoint::IntersectPoint(Vector4D pos, double t, RGB color)
     : pos(pos), t(t), color(color){};
