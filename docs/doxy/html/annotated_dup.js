@@ -20,6 +20,7 @@ var annotated_dup =
     [ "Screen", "classScreen.html", "classScreen" ],
     [ "Space", "classSpace.html", "classSpace" ],
     [ "Sphere", "classSphere.html", "classSphere" ],
+    [ "SzeneContext", "classSzeneContext.html", "classSzeneContext" ],
     [ "TransformationTree", "classTransformationTree.html", "classTransformationTree" ],
     [ "Translation", "classTranslation.html", "classTranslation" ],
     [ "Tree", "classTree.html", "classTree" ],

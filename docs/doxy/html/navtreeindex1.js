@@ -1,5 +1,16 @@
 var NAVTREEINDEX1 =
 {
+"structIntersectionResult.html#a15dacacbe3ea09a603dfc03e43b5418c":[0,0,3,1],
+"structIntersectionResult.html#a2bc269d6cd1b0b9afdee4c7c96e70c30":[0,0,3,0],
+"structIntersectionResult.html#a7492ac694f30e5c432b3d3ff897f7b7b":[0,0,3,4],
+"structIntersectionResult.html#a77f7dd8830f1875ecd3ba53582fbfcc0":[0,0,3,2],
+"structIntersectionResult.html#ac7e9bfb62bc3b541d8613f1aa62f9a12":[0,0,3,5],
+"structIntersectionResult.html#af1809ff3cd643eb89a870fef1acd4493":[0,0,3,3],
+"structRGB.html":[0,0,13],
+"structRGB.html#a0f3e2ecabacb5747c4d63a1a0321fb2d":[0,0,13,9],
+"structRGB.html#a48b7f324b44901edc6efa1b78b7a58fb":[0,0,13,7],
+"structRGB.html#a6b5f233fc8132c110d8cbbc0696cf384":[0,0,13,8],
+"structRGB.html#a77e8e00b689fbe79689c7fbf3ffc8612":[0,0,13,5],
 "structRGB.html#a8133324507cf77453368f86c9251ba5e":[0,0,13,6],
 "structRGB.html#a8ee5a167fcbe5d8ce456b21b02a6cdb0":[0,0,13,4],
 "structRGB.html#aab00051854b946333aae2dd7bf1d99ce":[0,0,13,2],

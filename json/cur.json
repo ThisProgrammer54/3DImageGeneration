@@ -15,12 +15,12 @@
 
     "sources": [
         {
-            "position": [0, 3, 10],
-            "intensity": [0, 0, 0]
+            "position": [10, 10, -50],
+            "intensity": [0, 0, 1]
         },
         {
             "position": [0, 10, 0],
-            "intensity": [1, 0, 1]
+            "intensity": [1, 0, 0]
         }
     ],
 
@@ -32,9 +32,20 @@
             "specular": [0.95, 0.95, 0.95],
             "reflected": [0.6, 0.6, 0.6],
             "refracted": [0, 0, 0],
-            "shininess": 1
+            "shininess": 50
             },
             "index": 1
+        },
+        "glass":{
+          "color": {
+            "ambient": [0.1, 0.1, 0.1],
+            "diffuse": [0.1, 0.1, 0.1],
+            "specular": [1.0, 1, 1],
+            "reflected": [0.1, 0.1, 0.1],
+            "refracted": [0.9, 0.9, 0.9],
+            "shininess": 32
+            },
+            "index": 1.52
         }
     },
 
@@ -57,14 +68,7 @@
                         "halfSpace": {
                             "position": [0, 0, 0],
                             "normal": [0, 1, 0],
-                            "color": {
-                                "ambient": [0.3, 0.1, 0.1],
-                                "diffuse": [1, 1, 1],
-                                "specular": [1, 1, 1],
-                                "reflected": [1, 1, 1],
-                                "refracted": [1, 1, 1],
-                                "shininess": 1
-                                },
+                            "material": {"name" : "glass"},
                             "index": 1
                             }
                         }

@@ -5,56 +5,74 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{helper_8hpp}{helper.hpp}}>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{screen_8hpp}{screen.hpp}}>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ =\ nlohmann::json;}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{screen_8hpp}{screen.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSceneLoader_ad9896980537719ae06bd98e1de4ac8f9}{SceneLoader}}\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00012\ \ \ \ \ std::string\ \doxymbox{\hyperlink{classSceneLoader_a2abb8bf496cf5791d235797843c6bda8}{filename\_}};}
-\DoxyCodeLine{00013\ \ \ \ \ std::ifstream\ \doxymbox{\hyperlink{classSceneLoader_a38ee3253241be0b55ac7b7ea1b0dd044}{openWithFallback}}(\textcolor{keyword}{const}\ std::string\&\ filename)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::ifstream\ file(filename);}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.is\_open())\ \textcolor{keywordflow}{return}\ file;}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ file.clear();}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ file.open(\textcolor{stringliteral}{"{}../"{}}\ +\ filename);}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::pmr::unordered\_map,\ std::string;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ =\ nlohmann::json;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSceneLoader_ad9896980537719ae06bd98e1de4ac8f9}{SceneLoader}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \doxymbox{\hyperlink{classSceneLoader_a2abb8bf496cf5791d235797843c6bda8}{filename\_}};}
+\DoxyCodeLine{00017\ \ \ \ \ std::ifstream\ \doxymbox{\hyperlink{classSceneLoader_a38ee3253241be0b55ac7b7ea1b0dd044}{openWithFallback}}(\textcolor{keyword}{const}\ std::string\&\ filename)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::ifstream\ file(filename);}
 \DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.is\_open())\ \textcolor{keywordflow}{return}\ file;}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Could\ not\ open\ scene\ json\ file\ \(\backslash\)"{}"{}}\ +\ filename\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
-\DoxyCodeLine{00022\ \ \ \ \ \}}
-\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{classSceneLoader_ad9896980537719ae06bd98e1de4ac8f9}{SceneLoader}}(std::string\ filename)\ :\ \doxymbox{\hyperlink{classSceneLoader_a2abb8bf496cf5791d235797843c6bda8}{filename\_}}(filename)\ \{\}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ \doxymbox{\hyperlink{classSceneLoader_a3825a1258f717224bc9b25ab180fb219}{load}}()\ \{}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::ifstream\ file\ =\ \doxymbox{\hyperlink{classSceneLoader_a38ee3253241be0b55ac7b7ea1b0dd044}{openWithFallback}}(\doxymbox{\hyperlink{classSceneLoader_a2abb8bf496cf5791d235797843c6bda8}{filename\_}});}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ json::parse(file);}
-\DoxyCodeLine{00029\ \ \ \ \ \};}
-\DoxyCodeLine{00030\ \};}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{json__io_8cpp_ac905de220920278a8cfc222d1cb1ee54}{parsePoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00034\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{json__io_8cpp_a2f9837f405093911d9dd184f347ed3be}{parseDirection}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00035\ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{json__io_8cpp_a9d7ee0afa98d9a22c690fc0e9509b065}{parseColor}}\ (\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00036\ \doxymbox{\hyperlink{classMaterial}{Material}}\ \doxymbox{\hyperlink{json__io_8cpp_a873d5a826920933374036aa28561cf25}{parseMaterial}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \doxymbox{\hyperlink{classScreen}{Screen}}\ \doxymbox{\hyperlink{json__io_8cpp_aa7c4da0b97280ee52fc24b69db8e8701}{makeScreen}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00039\ \doxymbox{\hyperlink{classSpace}{Space}}\ \doxymbox{\hyperlink{json__io_8cpp_ae42ac003cd4a98ed7d9aa2e5cb65da71}{makeSpace}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{json__io_8cpp_a09d69f585f98fc919f204f8f93df268a}{makeLights}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \doxymbox{\hyperlink{classSpace}{Space}}\&\ space);}
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{json__io_8cpp_ac9c08837e3dbd98763e37aea943ed653}{makeObjects}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&j,\ \doxymbox{\hyperlink{classSpace}{Space}}\&\ space);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_ad1a86b759c5d9513b39966ddbf2a15da}{parseNode}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00045\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a7c0aac16c63cb099be3f35b76c230411}{parseSphere}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00046\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a113ef28e89926e78f480da165eaa2a4f}{parseHalfspace}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8hpp_a6ed6ae6ad96a834a38d223e125256ce7}{parseTranslation}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00049\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a6499ab12b3c710a91749775cb7fe3081}{parseRotation}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00050\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8hpp_a98789883e37d18687882d83af2eb35c0}{parseScaling}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ file.clear();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ file.open(\textcolor{stringliteral}{"{}../"{}}\ +\ filename);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (file.is\_open())\ \textcolor{keywordflow}{return}\ file;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Could\ not\ open\ scene\ json\ file\ \(\backslash\)"{}"{}}\ +\ filename\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{classSceneLoader_ad9896980537719ae06bd98e1de4ac8f9}{SceneLoader}}(std::string\ filename)\ :\ \doxymbox{\hyperlink{classSceneLoader_a2abb8bf496cf5791d235797843c6bda8}{filename\_}}(filename)\ \{\}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ \doxymbox{\hyperlink{classSceneLoader_a3825a1258f717224bc9b25ab180fb219}{load}}()\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::ifstream\ file\ =\ \doxymbox{\hyperlink{classSceneLoader_a38ee3253241be0b55ac7b7ea1b0dd044}{openWithFallback}}(\doxymbox{\hyperlink{classSceneLoader_a2abb8bf496cf5791d235797843c6bda8}{filename\_}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ json::parse(file);}
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ unordered\_map<string,\ Material>\ \doxymbox{\hyperlink{classSzeneContext_ac4aed4306ad0697cd5e6df9f07eb1b58}{materials}};}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classMaterial}{Material}}\&\ \doxymbox{\hyperlink{classSzeneContext_a5df592675a1fc92a9def8b01a6c95586}{mat}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&name)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>materials.at(name);\ }
+\DoxyCodeLine{00041\ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSzeneContext_ab9d3137fb61634deaa1d11927e1a1f52}{add}}(\textcolor{keywordtype}{string}\ name,\ \doxymbox{\hyperlink{classMaterial}{Material}}\ \doxymbox{\hyperlink{classSzeneContext_a5df592675a1fc92a9def8b01a6c95586}{mat}})\{}
+\DoxyCodeLine{00043\ \ \ \ \ this-\/>materials[name]\ =\ \doxymbox{\hyperlink{classSzeneContext_a5df592675a1fc92a9def8b01a6c95586}{mat}};\ }
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ \};\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{json__io_8cpp_ac905de220920278a8cfc222d1cb1ee54}{parsePoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00048\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{json__io_8cpp_a2f9837f405093911d9dd184f347ed3be}{parseDirection}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00049\ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{json__io_8cpp_a9d7ee0afa98d9a22c690fc0e9509b065}{parseColor}}\ (\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00050\ \doxymbox{\hyperlink{classMaterial}{Material}}\ \doxymbox{\hyperlink{json__io_8cpp_aa4aa95f239f3d2cf078dad41272756b3}{parseMaterial}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\ \&ctx);}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a4204aed486079a693f9a9534b22352f7}{parseTransform}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00053\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a1790dbd46c6b7f45c6db5caf5642db9c}{parseLogical}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
-\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00052\ \doxymbox{\hyperlink{classScreen}{Screen}}\ \doxymbox{\hyperlink{json__io_8cpp_aa7c4da0b97280ee52fc24b69db8e8701}{makeScreen}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00053\ \doxymbox{\hyperlink{classSpace}{Space}}\ \doxymbox{\hyperlink{json__io_8cpp_ae42ac003cd4a98ed7d9aa2e5cb65da71}{makeSpace}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{json__io_8cpp_a09d69f585f98fc919f204f8f93df268a}{makeLights}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \doxymbox{\hyperlink{classSpace}{Space}}\&\ space);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{json__io_8cpp_a00b4a8e2d37ef94d4738c6626ef2e7ad}{makeObjects}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&j,\ \doxymbox{\hyperlink{classSpace}{Space}}\&\ space,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00056\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\ \doxymbox{\hyperlink{json__io_8cpp_acff0824108f30686731455f108795ad1}{makeMaterials}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a1d0f3113dbafa4715b6d0e127364fcb0}{parseNode}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00060\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a90ca0f0182d9786ecbbf4b8180124d9b}{parseSphere}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00061\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a5f6c0b6586c310e0bfc01007d2f37416}{parseHalfspace}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00062\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a57e152810d1e8c3e2a9f6f4800f8c93b}{parseCube}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_ad48c0287d44252bedda5b1eb9f4af8df}{parseModify}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00066\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8hpp_a9010adda877f1977a7153e327d67e3ed}{parseTranslation}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00067\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_aff4578c70e96bdd656e293c4186d9127}{parseRotation}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00068\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8hpp_a4153759f5d33948156f5ad054b55d55e}{parseScaling}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_a2f8fa89e920aec09022ebc618033bfda}{parseTransform}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00071\ std::unique\_ptr<Tree>\ \doxymbox{\hyperlink{json__io_8cpp_aa6375b6ce3bdbdb1e82e156e76f2eb65}{parseLogical}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ j,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSzeneContext}{SzeneContext}}\&\ ctx);}
+\DoxyCodeLine{00072\ }
 
 \end{DoxyCode}

@@ -16,5 +16,6 @@ var searchData=
   ['specular_13',['specular',['../classMaterial.html#a8f1a9c58643b45666ce4aa15267adc20',1,'Material']]],
   ['specularreflectioncomponent_14',['specularReflectionComponent',['../classPrimitiveObject.html#a67c96720fa3be871fece508708515235',1,'PrimitiveObject']]],
   ['sphere_15',['Sphere',['../classSphere.html',1,'Sphere'],['../classSphere.html#a7c3903c9efa82ef3a14fcc9cda06b5a3',1,'Sphere::Sphere(Vector4D position, double radius, RGB ambRC, RGB specRC, RGB diffuseRC, RGB reflec, RGB refrac, double shininess)'],['../classSphere.html#a79cc29a568ce16424a5d47b994a92736',1,'Sphere::Sphere(Vector4D position, double radius, Material mat)'],['../classSphere.html#a93d11ba5dc86f22dd052d914c46c4008',1,'Sphere::Sphere(Vector4D position, double radius, RGB color)'],['../classSphere.html#a959c572079f8d54b98b7fc2a3e8df72b',1,'Sphere::Sphere(Vector4D position, double radius)']]],
-  ['start_16',['start',['../classObject.html#a485373c3c5ca60ad989de38fe1f60015',1,'Object']]]
+  ['start_16',['start',['../classObject.html#a485373c3c5ca60ad989de38fe1f60015',1,'Object']]],
+  ['szenecontext_17',['SzeneContext',['../classSzeneContext.html',1,'']]]
 ];

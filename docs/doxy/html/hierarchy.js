@@ -12,6 +12,7 @@ var hierarchy =
     [ "SceneLoader", "classSceneLoader.html", null ],
     [ "Screen", "classScreen.html", null ],
     [ "Space", "classSpace.html", null ],
+    [ "SzeneContext", "classSzeneContext.html", null ],
     [ "Tree", "classTree.html", [
       [ "LogicalTree", "classLogicalTree.html", [
         [ "Exclusion", "classExclusion.html", null ],

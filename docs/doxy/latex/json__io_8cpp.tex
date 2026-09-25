@@ -1,7 +1,8 @@
 \doxysection{src/\+json\+\_\+io.cpp File Reference}
 \hypertarget{json__io_8cpp}{}\label{json__io_8cpp}\index{src/json\_io.cpp@{src/json\_io.cpp}}
+{\ttfamily \+\#include "{}helper.\+hpp"{}}\newline
 {\ttfamily \+\#include $<$iostream$>$}\newline
-{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$memory$>$}\newline
 {\ttfamily \+\#include $<$nlohmann/\+json.\+hpp$>$}\newline
 {\ttfamily \+\#include $<$string$>$}\newline
 {\ttfamily \+\#include $<$screen.\+hpp$>$}\newline
@@ -14,13 +15,17 @@ using \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classIntersection}{Intersection}} $>$ \doxymbox{\hyperlink{json__io_8cpp_abb92c8fe799781d2e24eab5cc4cd97e4}{make\+Cube}} (\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} start, double x, double y, double z, const \doxymbox{\hyperlink{classMaterial}{Material}} \&mat)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a31fe28084de027879fe20342f08d20e6}{modify}} (std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ to\+Mod, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} translation, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} scaling, \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} rotation)
+\item 
 \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{json__io_8cpp_ac905de220920278a8cfc222d1cb1ee54}{parse\+Point}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
 \item 
 \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} \doxymbox{\hyperlink{json__io_8cpp_a2f9837f405093911d9dd184f347ed3be}{parse\+Direction}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
 \item 
 \doxymbox{\hyperlink{structRGB}{RGB}} \doxymbox{\hyperlink{json__io_8cpp_a9d7ee0afa98d9a22c690fc0e9509b065}{parse\+Color}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
 \item 
-\doxymbox{\hyperlink{classMaterial}{Material}} \doxymbox{\hyperlink{json__io_8cpp_a873d5a826920933374036aa28561cf25}{parse\+Material}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\doxymbox{\hyperlink{classMaterial}{Material}} \doxymbox{\hyperlink{json__io_8cpp_aa4aa95f239f3d2cf078dad41272756b3}{parse\+Material}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \item 
 \doxymbox{\hyperlink{classScreen}{Screen}} \doxymbox{\hyperlink{json__io_8cpp_aa7c4da0b97280ee52fc24b69db8e8701}{make\+Screen}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
 \item 
@@ -28,19 +33,25 @@ using \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json
 \item 
 void \doxymbox{\hyperlink{json__io_8cpp_a09d69f585f98fc919f204f8f93df268a}{make\+Lights}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, \doxymbox{\hyperlink{classSpace}{Space}} \&space)
 \item 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_ad1a86b759c5d9513b39966ddbf2a15da}{parse\+Node}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+\doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \doxymbox{\hyperlink{json__io_8cpp_acff0824108f30686731455f108795ad1}{make\+Materials}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
 \item 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a7c0aac16c63cb099be3f35b76c230411}{parse\+Sphere}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a1d0f3113dbafa4715b6d0e127364fcb0}{parse\+Node}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \item 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a113ef28e89926e78f480da165eaa2a4f}{parse\+Halfspace}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a90ca0f0182d9786ecbbf4b8180124d9b}{parse\+Sphere}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \item 
-{\footnotesize template$<$typename \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}$>$ }\\std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a4204aed486079a693f9a9534b22352f7}{parse\+Transform}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a5f6c0b6586c310e0bfc01007d2f37416}{parse\+Halfspace}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \item 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a6499ab12b3c710a91749775cb7fe3081}{parse\+Rotation}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a57e152810d1e8c3e2a9f6f4800f8c93b}{parse\+Cube}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \item 
-{\footnotesize template$<$typename \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}$>$ }\\std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a1790dbd46c6b7f45c6db5caf5642db9c}{parse\+Logical}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j)
+{\footnotesize template$<$typename \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}$>$ }\\std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_a2f8fa89e920aec09022ebc618033bfda}{parse\+Transform}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \item 
-void \doxymbox{\hyperlink{json__io_8cpp_ac9c08837e3dbd98763e37aea943ed653}{make\+Objects}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, \doxymbox{\hyperlink{classSpace}{Space}} \&space)
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_aff4578c70e96bdd656e293c4186d9127}{parse\+Rotation}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
+\item 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_ad48c0287d44252bedda5b1eb9f4af8df}{parse\+Modify}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
+\begin{DoxyCompactList}\small\item\em parses basic modify for compacter transformatons \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}$>$ }\\std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ \doxymbox{\hyperlink{json__io_8cpp_aa6375b6ce3bdbdb1e82e156e76f2eb65}{parse\+Logical}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
+\item 
+void \doxymbox{\hyperlink{json__io_8cpp_a00b4a8e2d37ef94d4738c6626ef2e7ad}{make\+Objects}} (const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&j, \doxymbox{\hyperlink{classSpace}{Space}} \&space, const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&ctx)
 \end{DoxyCompactItemize}
 
 
@@ -58,17 +69,29 @@ using \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json
 \label{json__io_8cpp_doc-func-members}
 \Hypertarget{json__io_8cpp_doc-func-members}
 \doxysubsection{Function Documentation}
+\Hypertarget{json__io_8cpp_abb92c8fe799781d2e24eab5cc4cd97e4}\index{json\_io.cpp@{json\_io.cpp}!makeCube@{makeCube}}
+\index{makeCube@{makeCube}!json\_io.cpp@{json\_io.cpp}}
+\doxysubsubsection{\texorpdfstring{makeCube()}{makeCube()}}
+{\footnotesize\ttfamily \label{json__io_8cpp_abb92c8fe799781d2e24eab5cc4cd97e4} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classIntersection}{Intersection}} $>$ make\+Cube (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{start}{, }\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{, }\item[{const \doxymbox{\hyperlink{classMaterial}{Material}} \&}]{mat}{}\end{DoxyParamCaption})}
+
 \Hypertarget{json__io_8cpp_a09d69f585f98fc919f204f8f93df268a}\index{json\_io.cpp@{json\_io.cpp}!makeLights@{makeLights}}
 \index{makeLights@{makeLights}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{makeLights()}{makeLights()}}
 {\footnotesize\ttfamily \label{json__io_8cpp_a09d69f585f98fc919f204f8f93df268a} 
 void make\+Lights (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{\doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_ac9c08837e3dbd98763e37aea943ed653}\index{json\_io.cpp@{json\_io.cpp}!makeObjects@{makeObjects}}
+\Hypertarget{json__io_8cpp_acff0824108f30686731455f108795ad1}\index{json\_io.cpp@{json\_io.cpp}!makeMaterials@{makeMaterials}}
+\index{makeMaterials@{makeMaterials}!json\_io.cpp@{json\_io.cpp}}
+\doxysubsubsection{\texorpdfstring{makeMaterials()}{makeMaterials()}}
+{\footnotesize\ttfamily \label{json__io_8cpp_acff0824108f30686731455f108795ad1} 
+\doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} make\+Materials (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8cpp_a00b4a8e2d37ef94d4738c6626ef2e7ad}\index{json\_io.cpp@{json\_io.cpp}!makeObjects@{makeObjects}}
 \index{makeObjects@{makeObjects}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{makeObjects()}{makeObjects()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_ac9c08837e3dbd98763e37aea943ed653} 
-void make\+Objects (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{\doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{json__io_8cpp_a00b4a8e2d37ef94d4738c6626ef2e7ad} 
+void make\+Objects (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{\doxymbox{\hyperlink{classSpace}{Space}} \&}]{space}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
 \Hypertarget{json__io_8cpp_aa7c4da0b97280ee52fc24b69db8e8701}\index{json\_io.cpp@{json\_io.cpp}!makeScreen@{makeScreen}}
 \index{makeScreen@{makeScreen}!json\_io.cpp@{json\_io.cpp}}
@@ -82,11 +105,23 @@ void make\+Objects (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{js
 {\footnotesize\ttfamily \label{json__io_8cpp_ae42ac003cd4a98ed7d9aa2e5cb65da71} 
 \doxymbox{\hyperlink{classSpace}{Space}} make\+Space (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
 
+\Hypertarget{json__io_8cpp_a31fe28084de027879fe20342f08d20e6}\index{json\_io.cpp@{json\_io.cpp}!modify@{modify}}
+\index{modify@{modify}!json\_io.cpp@{json\_io.cpp}}
+\doxysubsubsection{\texorpdfstring{modify()}{modify()}}
+{\footnotesize\ttfamily \label{json__io_8cpp_a31fe28084de027879fe20342f08d20e6} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ modify (\begin{DoxyParamCaption}\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$}]{to\+Mod}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{translation}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{scaling}{, }\item[{\doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}}]{rotation}{}\end{DoxyParamCaption})}
+
 \Hypertarget{json__io_8cpp_a9d7ee0afa98d9a22c690fc0e9509b065}\index{json\_io.cpp@{json\_io.cpp}!parseColor@{parseColor}}
 \index{parseColor@{parseColor}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseColor()}{parseColor()}}
 {\footnotesize\ttfamily \label{json__io_8cpp_a9d7ee0afa98d9a22c690fc0e9509b065} 
 \doxymbox{\hyperlink{structRGB}{RGB}} parse\+Color (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+
+\Hypertarget{json__io_8cpp_a57e152810d1e8c3e2a9f6f4800f8c93b}\index{json\_io.cpp@{json\_io.cpp}!parseCube@{parseCube}}
+\index{parseCube@{parseCube}!json\_io.cpp@{json\_io.cpp}}
+\doxysubsubsection{\texorpdfstring{parseCube()}{parseCube()}}
+{\footnotesize\ttfamily \label{json__io_8cpp_a57e152810d1e8c3e2a9f6f4800f8c93b} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Cube (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
 \Hypertarget{json__io_8cpp_a2f9837f405093911d9dd184f347ed3be}\index{json\_io.cpp@{json\_io.cpp}!parseDirection@{parseDirection}}
 \index{parseDirection@{parseDirection}!json\_io.cpp@{json\_io.cpp}}
@@ -94,30 +129,40 @@ void make\+Objects (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{js
 {\footnotesize\ttfamily \label{json__io_8cpp_a2f9837f405093911d9dd184f347ed3be} 
 \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} parse\+Direction (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_a113ef28e89926e78f480da165eaa2a4f}\index{json\_io.cpp@{json\_io.cpp}!parseHalfspace@{parseHalfspace}}
+\Hypertarget{json__io_8cpp_a5f6c0b6586c310e0bfc01007d2f37416}\index{json\_io.cpp@{json\_io.cpp}!parseHalfspace@{parseHalfspace}}
 \index{parseHalfspace@{parseHalfspace}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseHalfspace()}{parseHalfspace()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_a113ef28e89926e78f480da165eaa2a4f} 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Halfspace (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{json__io_8cpp_a5f6c0b6586c310e0bfc01007d2f37416} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Halfspace (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_a1790dbd46c6b7f45c6db5caf5642db9c}\index{json\_io.cpp@{json\_io.cpp}!parseLogical@{parseLogical}}
+\Hypertarget{json__io_8cpp_aa6375b6ce3bdbdb1e82e156e76f2eb65}\index{json\_io.cpp@{json\_io.cpp}!parseLogical@{parseLogical}}
 \index{parseLogical@{parseLogical}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseLogical()}{parseLogical()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_a1790dbd46c6b7f45c6db5caf5642db9c} 
+{\footnotesize\ttfamily \label{json__io_8cpp_aa6375b6ce3bdbdb1e82e156e76f2eb65} 
 template$<$typename \doxymbox{\hyperlink{classLogicalTree}{Logical\+Tree}}$>$ \\
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Logical (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Logical (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_a873d5a826920933374036aa28561cf25}\index{json\_io.cpp@{json\_io.cpp}!parseMaterial@{parseMaterial}}
+\Hypertarget{json__io_8cpp_aa4aa95f239f3d2cf078dad41272756b3}\index{json\_io.cpp@{json\_io.cpp}!parseMaterial@{parseMaterial}}
 \index{parseMaterial@{parseMaterial}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseMaterial()}{parseMaterial()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_a873d5a826920933374036aa28561cf25} 
-\doxymbox{\hyperlink{classMaterial}{Material}} parse\+Material (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{json__io_8cpp_aa4aa95f239f3d2cf078dad41272756b3} 
+\doxymbox{\hyperlink{classMaterial}{Material}} parse\+Material (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_ad1a86b759c5d9513b39966ddbf2a15da}\index{json\_io.cpp@{json\_io.cpp}!parseNode@{parseNode}}
+\Hypertarget{json__io_8cpp_ad48c0287d44252bedda5b1eb9f4af8df}\index{json\_io.cpp@{json\_io.cpp}!parseModify@{parseModify}}
+\index{parseModify@{parseModify}!json\_io.cpp@{json\_io.cpp}}
+\doxysubsubsection{\texorpdfstring{parseModify()}{parseModify()}}
+{\footnotesize\ttfamily \label{json__io_8cpp_ad48c0287d44252bedda5b1eb9f4af8df} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Modify (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+parses basic modify for compacter transformatons 
+
+\Hypertarget{json__io_8cpp_a1d0f3113dbafa4715b6d0e127364fcb0}\index{json\_io.cpp@{json\_io.cpp}!parseNode@{parseNode}}
 \index{parseNode@{parseNode}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseNode()}{parseNode()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_ad1a86b759c5d9513b39966ddbf2a15da} 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Node (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{json__io_8cpp_a1d0f3113dbafa4715b6d0e127364fcb0} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Node (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
 \Hypertarget{json__io_8cpp_ac905de220920278a8cfc222d1cb1ee54}\index{json\_io.cpp@{json\_io.cpp}!parsePoint@{parsePoint}}
 \index{parsePoint@{parsePoint}!json\_io.cpp@{json\_io.cpp}}
@@ -125,22 +170,22 @@ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Node
 {\footnotesize\ttfamily \label{json__io_8cpp_ac905de220920278a8cfc222d1cb1ee54} 
 \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}} parse\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_a6499ab12b3c710a91749775cb7fe3081}\index{json\_io.cpp@{json\_io.cpp}!parseRotation@{parseRotation}}
+\Hypertarget{json__io_8cpp_aff4578c70e96bdd656e293c4186d9127}\index{json\_io.cpp@{json\_io.cpp}!parseRotation@{parseRotation}}
 \index{parseRotation@{parseRotation}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseRotation()}{parseRotation()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_a6499ab12b3c710a91749775cb7fe3081} 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Rotation (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{json__io_8cpp_aff4578c70e96bdd656e293c4186d9127} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Rotation (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_a7c0aac16c63cb099be3f35b76c230411}\index{json\_io.cpp@{json\_io.cpp}!parseSphere@{parseSphere}}
+\Hypertarget{json__io_8cpp_a90ca0f0182d9786ecbbf4b8180124d9b}\index{json\_io.cpp@{json\_io.cpp}!parseSphere@{parseSphere}}
 \index{parseSphere@{parseSphere}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseSphere()}{parseSphere()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_a7c0aac16c63cb099be3f35b76c230411} 
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Sphere (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{json__io_8cpp_a90ca0f0182d9786ecbbf4b8180124d9b} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Sphere (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 
-\Hypertarget{json__io_8cpp_a4204aed486079a693f9a9534b22352f7}\index{json\_io.cpp@{json\_io.cpp}!parseTransform@{parseTransform}}
+\Hypertarget{json__io_8cpp_a2f8fa89e920aec09022ebc618033bfda}\index{json\_io.cpp@{json\_io.cpp}!parseTransform@{parseTransform}}
 \index{parseTransform@{parseTransform}!json\_io.cpp@{json\_io.cpp}}
 \doxysubsubsection{\texorpdfstring{parseTransform()}{parseTransform()}}
-{\footnotesize\ttfamily \label{json__io_8cpp_a4204aed486079a693f9a9534b22352f7} 
+{\footnotesize\ttfamily \label{json__io_8cpp_a2f8fa89e920aec09022ebc618033bfda} 
 template$<$typename \doxymbox{\hyperlink{classTransformationTree}{Transformation\+Tree}}$>$ \\
-std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{}\end{DoxyParamCaption})}
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classTree}{Tree}} $>$ parse\+Transform (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{json__io_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j}{, }\item[{const \doxymbox{\hyperlink{classSzeneContext}{Szene\+Context}} \&}]{ctx}{}\end{DoxyParamCaption})}
 

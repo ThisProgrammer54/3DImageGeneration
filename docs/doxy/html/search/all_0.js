@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add_0',['add',['../classSpace.html#a7a43eec43468a5190918d80a39c03a4b',1,'Space::add(std::unique_ptr&lt; Object &gt;)'],['../classSpace.html#a721b29f61f137cbdd8ef5ee717a374b4',1,'Space::add(std::unique_ptr&lt; LightSource &gt; ls)'],['../classSpace.html#a5e1792a004b2153c87266213d7c5912d',1,'Space::add(std::vector&lt; std::unique_ptr&lt; LightSource &gt; &gt;)'],['../classLogicalTree.html#a1e0aba95f11c087446bb705fc6bdcb0a',1,'LogicalTree::add()']]],
+  ['add_0',['add',['../classSzeneContext.html#ab9d3137fb61634deaa1d11927e1a1f52',1,'SzeneContext::add()'],['../classSpace.html#a7a43eec43468a5190918d80a39c03a4b',1,'Space::add(std::unique_ptr&lt; Object &gt;)'],['../classSpace.html#a721b29f61f137cbdd8ef5ee717a374b4',1,'Space::add(std::unique_ptr&lt; LightSource &gt; ls)'],['../classSpace.html#a5e1792a004b2153c87266213d7c5912d',1,'Space::add(std::vector&lt; std::unique_ptr&lt; LightSource &gt; &gt;)'],['../classLogicalTree.html#a1e0aba95f11c087446bb705fc6bdcb0a',1,'LogicalTree::add()']]],
   ['ambient_1',['ambient',['../classMaterial.html#a54e2bdc004a2de2a8184864b5da9df57',1,'Material']]],
   ['ambientlightintensity_2',['ambientLightIntensity',['../classSpace.html#a04857eab2bd495da7ff365955768805e',1,'Space']]],
   ['ambientreflectioncomponent_3',['ambientReflectionComponent',['../classPrimitiveObject.html#a70f896ec4b9950159252ab8f06775508',1,'PrimitiveObject']]],

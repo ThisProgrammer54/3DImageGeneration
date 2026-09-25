@@ -111,8 +111,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('json__io_8cpp.
   <div class="headertitle"><div class="title">json_io.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="helper_8hpp_source.html">helper.hpp</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;nlohmann/json.hpp&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;<a class="el" href="screen_8hpp_source.html">screen.hpp</a>&gt;</code><br />
@@ -124,22 +125,28 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:abb92c8fe799781d2e24eab5cc4cd97e4" id="r_abb92c8fe799781d2e24eab5cc4cd97e4"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classIntersection.html">Intersection</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abb92c8fe799781d2e24eab5cc4cd97e4">makeCube</a> (<a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a> start, double x, double y, double z, const <a class="el" href="classMaterial.html">Material</a> &amp;mat)</td></tr>
+<tr class="memitem:a31fe28084de027879fe20342f08d20e6" id="r_a31fe28084de027879fe20342f08d20e6"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a31fe28084de027879fe20342f08d20e6">modify</a> (std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; toMod, <a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a> translation, <a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a> scaling, <a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a> rotation)</td></tr>
 <tr class="memitem:ac905de220920278a8cfc222d1cb1ee54" id="r_ac905de220920278a8cfc222d1cb1ee54"><td class="memItemLeft"><a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac905de220920278a8cfc222d1cb1ee54">parsePoint</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
 <tr class="memitem:a2f9837f405093911d9dd184f347ed3be" id="r_a2f9837f405093911d9dd184f347ed3be"><td class="memItemLeft"><a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2f9837f405093911d9dd184f347ed3be">parseDirection</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
 <tr class="memitem:a9d7ee0afa98d9a22c690fc0e9509b065" id="r_a9d7ee0afa98d9a22c690fc0e9509b065"><td class="memItemLeft"><a class="el" href="structRGB.html">RGB</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9d7ee0afa98d9a22c690fc0e9509b065">parseColor</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:a873d5a826920933374036aa28561cf25" id="r_a873d5a826920933374036aa28561cf25"><td class="memItemLeft"><a class="el" href="classMaterial.html">Material</a>&#160;</td><td class="memItemRight"><a class="el" href="#a873d5a826920933374036aa28561cf25">parseMaterial</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
+<tr class="memitem:aa4aa95f239f3d2cf078dad41272756b3" id="r_aa4aa95f239f3d2cf078dad41272756b3"><td class="memItemLeft"><a class="el" href="classMaterial.html">Material</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa4aa95f239f3d2cf078dad41272756b3">parseMaterial</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
 <tr class="memitem:aa7c4da0b97280ee52fc24b69db8e8701" id="r_aa7c4da0b97280ee52fc24b69db8e8701"><td class="memItemLeft"><a class="el" href="classScreen.html">Screen</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa7c4da0b97280ee52fc24b69db8e8701">makeScreen</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
 <tr class="memitem:ae42ac003cd4a98ed7d9aa2e5cb65da71" id="r_ae42ac003cd4a98ed7d9aa2e5cb65da71"><td class="memItemLeft"><a class="el" href="classSpace.html">Space</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae42ac003cd4a98ed7d9aa2e5cb65da71">makeSpace</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
 <tr class="memitem:a09d69f585f98fc919f204f8f93df268a" id="r_a09d69f585f98fc919f204f8f93df268a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a09d69f585f98fc919f204f8f93df268a">makeLights</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, <a class="el" href="classSpace.html">Space</a> &amp;space)</td></tr>
-<tr class="memitem:ad1a86b759c5d9513b39966ddbf2a15da" id="r_ad1a86b759c5d9513b39966ddbf2a15da"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad1a86b759c5d9513b39966ddbf2a15da">parseNode</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:a7c0aac16c63cb099be3f35b76c230411" id="r_a7c0aac16c63cb099be3f35b76c230411"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7c0aac16c63cb099be3f35b76c230411">parseSphere</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:a113ef28e89926e78f480da165eaa2a4f" id="r_a113ef28e89926e78f480da165eaa2a4f"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a113ef28e89926e78f480da165eaa2a4f">parseHalfspace</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:a4204aed486079a693f9a9534b22352f7" id="r_a4204aed486079a693f9a9534b22352f7"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classTransformationTree.html">TransformationTree</a>&gt; </td></tr>
-<tr class="memitem:a4204aed486079a693f9a9534b22352f7 template"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4204aed486079a693f9a9534b22352f7">parseTransform</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:a6499ab12b3c710a91749775cb7fe3081" id="r_a6499ab12b3c710a91749775cb7fe3081"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6499ab12b3c710a91749775cb7fe3081">parseRotation</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:a1790dbd46c6b7f45c6db5caf5642db9c" id="r_a1790dbd46c6b7f45c6db5caf5642db9c"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&gt; </td></tr>
-<tr class="memitem:a1790dbd46c6b7f45c6db5caf5642db9c template"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1790dbd46c6b7f45c6db5caf5642db9c">parseLogical</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
-<tr class="memitem:ac9c08837e3dbd98763e37aea943ed653" id="r_ac9c08837e3dbd98763e37aea943ed653"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac9c08837e3dbd98763e37aea943ed653">makeObjects</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, <a class="el" href="classSpace.html">Space</a> &amp;space)</td></tr>
+<tr class="memitem:acff0824108f30686731455f108795ad1" id="r_acff0824108f30686731455f108795ad1"><td class="memItemLeft"><a class="el" href="classSzeneContext.html">SzeneContext</a>&#160;</td><td class="memItemRight"><a class="el" href="#acff0824108f30686731455f108795ad1">makeMaterials</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j)</td></tr>
+<tr class="memitem:a1d0f3113dbafa4715b6d0e127364fcb0" id="r_a1d0f3113dbafa4715b6d0e127364fcb0"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1d0f3113dbafa4715b6d0e127364fcb0">parseNode</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:a90ca0f0182d9786ecbbf4b8180124d9b" id="r_a90ca0f0182d9786ecbbf4b8180124d9b"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a90ca0f0182d9786ecbbf4b8180124d9b">parseSphere</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:a5f6c0b6586c310e0bfc01007d2f37416" id="r_a5f6c0b6586c310e0bfc01007d2f37416"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5f6c0b6586c310e0bfc01007d2f37416">parseHalfspace</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:a57e152810d1e8c3e2a9f6f4800f8c93b" id="r_a57e152810d1e8c3e2a9f6f4800f8c93b"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a57e152810d1e8c3e2a9f6f4800f8c93b">parseCube</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:a2f8fa89e920aec09022ebc618033bfda" id="r_a2f8fa89e920aec09022ebc618033bfda"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classTransformationTree.html">TransformationTree</a>&gt; </td></tr>
+<tr class="memitem:a2f8fa89e920aec09022ebc618033bfda template"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2f8fa89e920aec09022ebc618033bfda">parseTransform</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:aff4578c70e96bdd656e293c4186d9127" id="r_aff4578c70e96bdd656e293c4186d9127"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aff4578c70e96bdd656e293c4186d9127">parseRotation</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:ad48c0287d44252bedda5b1eb9f4af8df" id="r_ad48c0287d44252bedda5b1eb9f4af8df"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad48c0287d44252bedda5b1eb9f4af8df">parseModify</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memdesc:ad48c0287d44252bedda5b1eb9f4af8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">parses basic modify for compacter transformatons  <br /></td></tr>
+<tr class="memitem:aa6375b6ce3bdbdb1e82e156e76f2eb65" id="r_aa6375b6ce3bdbdb1e82e156e76f2eb65"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&gt; </td></tr>
+<tr class="memitem:aa6375b6ce3bdbdb1e82e156e76f2eb65 template"><td class="memItemLeft">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa6375b6ce3bdbdb1e82e156e76f2eb65">parseLogical</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
+<tr class="memitem:a00b4a8e2d37ef94d4738c6626ef2e7ad" id="r_a00b4a8e2d37ef94d4738c6626ef2e7ad"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a00b4a8e2d37ef94d4738c6626ef2e7ad">makeObjects</a> (const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;j, <a class="el" href="classSpace.html">Space</a> &amp;space, const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;ctx)</td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="ab701e3ac61a85b337ec5c1abaad6742d" name="ab701e3ac61a85b337ec5c1abaad6742d"></a>
@@ -157,6 +164,42 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="abb92c8fe799781d2e24eab5cc4cd97e4" name="abb92c8fe799781d2e24eab5cc4cd97e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb92c8fe799781d2e24eab5cc4cd97e4">&#9670;&#160;</a></span>makeCube()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classIntersection.html">Intersection</a> &gt; makeCube </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classMaterial.html">Material</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>mat</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a09d69f585f98fc919f204f8f93df268a" name="a09d69f585f98fc919f204f8f93df268a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09d69f585f98fc919f204f8f93df268a">&#9670;&#160;</a></span>makeLights()</h2>
 
@@ -178,8 +221,25 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac9c08837e3dbd98763e37aea943ed653" name="ac9c08837e3dbd98763e37aea943ed653"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9c08837e3dbd98763e37aea943ed653">&#9670;&#160;</a></span>makeObjects()</h2>
+<a id="acff0824108f30686731455f108795ad1" name="acff0824108f30686731455f108795ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff0824108f30686731455f108795ad1">&#9670;&#160;</a></span>makeMaterials()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSzeneContext.html">SzeneContext</a> makeMaterials </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00b4a8e2d37ef94d4738c6626ef2e7ad" name="a00b4a8e2d37ef94d4738c6626ef2e7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b4a8e2d37ef94d4738c6626ef2e7ad">&#9670;&#160;</a></span>makeObjects()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +252,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classSpace.html">Space</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>space</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classSpace.html">Space</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>space</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -233,6 +298,37 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a31fe28084de027879fe20342f08d20e6" name="a31fe28084de027879fe20342f08d20e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fe28084de027879fe20342f08d20e6">&#9670;&#160;</a></span>modify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; modify </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>toMod</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a></td>          <td class="paramname"><span class="paramname"><em>translation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a></td>          <td class="paramname"><span class="paramname"><em>scaling</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="helper_8hpp.html#a020902339f5500a062e44d79b0b5c472">Vector4D</a></td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9d7ee0afa98d9a22c690fc0e9509b065" name="a9d7ee0afa98d9a22c690fc0e9509b065"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d7ee0afa98d9a22c690fc0e9509b065">&#9670;&#160;</a></span>parseColor()</h2>
 
@@ -244,6 +340,27 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57e152810d1e8c3e2a9f6f4800f8c93b" name="a57e152810d1e8c3e2a9f6f4800f8c93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57e152810d1e8c3e2a9f6f4800f8c93b">&#9670;&#160;</a></span>parseCube()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseCube </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -267,8 +384,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a113ef28e89926e78f480da165eaa2a4f" name="a113ef28e89926e78f480da165eaa2a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a113ef28e89926e78f480da165eaa2a4f">&#9670;&#160;</a></span>parseHalfspace()</h2>
+<a id="a5f6c0b6586c310e0bfc01007d2f37416" name="a5f6c0b6586c310e0bfc01007d2f37416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f6c0b6586c310e0bfc01007d2f37416">&#9670;&#160;</a></span>parseHalfspace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -276,16 +393,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseHalfspace </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1790dbd46c6b7f45c6db5caf5642db9c" name="a1790dbd46c6b7f45c6db5caf5642db9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1790dbd46c6b7f45c6db5caf5642db9c">&#9670;&#160;</a></span>parseLogical()</h2>
+<a id="aa6375b6ce3bdbdb1e82e156e76f2eb65" name="aa6375b6ce3bdbdb1e82e156e76f2eb65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6375b6ce3bdbdb1e82e156e76f2eb65">&#9670;&#160;</a></span>parseLogical()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,16 +416,20 @@ template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseLogical </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a873d5a826920933374036aa28561cf25" name="a873d5a826920933374036aa28561cf25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a873d5a826920933374036aa28561cf25">&#9670;&#160;</a></span>parseMaterial()</h2>
+<a id="aa4aa95f239f3d2cf078dad41272756b3" name="aa4aa95f239f3d2cf078dad41272756b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4aa95f239f3d2cf078dad41272756b3">&#9670;&#160;</a></span>parseMaterial()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,16 +437,43 @@ template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&
         <tr>
           <td class="memname"><a class="el" href="classMaterial.html">Material</a> parseMaterial </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad1a86b759c5d9513b39966ddbf2a15da" name="ad1a86b759c5d9513b39966ddbf2a15da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1a86b759c5d9513b39966ddbf2a15da">&#9670;&#160;</a></span>parseNode()</h2>
+<a id="ad48c0287d44252bedda5b1eb9f4af8df" name="ad48c0287d44252bedda5b1eb9f4af8df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48c0287d44252bedda5b1eb9f4af8df">&#9670;&#160;</a></span>parseModify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseModify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parses basic modify for compacter transformatons </p>
+
+</div>
+</div>
+<a id="a1d0f3113dbafa4715b6d0e127364fcb0" name="a1d0f3113dbafa4715b6d0e127364fcb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d0f3113dbafa4715b6d0e127364fcb0">&#9670;&#160;</a></span>parseNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,8 +481,12 @@ template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseNode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -354,8 +510,8 @@ template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&
 
 </div>
 </div>
-<a id="a6499ab12b3c710a91749775cb7fe3081" name="a6499ab12b3c710a91749775cb7fe3081"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6499ab12b3c710a91749775cb7fe3081">&#9670;&#160;</a></span>parseRotation()</h2>
+<a id="aff4578c70e96bdd656e293c4186d9127" name="aff4578c70e96bdd656e293c4186d9127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4578c70e96bdd656e293c4186d9127">&#9670;&#160;</a></span>parseRotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,16 +519,20 @@ template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseRotation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7c0aac16c63cb099be3f35b76c230411" name="a7c0aac16c63cb099be3f35b76c230411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c0aac16c63cb099be3f35b76c230411">&#9670;&#160;</a></span>parseSphere()</h2>
+<a id="a90ca0f0182d9786ecbbf4b8180124d9b" name="a90ca0f0182d9786ecbbf4b8180124d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ca0f0182d9786ecbbf4b8180124d9b">&#9670;&#160;</a></span>parseSphere()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,16 +540,20 @@ template&lt;typename <a class="el" href="classLogicalTree.html">LogicalTree</a>&
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseSphere </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a4204aed486079a693f9a9534b22352f7" name="a4204aed486079a693f9a9534b22352f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4204aed486079a693f9a9534b22352f7">&#9670;&#160;</a></span>parseTransform()</h2>
+<a id="a2f8fa89e920aec09022ebc618033bfda" name="a2f8fa89e920aec09022ebc618033bfda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f8fa89e920aec09022ebc618033bfda">&#9670;&#160;</a></span>parseTransform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -399,8 +563,12 @@ template&lt;typename <a class="el" href="classTransformationTree.html">Transform
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classTree.html">Tree</a> &gt; parseTransform </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="classSzeneContext.html">SzeneContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
