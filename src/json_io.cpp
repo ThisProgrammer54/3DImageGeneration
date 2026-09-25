@@ -57,7 +57,7 @@ RGB parseColor (const json& j) {
     return RGB(a[0], a[1], a[2]);
 }
 
-Material parseMaterial(const json& j) {
+Material parseMaterial(const json& j, const SzeneContext &ctx) {
     Material mat;
     mat.ambient   = parseColor(j.at("ambient"));
     mat.diffuse   = parseColor(j.at("diffuse"));
@@ -97,33 +97,36 @@ void makeLights(const json& j, Space& space) {
     }
     std::cout << sources.size() << " light sources added." << std::endl; 
 }
+SzeneContext makeMaterials(const json &j){
+  return SzeneContext();
+}
 
 
 // Predeclaration so Recursion works
-std::unique_ptr<Tree> parseNode(const json& j);
+std::unique_ptr<Tree> parseNode(const json& j, const SzeneContext &ctx);
 
-std::unique_ptr<Tree> parseSphere(const json& j){
+std::unique_ptr<Tree> parseSphere(const json& j, const SzeneContext &ctx){
     Vector4D pos = parsePoint(j.at("position"));
     double radius = j.at("radius").get<double>();
-    Material mat = parseMaterial(j.at("color"));
+    Material mat = parseMaterial(j.at("color"), ctx);
     int index = j.at("index").get<int>(); 
     (void) index;
     return std::make_unique<Sphere>(pos, radius, mat);
 };
 
-std::unique_ptr<Tree> parseHalfspace(const json& j){
+std::unique_ptr<Tree> parseHalfspace(const json& j, const SzeneContext &ctx){
     Vector4D pos = parsePoint(j.at("position"));
     Vector4D normal = parseDirection(j.at("normal"));
-    Material mat = parseMaterial(j.at("color"));
+    Material mat = parseMaterial(j.at("color"), ctx);
     int index = j.at("index").get<int>();
     (void) index;
     return std::make_unique<Halfspace>(pos, normal, mat);
 };
 
-std::unique_ptr<Tree> parseCube(const json& j){
+std::unique_ptr<Tree> parseCube(const json& j, const SzeneContext &ctx){
   Vector4D pos = parsePoint(j.at("position"));
   Vector4D dimensions = parsePoint(j.at("dimensions")); 
-  Material mat = parseMaterial(j.at("color")); 
+  Material mat = parseMaterial(j.at("color"), ctx); 
   int index = j.at("index").get<int>();
   (void) index; 
   
@@ -131,18 +134,18 @@ std::unique_ptr<Tree> parseCube(const json& j){
 }
 
 template<typename TransformationTree>
-std::unique_ptr<Tree> parseTransform(const json& j){
+std::unique_ptr<Tree> parseTransform(const json& j, const SzeneContext &ctx){
     Vector4D factors = parseDirection(j.at("factors"));
-    auto subject = parseNode(j.at("subject"));
+    auto subject = parseNode(j.at("subject"), ctx);
     return std::make_unique<TransformationTree>(std::move(subject), factors);
 }
-std::unique_ptr<Tree> parseRotation(const json &j){
+std::unique_ptr<Tree> parseRotation(const json &j, const SzeneContext &ctx){
     double angle = j.at("angle").get<double>(); 
     // umwandlung in bogenmass
     double pi = 2 * acos(0.0); 
     angle = angle * (pi / 180); 
 
-    auto subject = parseNode(j.at("subject"));
+    auto subject = parseNode(j.at("subject"), ctx);
     int direction = j.at("direction").get<int>(); 
     Vector4D rotationVec(0, 0, 0, 1);
 
@@ -155,7 +158,7 @@ std::unique_ptr<Tree> parseRotation(const json &j){
 /**
 * @brief parses basic modify for compacter transformatons 
 */
-std::unique_ptr<Tree> parseModify(const json& j){
+std::unique_ptr<Tree> parseModify(const json& j, const SzeneContext &ctx){
   Vector4D scal = parseDirection(j.at("scaling")); 
   Vector4D rot = parseDirection(j.at("rotation")); 
   
@@ -168,39 +171,39 @@ std::unique_ptr<Tree> parseModify(const json& j){
 
   Vector4D transl = parseDirection(j.at("translation")); 
 
-  auto subject = parseNode(j.at("subject")); 
+  auto subject = parseNode(j.at("subject"), ctx); 
   return modify(std::move(subject), transl, scal, rot);
 }
 
 template<typename LogicalTree>
-std::unique_ptr<Tree> parseLogical(const json& j){
+std::unique_ptr<Tree> parseLogical(const json& j, const SzeneContext& ctx){
     auto tree = std::make_unique<LogicalTree>();
     for (auto& node : j){
-        tree->add(parseNode(node));
+        tree->add(parseNode(node, ctx));
     }
     return tree;
 }
 
 
-std::unique_ptr<Tree> parseNode(const json& j) {
-    if (j.contains("cube"))             return parseCube(j.at("cube"));
-    if (j.contains("sphere"))           return parseSphere(j.at("sphere"));
-    if (j.contains("halfSpace"))        return parseHalfspace(j.at("halfSpace"));
-    if (j.contains("modify"))           return parseModify(j.at("modify"));
-    if (j.contains("translation"))      return parseTransform<Translation>(j.at("translation"));
-    if (j.contains("rotation"))         return parseRotation(j.at("rotation"));
-    if (j.contains("scaling"))          return parseTransform<Scaling>(j.at("scaling"));
-    if (j.contains("union"))            return parseLogical<Union>(j.at("union"));
-    if (j.contains("intersection"))     return parseLogical<Intersection>(j.at("intersection"));
-    if (j.contains("exclusion"))        return parseLogical<Exclusion>(j.at("exclusion"));
+std::unique_ptr<Tree> parseNode(const json& j, const SzeneContext& ctx) {
+    if (j.contains("cube"))             return parseCube(j.at("cube"), ctx);
+    if (j.contains("sphere"))           return parseSphere(j.at("sphere"), ctx);
+    if (j.contains("halfSpace"))        return parseHalfspace(j.at("halfSpace"), ctx);
+    if (j.contains("modify"))           return parseModify(j.at("modify"), ctx);
+    if (j.contains("translation"))      return parseTransform<Translation>(j.at("translation"), ctx);
+    if (j.contains("rotation"))         return parseRotation(j.at("rotation"), ctx);
+    if (j.contains("scaling"))          return parseTransform<Scaling>(j.at("scaling"), ctx);
+    if (j.contains("union"))            return parseLogical<Union>(j.at("union"), ctx);
+    if (j.contains("intersection"))     return parseLogical<Intersection>(j.at("intersection"), ctx);
+    if (j.contains("exclusion"))        return parseLogical<Exclusion>(j.at("exclusion"), ctx);
     
     throw std::runtime_error("Unknown object node in JSON scene: " + j.dump(4));
 };
 
 
-void makeObjects(const json& j, Space& space) {
+void makeObjects(const json& j, Space& space, const SzeneContext& ctx) {
     auto objects = j.at("objects");
     for (auto obj : objects) {
-        space.add(std::make_unique<Object>(parseNode(obj)));
+        space.add(std::make_unique<Object>(parseNode(obj, ctx)));
     }
 }

@@ -47,25 +47,26 @@ public:
 Vector4D parsePoint(const json& j);
 Vector4D parseDirection(const json& j);
 RGB parseColor (const json& j);
-Material parseMaterial(const json& j);
+Material parseMaterial(const json& j, const SzeneContext &ctx);
 
 Screen makeScreen(const json& j);
 Space makeSpace(const json& j);
 void makeLights(const json& j, Space& space);
-void makeObjects(const json&j, Space& space);
+void makeObjects(const json&j, Space& space, const SzeneContext& ctx);
+SzeneContext makeMaterials(const json& j);
 
 
-std::unique_ptr<Tree> parseNode(const json& j);
-std::unique_ptr<Tree> parseSphere(const json& j);
-std::unique_ptr<Tree> parseHalfspace(const json& j);
-std::unique_ptr<Tree> parseCube(const json& j);
+std::unique_ptr<Tree> parseNode(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseSphere(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseHalfspace(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseCube(const json& j, const SzeneContext& ctx);
 
 
-std::unique_ptr<Tree> parseModify(const json& j);
-std::unique_ptr<Tree> parseTranslation(const json& j);
-std::unique_ptr<Tree> parseRotation(const json& j);
-std::unique_ptr<Tree> parseScaling(const json& j);
+std::unique_ptr<Tree> parseModify(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseTranslation(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseRotation(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseScaling(const json& j, const SzeneContext& ctx);
 
-std::unique_ptr<Tree> parseTransform(const json& j);
-std::unique_ptr<Tree> parseLogical(const json& j);
+std::unique_ptr<Tree> parseTransform(const json& j, const SzeneContext& ctx);
+std::unique_ptr<Tree> parseLogical(const json& j, const SzeneContext& ctx);
 
