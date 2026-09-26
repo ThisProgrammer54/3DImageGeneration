@@ -36,9 +36,17 @@ make run
 make test
 ```
 
+### input 
+main file will read /json/cur.json 
+
 ### documentation
 The Doxyfile can be found as ./project/Doxyfile 
 - to update documentation 
 ```
 doxygen Doxyfile
 ```
+documentation is found in ./project/docs/doxy/html with index.html as starting point
+
+### result
+the result with provided cur.json should look like this:
+![](img/result.png)
