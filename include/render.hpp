@@ -12,4 +12,5 @@ public:
   Render(double width, double height);
   void render(Screen &screen);
   void show() const;
+  void write(const std::string &filename) const;
 };

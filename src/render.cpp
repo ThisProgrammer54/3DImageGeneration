@@ -2,6 +2,7 @@
 #include "opencv2/core/mat.hpp"
 #include "opencv2/core/matx.hpp"
 #include "opencv2/core/types.hpp"
+#include "opencv2/imgcodecs.hpp"
 #include "screen.hpp"
 
 using namespace cv;
@@ -43,4 +44,7 @@ void Render::show() const {
   waitKey(0);
 
   destroyWindow("A_good_name");
+}
+void Render::write(const std::string &filename) const {
+  cv::imwrite(filename, this->img);
 }
