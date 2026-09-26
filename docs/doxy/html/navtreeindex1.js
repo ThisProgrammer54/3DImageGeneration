@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"structIntersectionResult.html#a13a3dd5872d8c9dfdeed274d86c6b1ef":[0,0,3,6],
 "structIntersectionResult.html#a15dacacbe3ea09a603dfc03e43b5418c":[0,0,3,1],
 "structIntersectionResult.html#a2bc269d6cd1b0b9afdee4c7c96e70c30":[0,0,3,0],
 "structIntersectionResult.html#a7492ac694f30e5c432b3d3ff897f7b7b":[0,0,3,4],

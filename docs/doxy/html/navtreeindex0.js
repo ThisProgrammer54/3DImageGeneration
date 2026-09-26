@@ -73,9 +73,10 @@ var NAVTREEINDEX0 =
 "classRender.html#a0fe97cfbcb4ba7b648df8c5cfd1fa2ad":[0,0,12,1],
 "classRender.html#a486d33a0c7b47e82a30aaf865879ab48":[0,0,12,2],
 "classRender.html#a5b22bd6eb744c78ba5e36e0a2493d848":[0,0,12,0],
-"classRender.html#ad7f6a508a24607a38589d9b84bcfadc7":[0,0,12,4],
-"classRender.html#aee9b71155f55530bbfbdf22705128877":[0,0,12,5],
-"classRender.html#af291993494eb152cbb882f0d1de14fd7":[0,0,12,3],
+"classRender.html#aa3c21d978f8a6d51272e15d60c09563f":[0,0,12,3],
+"classRender.html#ad7f6a508a24607a38589d9b84bcfadc7":[0,0,12,5],
+"classRender.html#aee9b71155f55530bbfbdf22705128877":[0,0,12,6],
+"classRender.html#af291993494eb152cbb882f0d1de14fd7":[0,0,12,4],
 "classRotation.html":[0,0,14],
 "classRotation.html#a320d8f7876612ca71a420c30e3935bd8":[0,0,14,2],
 "classRotation.html#a4de408e4f1640c50a5a447e8d8301d6f":[0,0,14,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "space_8cpp.html":[1,0,1,7],
 "space_8hpp.html":[1,0,0,4],
 "space_8hpp_source.html":[1,0,0,4],
-"structIntersectionResult.html":[0,0,3],
-"structIntersectionResult.html#a13a3dd5872d8c9dfdeed274d86c6b1ef":[0,0,3,6]
+"structIntersectionResult.html":[0,0,3]
 };

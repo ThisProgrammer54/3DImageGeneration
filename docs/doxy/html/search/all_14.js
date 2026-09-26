@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['width_0',['width',['../classRender.html#aee9b71155f55530bbfbdf22705128877',1,'Render::width'],['../classScreen.html#a49be8f8ccf7ed7a3151a761495c0ce21',1,'Screen::width']]]
+  ['width_0',['width',['../classRender.html#aee9b71155f55530bbfbdf22705128877',1,'Render::width'],['../classScreen.html#a49be8f8ccf7ed7a3151a761495c0ce21',1,'Screen::width']]],
+  ['write_1',['write',['../classRender.html#aa3c21d978f8a6d51272e15d60c09563f',1,'Render']]]
 ];

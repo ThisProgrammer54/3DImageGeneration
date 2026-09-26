@@ -23,28 +23,27 @@
 \DoxyCodeLine{00019\ \ \ \doxymbox{\hyperlink{classPixel_a27ad99a2f705e635c42d242d530d4756}{Pixel}}();}
 \DoxyCodeLine{00020\ \ \ \doxymbox{\hyperlink{classPixel_a27ad99a2f705e635c42d242d530d4756}{Pixel}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classPixel_a0451a91303d22a81d30b062433abf9fe}{x}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classPixel_a3a6f19c4ea8a705a5b7e0aeb99c63450}{y}},\ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classPixel_aeac8f8bfe029927e747f26a4355a637e}{value}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classPixel_af4e88d921de414d7cca482a3a8bb3ebd}{visPoint}});}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ Testing\ TODO\ REMOVE\ :\ private:}}
-\DoxyCodeLine{00023\ \ \ \doxymbox{\hyperlink{structIntersectionResult}{IntersectionResult}}\ \doxymbox{\hyperlink{classPixel_a1f6dd1829b52c57e79c60394d8d68cf4}{getIntersectionPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classRay}{Ray}}\ \&)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00024\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classPixel_a57b6d454d1bf307e0893d9af3484a29d}{getColor}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structIntersectionResult}{IntersectionResult}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classRay}{Ray}}\ \&,\ \textcolor{keywordtype}{int}\ depth\ =\ 0)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classPixel_a5dd0096b849255c807c4d120a734c12b}{calcNewRay}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classRay}{Ray}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \&)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00026\ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}}\ \{}
-\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a55405920693276db8fbdbf3a903b8d2f}{height}};}
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}};}
-\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c}{dpi}};}
-\DoxyCodeLine{00034\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_aaf67478d89289fbdb037ed79b07e1fd8}{observer}};}
-\DoxyCodeLine{00035\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_a42188c6778d91235d4d745bf706c2c0c}{position}};}
-\DoxyCodeLine{00036\ \ \ vector<vector<Pixel>>\ \doxymbox{\hyperlink{classScreen_a99297b68ac1a52ccdfac0f498d89bbad}{values}};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}}(\textcolor{keywordtype}{int}\ heigth,\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c}{dpi}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_aaf67478d89289fbdb037ed79b07e1fd8}{observer}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_a42188c6778d91235d4d745bf706c2c0c}{position}});}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classScreen_a76a594f20a840680ff50e1f301a414e9}{setDimensions}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a55405920693276db8fbdbf3a903b8d2f}{height}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}});}
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classScreen_a39a427acc04f820c23999616c9d770d5}{calculate}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&);}
-\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classScreen_a0bba243ac1f79cb5ed62b01d35d7e979}{generateImage}}();}
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\doxymbox{\hyperlink{classScreen_a758578dcc2b33bb5bac660dffa257261}{operator<<}}(std::ostream\ \&out,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}}\ \&in);}
-\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00022\ \ \ \doxymbox{\hyperlink{structIntersectionResult}{IntersectionResult}}\ \doxymbox{\hyperlink{classPixel_a1f6dd1829b52c57e79c60394d8d68cf4}{getIntersectionPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classRay}{Ray}}\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \doxymbox{\hyperlink{structRGB}{RGB}}\ \doxymbox{\hyperlink{classPixel_a57b6d454d1bf307e0893d9af3484a29d}{getColor}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structIntersectionResult}{IntersectionResult}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classRay}{Ray}}\ \&,\ \textcolor{keywordtype}{int}\ depth\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classPixel_a5dd0096b849255c807c4d120a734c12b}{calcNewRay}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classRay}{Ray}}\ \&,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classIntersectPoint}{IntersectPoint}}\ \&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a55405920693276db8fbdbf3a903b8d2f}{height}};}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}};}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c}{dpi}};}
+\DoxyCodeLine{00033\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_aaf67478d89289fbdb037ed79b07e1fd8}{observer}};}
+\DoxyCodeLine{00034\ \ \ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_a42188c6778d91235d4d745bf706c2c0c}{position}};}
+\DoxyCodeLine{00035\ \ \ vector<vector<Pixel>>\ \doxymbox{\hyperlink{classScreen_a99297b68ac1a52ccdfac0f498d89bbad}{values}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}}(\textcolor{keywordtype}{int}\ heigth,\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a0f9aac1e7771b5c8e98a59c579a1970c}{dpi}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_aaf67478d89289fbdb037ed79b07e1fd8}{observer}},\ \doxymbox{\hyperlink{helper_8hpp_a020902339f5500a062e44d79b0b5c472}{Vector4D}}\ \doxymbox{\hyperlink{classScreen_a42188c6778d91235d4d745bf706c2c0c}{position}});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classScreen_a76a594f20a840680ff50e1f301a414e9}{setDimensions}}(\textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a55405920693276db8fbdbf3a903b8d2f}{height}},\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classScreen_a49be8f8ccf7ed7a3151a761495c0ce21}{width}});}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classScreen_a39a427acc04f820c23999616c9d770d5}{calculate}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSpace}{Space}}\ \&);}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classScreen_a0bba243ac1f79cb5ed62b01d35d7e979}{generateImage}}();}
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\doxymbox{\hyperlink{classScreen_a758578dcc2b33bb5bac660dffa257261}{operator<<}}(std::ostream\ \&out,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classScreen_aae5409b12978634ab990ffe9b9f02bbb}{Screen}}\ \&in);}
+\DoxyCodeLine{00043\ \};}
 
 \end{DoxyCode}
