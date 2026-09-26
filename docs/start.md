@@ -1,7 +1,15 @@
 ## UML Diagramm
-![](img/uml1.png)
-![](img/uml2.png)
-(Transform will be expanded upon)
+since of the size of our UML-diagramm we had to split it. in the Readme of our group 
+### Calculation
+![](img/UmlCalculations.png)
+### Output
+![](img/UmlOutput.png)
+### Scene creation
+![](img/UmlSceneCreation.png)
+![](img/UmlSceneCreation2.png)
+### Data Classes
+![](img/UmlDatenKlassen.png)
+
 
 ## Description of Program Algorithm
 
