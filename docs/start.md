@@ -1,6 +1,6 @@
 ## UML Diagramm
-since of the size of our UML-diagramm we had to split it. in the Readme of our group repository you can find a link to the whole diagramm. 
-### Calculation
+since of the size of our UML-diagramm we had to split it. In the Readme of our group repository you can find a link to the whole diagramm. 
+### Calculation	
 ![](img/UmlCalculations.png)
 ### Output
 ![](img/UmlOutput.png)
