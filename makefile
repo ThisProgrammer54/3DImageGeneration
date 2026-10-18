@@ -3,7 +3,7 @@ CXX_FLAGS := -O3 -std=c++17 -Wall -Wextra -Wpedantic -g
  
 SRC := src
 INC := include
-TARGET := build/main
+TARGET := build/main.exe
 
 SRC_CPP := $(wildcard $(SRC)/*.cpp)
 LIB_SRC := $(filter-out $(SRC)/main.cpp, $(SRC_CPP))
