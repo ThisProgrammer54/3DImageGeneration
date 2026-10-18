@@ -1,0 +1,3 @@
+[submodule "project/include/eigen"]
+	path = include/eigen
+	url = https://gitlab.com/libeigen/eigen.git
